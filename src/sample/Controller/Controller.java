@@ -20,9 +20,7 @@ import sample.Model.Player;
 import java.io.IOException;
 
 public class Controller {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
+    private final SceneLoader sceneLoader = new SceneLoader();
     @FXML
     private VBox LogDisplay;
 
@@ -50,17 +48,6 @@ public class Controller {
                 if (player.getPassWord().equals(passwordField.getText())) {
                     WelcomeID.setText("hi Dear  " + userNameField.getText());
                     goToMainMenu(event);
-//                    try {
-//                        root = FXMLLoader.load(getClass().getResource("../View/MainMenu.fxml"));
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    }
-//                    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-//                    scene = new Scene(root);
-//                    String css = this.getClass().getResource("../View/StyleSheets/MainMenu.css").toExternalForm();
-//                    scene.getStylesheets().add(css);
-//                    stage.setScene(scene);
-//                    stage.show();
                 } else
                     WelcomeID.setText("PassWord is INACCURATE");
             }
@@ -74,17 +61,18 @@ public class Controller {
 
     @FXML
     void goToEntrance(MouseEvent event) {
-        try {
-            root = FXMLLoader.load(getClass().getResource("../View/Entrance.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        String css = this.getClass().getResource("../View/StyleSheets/Phase1.css").toExternalForm();
-        scene.getStylesheets().add(css);
-        stage.setScene(scene);
-        stage.show();
+//        try {
+//            root = FXMLLoader.load(getClass().getResource("../View/Entrance.fxml"));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+//        scene = new Scene(root);
+//        String css = this.getClass().getResource("../View/StyleSheets/Phase1.css").toExternalForm();
+//        scene.getStylesheets().add(css);
+//        stage.setScene(scene);
+//        stage.show();
+        sceneLoader.goToEntrance(event);
     }
     @FXML
     void gobackShow(MouseEvent event) {
@@ -104,19 +92,7 @@ public class Controller {
     }
     private void goToMainMenu(ActionEvent event)
     {
-        try {
-            root = FXMLLoader.load(getClass().getResource("../View/MainMenu.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        String css = this.getClass().getResource("../View/StyleSheets/MainMenu.css").toExternalForm();
-        scene.getStylesheets().add(css);
-        stage.setScene(scene);
-        stage.setResizable(true);
-        stage.setTitle("Clash Royale");
-        stage.show();
+        sceneLoader.goToMainMenu(event);
     }
 
 }

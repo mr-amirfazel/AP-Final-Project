@@ -17,11 +17,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Entrance {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-
-
+    private final SceneLoader sceneLoader = new SceneLoader();
     @FXML
     private Pane enterPane;
     @FXML
@@ -37,34 +33,36 @@ public class Entrance {
 
     @FXML
     void Login(ActionEvent event) {
-        try {
-            root = FXMLLoader.load(getClass().getResource("../View/Login.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        String css = this.getClass().getResource("../View/StyleSheets/Phase1.css").toExternalForm();
-        scene.getStylesheets().add(css);
-        stage.setTitle("LogIn");
-        stage.setScene(scene);
-        stage.show();
+//        try {
+//            root = FXMLLoader.load(getClass().getResource("../View/Login.fxml"));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+//        scene = new Scene(root);
+//        String css = this.getClass().getResource("../View/StyleSheets/Phase1.css").toExternalForm();
+//        scene.getStylesheets().add(css);
+//        stage.setTitle("LogIn");
+//        stage.setScene(scene);
+//        stage.show();
+        sceneLoader.goToLogin(event);
     }
     @FXML
     void goToSignUp(ActionEvent event) {
-        try {
-            root = FXMLLoader.load(getClass().getResource("../View/SignUp.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        String css = this.getClass().getResource("../View/StyleSheets/Phase1.css").toExternalForm();
-        scene.getStylesheets().add(css);
-        stage.setTitle("Sign Up");
-        stage.setResizable(false);
-        stage.setScene(scene);
-        stage.show();
+//        try {
+//            root = FXMLLoader.load(getClass().getResource("../View/SignUp.fxml"));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+//        scene = new Scene(root);
+//        String css = this.getClass().getResource("../View/StyleSheets/Phase1.css").toExternalForm();
+//        scene.getStylesheets().add(css);
+//        stage.setTitle("Sign Up");
+//        stage.setResizable(false);
+//        stage.setScene(scene);
+//        stage.show();
+        sceneLoader.goToSignUp(event);
     }
     @FXML
     void bChange1(MouseEvent event) {
@@ -91,6 +89,7 @@ public class Entrance {
     }
     @FXML
     void getOut(ActionEvent event) {
+        Stage stage;
         stage = (Stage)enterPane.getScene().getWindow();
         stage.close();
     }

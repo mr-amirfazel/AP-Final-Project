@@ -20,9 +20,7 @@ import java.io.IOException;
 
 public class SignUp {
     private DataBase dataBase;
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
+    private final SceneLoader sceneLoader = new SceneLoader();
     @FXML
     private Pane SignupPage;
 
@@ -58,18 +56,7 @@ public class SignUp {
     private Label secpassLabel;
     @FXML
     void backToMain(ActionEvent event) {
-        try {
-            root = FXMLLoader.load(getClass().getResource("../View/Entrance.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        String css = this.getClass().getResource("../View/StyleSheets/Phase1.css").toExternalForm();
-        scene.getStylesheets().add(css);
-        stage.setTitle("JavaFX is my nigga");
-        stage.setScene(scene);
-        stage.show();
+        sceneLoader.goToEntrance(event);
     }
 
     @FXML
