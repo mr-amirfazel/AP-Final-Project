@@ -1,14 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.Controller.MainMenu"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<Pane fx:id="mainMenuPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="436.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.MainMenu">
+   <children>
+      <GridPane hgap="8.0" layoutX="11.0" layoutY="77.0" prefHeight="483.0" prefWidth="415.0" vgap="8.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="profileButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#goToProfile" prefHeight="161.0" prefWidth="209.0" text="Profile" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+               <font>
+                  <Font name="Britannic Bold" size="21.0" />
+               </font>
+            </Button>
+            <Button fx:id="battleDeckButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#goToBattleDeck" prefHeight="161.0" prefWidth="209.0" text="Battle Deck" GridPane.columnIndex="1">
+               <font>
+                  <Font name="Britannic Bold" size="21.0" />
+               </font>
+            </Button>
+            <Button fx:id="battleHistoryButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#goToBattleHistory" prefHeight="161.0" prefWidth="209.0" text="Battle History" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Britannic Bold" size="21.0" />
+               </font>
+            </Button>
+            <Button fx:id="trainingCampButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#goToTrainingCamp" prefHeight="161.0" prefWidth="209.0" text="Training Camp" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Britannic Bold" size="21.0" />
+               </font>
+            </Button>
+            <Button fx:id="onevoneButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#goTo1v1" prefHeight="161.0" prefWidth="209.0" text="1 V 1" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Britannic Bold" size="21.0" />
+               </font>
+            </Button>
+            <Button fx:id="twovtwoButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#goTo2v2" prefHeight="161.0" prefWidth="209.0" text="2 V 2" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Britannic Bold" size="21.0" />
+               </font>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+         </padding>
+      </GridPane>
+      <Button fx:id="menuBackButton" layoutX="14.0" layoutY="617.0" mnemonicParsing="false" onAction="#menuBack" prefHeight="39.0" prefWidth="98.0" text="go Back">
+         <font>
+            <Font name="Arial Black" size="15.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>

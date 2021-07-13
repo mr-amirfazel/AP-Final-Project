@@ -46,10 +46,26 @@ public class Controller {
         if (dataBase.playerExist(userNameField.getText()))
         {
             Player player = dataBase.getPlayer(userNameField.getText());
-            if (player.getPassWord().equals(passwordField.getText()))
-                  WelcomeID.setText("hi Dear  " + userNameField.getText());
+            if(player!=null) {
+                if (player.getPassWord().equals(passwordField.getText())) {
+                    WelcomeID.setText("hi Dear  " + userNameField.getText());
+                    goToMainMenu(event);
+//                    try {
+//                        root = FXMLLoader.load(getClass().getResource("../View/MainMenu.fxml"));
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+//                    scene = new Scene(root);
+//                    String css = this.getClass().getResource("../View/StyleSheets/MainMenu.css").toExternalForm();
+//                    scene.getStylesheets().add(css);
+//                    stage.setScene(scene);
+//                    stage.show();
+                } else
+                    WelcomeID.setText("PassWord is INACCURATE");
+            }
             else
-                WelcomeID.setText("PassWord is INACCURATE");
+                System.out.println("bruh");
         }
         else
             WelcomeID.setText("this account does not exist");
@@ -85,6 +101,22 @@ public class Controller {
         tt.setToY(-10);
         tt.play();
 
+    }
+    private void goToMainMenu(ActionEvent event)
+    {
+        try {
+            root = FXMLLoader.load(getClass().getResource("../View/MainMenu.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        String css = this.getClass().getResource("../View/StyleSheets/MainMenu.css").toExternalForm();
+        scene.getStylesheets().add(css);
+        stage.setScene(scene);
+        stage.setResizable(true);
+        stage.setTitle("Clash Royale");
+        stage.show();
     }
 
 }
