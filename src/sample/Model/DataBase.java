@@ -11,7 +11,7 @@ private String fileName;
 
     public DataBase() {
     }
-    public void addPlayer(Player player)
+    public void savePlayer(Player player)
     {
         fileName = player.getUserName() +".bin";
         try {

@@ -77,7 +77,7 @@ public class SignUp {
         dataBase = new DataBase();
         if (!dataBase.playerExist(usernameField.getText())) {
             if (passField.getText().equals(secPassField.getText())) {
-                dataBase.addPlayer(new Player(usernameField.getText(), passField.getText()));
+                dataBase.savePlayer(new Player(usernameField.getText(), passField.getText()));
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setContentText("successfully created account __" + usernameField.getText() + "__");
                 alert.show();
