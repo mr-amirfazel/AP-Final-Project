@@ -45,3 +45,18 @@
     -fx-background-image: url(../Images/MainMenu/wizard.png);
     -fx-background-size: cover;
 }
+#menuBackButton
+{
+    -fx-border-radius: 69%;
+    -fx-text-fill: Black;
+    -fx-font-size: 20px;
+    -fx-background-color: transparent;
+    -fx-border-color: red;
+    -fx-border-width: 3px;
+}
+#menuBackButton:hover
+{
+    -fx-border-width: 2px;
+    -fx-border-style: dashed;
+}
+
