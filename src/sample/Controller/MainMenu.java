@@ -63,7 +63,7 @@ public class MainMenu {
 
         @FXML
         void goToProfile(ActionEvent event) {
-
+                sceneLoader.goToProfile(event);
         }
 
         @FXML

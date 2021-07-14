@@ -1,12 +1,16 @@
 package sample.Model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Player implements Serializable {
     private final String userName;
     private String passWord;
     private int xp;
     private int level;
+    private String profilePicDirectory;
+    private ArrayList<BattleHistory> history;
+    private Deck battleDeck;
 
     public Player(String userName, String passWord) {
         this.userName = userName;

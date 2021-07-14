@@ -16,11 +16,13 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import sample.Model.DataBase;
 import sample.Model.Player;
+import sample.Model.SharedData;
 
 import java.io.IOException;
 
 public class Controller {
     private final SceneLoader sceneLoader = new SceneLoader();
+    private final SharedData sharedData = SharedData.getInstance();
     @FXML
     private VBox LogDisplay;
 
@@ -47,6 +49,7 @@ public class Controller {
             if(player!=null) {
                 if (player.getPassWord().equals(passwordField.getText())) {
                     WelcomeID.setText("hi Dear  " + userNameField.getText());
+                    sharedData.player = player;
                     goToMainMenu(event);
                 } else
                     WelcomeID.setText("PassWord is INACCURATE");

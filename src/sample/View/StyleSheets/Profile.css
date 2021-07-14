@@ -1,0 +1,28 @@
+#imageContainer{
+    -fx-border-radius: 75%;
+    -fx-border-width: 4px;
+    -fx-border-color: #f711ab;
+}
+#profileVBox
+{
+    -fx-background-color: linear-gradient(to bottom, rgba(2,0,36,1) 0%, rgba(25,17,102,1) 100%);
+}
+#progressBar
+{
+-fx-progress-color: #2cba27;
+}
+#profilePane
+{
+    -fx-background-image: url(../Images/Profile/thegang_clashroyalekingdom_1080x1920.jpg);
+    -fx-background-size: cover;
+
+}
+#DeckLabel , #leagueLabel , #cupsLabel
+{
+    -fx-font-size: 15px;
+    -fx-text-fill:#2cba27 ;
+}
+#sideVBox
+{
+    -fx-background-color: #ba1e35;
+}

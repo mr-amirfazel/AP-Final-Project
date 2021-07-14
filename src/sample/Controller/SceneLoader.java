@@ -92,4 +92,34 @@ public class SceneLoader {
         stage.setScene(scene);
         stage.show();
     }
+    public void goToProfile(ActionEvent event)
+    {
+        try {
+            root = FXMLLoader.load(getClass().getResource("../View/Profile.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        String css = this.getClass().getResource("../View/StyleSheets/Profile.css").toExternalForm();
+        scene.getStylesheets().add(css);
+        stage.setTitle("Player Profile");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void goToMainMenu(MouseEvent event) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("../View/MainMenu.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        String css = this.getClass().getResource("../View/StyleSheets/MainMenu.css").toExternalForm();
+        scene.getStylesheets().add(css);
+        stage.setTitle("Clash Royale");
+        stage.setScene(scene);
+        stage.show();
+    }
 }
