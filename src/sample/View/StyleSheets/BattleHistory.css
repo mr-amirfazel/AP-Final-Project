@@ -1,0 +1,33 @@
+#historyPane
+{
+    -fx-background-image: url(../Images/BattleHistory/barbarianrush_clashroyalekingdom_1080x1920.jpg);
+    -fx-background-size: cover;
+}
+#historyUserName
+{
+    -fx-font-size: 25px;
+    -fx-border-color: transparent;
+
+}
+#historyUserName :hover
+{
+    -fx-border-color: #e37317;
+    -fx-border-radius: 23%;
+    -fx-font-size: 27px;
+}
+#goBackLabel
+{
+    -fx-text-fill: #f20a0a;
+}
+#historyList
+{
+    -fx-border-radius: 7%;
+    -fx-border-color: #ed5d1f;
+    -fx-border-width: 6px;
+
+}
+#historyList:hover
+{
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.02;
+}

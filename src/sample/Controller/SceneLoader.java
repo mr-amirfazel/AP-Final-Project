@@ -122,4 +122,18 @@ public class SceneLoader {
         stage.setScene(scene);
         stage.show();
     }
+    public void goToBattleHistory(ActionEvent event) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("../View/BattleHistory.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        String css = this.getClass().getResource("../View/StyleSheets/BattleHistory.css").toExternalForm();
+        scene.getStylesheets().add(css);
+        stage.setTitle("Battle History");
+        stage.setScene(scene);
+        stage.show();
+    }
 }

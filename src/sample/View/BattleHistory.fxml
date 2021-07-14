@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="historyPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.BattleHistoryController">
+   <children>
+      <ImageView fitHeight="42.0" fitWidth="55.0" layoutX="357.0" onMouseClicked="#goToMenu" onMouseEntered="#backHover" onMouseExited="#backUnHover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Profile/goBack.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <Glow level="0.74" />
+         </effect>
+      </ImageView>
+      <Label fx:id="historyUserName" prefHeight="17.0" prefWidth="242.0" text="Label" textFill="#1b078d">
+         <font>
+            <Font name="Franklin Gothic Demi" size="25.0" />
+         </font>
+      </Label>
+      <VBox fx:id="historyList" alignment="TOP_CENTER" layoutX="36.0" layoutY="94.0" prefHeight="447.0" prefWidth="331.0" />
+      <Label fx:id="goBackLabel" alignment="TOP_RIGHT" layoutX="265.0" layoutY="42.0" opacity="0.0" prefHeight="46.0" prefWidth="137.0">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

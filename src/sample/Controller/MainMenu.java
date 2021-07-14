@@ -58,7 +58,7 @@ public class MainMenu {
 
         @FXML
         void goToBattleHistory(ActionEvent event) {
-
+                        sceneLoader.goToBattleHistory(event);
         }
 
         @FXML
