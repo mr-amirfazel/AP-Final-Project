@@ -6,18 +6,22 @@
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Ellipse?>
 <?import javafx.scene.text.Font?>
-
 
 <Pane fx:id="profilePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.Profile">
    <children>
       <VBox fx:id="sideVBox" layoutX="351.0" prefHeight="575.0" prefWidth="99.0" spacing="45.0">
          <children>
-            <ImageView fitHeight="207.0" fitWidth="99.0" onMouseClicked="#goToMenu" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="207.0" fitWidth="99.0" onMouseClicked="#goToMenu" onMouseEntered="#goBackHover" onMouseExited="#goBackExit" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/Profile/goBack.png" />
                </image>
@@ -28,7 +32,12 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="99.0" onMouseClicked="#goToSetting" pickOnBounds="true" preserveRatio="true">
+            <Label fx:id="goBackLabel" alignment="CENTER" opacity="0.0" prefHeight="17.0" prefWidth="111.0">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="150.0" fitWidth="99.0" onMouseClicked="#goToSetting" onMouseEntered="#settingHover" onMouseExited="#settingExit" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/Profile/Setting.png" />
                </image>
@@ -39,6 +48,11 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
+            <Label fx:id="settingLabel" alignment="CENTER" onMouseEntered="#settingHover" onMouseExited="#settingExit" opacity="0.0" prefHeight="46.0" prefWidth="110.0">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
          </children>
       </VBox>
       <Pane fx:id="leftPane" layoutX="1.0" prefHeight="530.0" prefWidth="351.0">
@@ -53,36 +67,62 @@
                         <Font name="Eras Bold ITC" size="18.0" />
                      </font>
                   </Label>
-                  <HBox alignment="CENTER" prefHeight="89.0" prefWidth="342.0">
+                  <GridPane prefHeight="38.0" prefWidth="341.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
                      <children>
-                        <Label fx:id="levelID" alignment="CENTER" contentDisplay="CENTER" prefHeight="51.0" prefWidth="65.0" text="level" textFill="#0dd01a">
+                        <Label fx:id="levelLabel" alignment="CENTER" opacity="0.0" prefHeight="38.0" prefWidth="171.0" />
+                        <Label alignment="CENTER" opacity="0.0" prefHeight="37.0" prefWidth="175.0" GridPane.columnIndex="1" fx:id="xpLabel" />
+                     </children>
+                  </GridPane>
+                  <HBox alignment="CENTER" prefHeight="58.0" prefWidth="341.0">
+                     <children>
+                        <Label fx:id="levelID" alignment="CENTER" contentDisplay="CENTER" onMouseEntered="#levelHover" onMouseExited="#levelExit" prefHeight="51.0" prefWidth="65.0" text="level" textFill="#0dd01a">
                            <HBox.margin>
-                              <Insets />
+                              <Insets right="20.0" />
                            </HBox.margin>
                            <font>
                               <Font name="System Bold" size="22.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
-                        <ProgressBar fx:id="progressBar" prefWidth="200.0" progress="0.0" />
+                        <ProgressBar fx:id="progressBar" onMouseEntered="#progressHover" onMouseExited="#progressExit" prefHeight="28.0" prefWidth="200.0" progress="0.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></ProgressBar>
                      </children>
                   </HBox>
-                  <Label fx:id="cupsLabel" prefHeight="17.0" prefWidth="233.0" text="Cups" />
+                  <Label fx:id="cupsLabel" prefHeight="17.0" prefWidth="266.0" text="Cups">
+                     <font>
+                        <Font size="21.0" />
+                     </font></Label>
                   <FlowPane fx:id="cupsFlowPane" prefHeight="39.0" prefWidth="338.0">
                      <VBox.margin>
                         <Insets top="9.0" />
                      </VBox.margin>
                   </FlowPane>
-                  <Label fx:id="leagueLabel" prefHeight="17.0" prefWidth="236.0" text="League" />
+                  <Label fx:id="leagueLabel" prefHeight="17.0" prefWidth="265.0" text="League">
+                     <font>
+                        <Font size="19.0" />
+                     </font></Label>
                   <ImageView fx:id="LeageImage" fitHeight="69.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label fx:id="DeckLabel" prefHeight="17.0" prefWidth="250.0" text="Deck" />
+                  <Label fx:id="DeckLabel" prefHeight="17.0" prefWidth="273.0" text="Deck">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
                   <FlowPane fx:id="DeckFlowPane" prefHeight="97.0" prefWidth="338.0" />
                </children>
             </VBox>
-            <ImageView fx:id="profilePicture" blendMode="SRC_ATOP" fitHeight="98.0" fitWidth="98.0" layoutX="126.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Images/Profile/defultpfp.jpg" />
-               </image>
-            </ImageView>
+            <Circle fx:id="ProfileHolder" fill="DODGERBLUE" layoutX="176.0" layoutY="64.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#03284a" layoutX="176.0" layoutY="53.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Ellipse fill="#06294a" layoutX="176.0" layoutY="98.0" radiusX="16.0" radiusY="29.0" rotate="-91.7" stroke="BLACK" strokeType="INSIDE" />
          </children>
       </Pane>
    </children>

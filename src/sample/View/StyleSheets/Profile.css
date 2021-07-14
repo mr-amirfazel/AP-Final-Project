@@ -26,3 +26,37 @@
 {
     -fx-background-color: #ba1e35;
 }
+#levelID
+{
+
+    -fx-border-color: #12fc8b;
+    -fx-border-radius: 50%;
+    -fx-border-width: 3px;
+}
+#progressBar
+{
+    -fx-background-color: #0b094f;
+}
+#levelLabel , #xpLabel
+{
+    -fx-font-size: 14px;
+    -fx-text-fill:#12fc8b ;
+}
+#goBackLabel , #settingLabel
+{
+    -fx-font-size: 25px;
+    -fx-text-fill: #0b094f;
+}
+#goBackLabel
+{
+    -fx-font-size: 18px;
+}
+.progress-bar .bar
+{
+    -fx-background-color: linear-gradient(to right, rgba(60,179,241,1) 0%, rgba(26,66,217,1) 100%);
+}
+.progress-bar .track
+{
+    -fx-background-radius: 2%;
+    -fx-border-radius: 2%;
+}

@@ -12,11 +12,14 @@ public class Player implements Serializable {
     private ArrayList<BattleHistory> history;
     private Deck battleDeck;
 
+
     public Player(String userName, String passWord) {
         this.userName = userName;
         this.passWord = passWord;
         this.xp = 300;
         this.level = 1;
+        history = new ArrayList<>();
+        profilePicDirectory ="E:\\javaProjects\\FX Learn\\src\\sample\\View\\Images\\Profile\\defultpfp.jpg";
     }
 
     public String getUserName() {
@@ -46,6 +49,15 @@ public class Player implements Serializable {
     public void setLevel(int level) {
         this.level = level;
     }
+
+    public String getProfilePicDirectory() {
+        return profilePicDirectory;
+    }
+
+    public void setProfilePicDirectory(String profilePicDirectory) {
+        this.profilePicDirectory = profilePicDirectory;
+    }
+
     public void increaseXP(int achievedXP)
     {
         setXp(xp+achievedXP);

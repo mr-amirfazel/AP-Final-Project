@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class MainMenu {
-        private final SceneLoader sceneLoader = new SceneLoader();
+        private SceneLoader sceneLoader = new SceneLoader();
         @FXML
         private Pane mainMenuPane;
 
