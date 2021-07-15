@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="469.0" styleClass="bodybg" stylesheets="@StyleSheets/bg-deck.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.DeckController">
+   <children>
+      <HBox layoutX="23.0" layoutY="338.0" prefHeight="78.0" prefWidth="413.0">
+         <children>
+            <ImageView fitHeight="88.0" fitWidth="110.0" mouseTransparent="true" onMouseClicked="#imageClick7" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/BattleDeck/archer_00000.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fitHeight="88.0" fitWidth="110.0" mouseTransparent="true" onMouseClicked="#imageClick8" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/BattleDeck/arrows_00000.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fitHeight="88.0" fitWidth="110.0" mouseTransparent="true" onMouseClicked="#imageClick9" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/BattleDeck/barbarian_00000.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fitHeight="88.0" fitWidth="110.0" mouseTransparent="true" onMouseClicked="#imageClick10" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/BattleDeck/baby%20dragon_00000.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fitHeight="88.0" fitWidth="110.0" mouseTransparent="true" onMouseClicked="#imageClick11" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/BattleDeck/canon_00000.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fitHeight="88.0" fitWidth="110.0" mouseTransparent="true" onMouseClicked="#imageClick12" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/BattleDeck/fireball_00000.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </children>
+      </HBox>
+      <ImageView fitHeight="78.0" fitWidth="63.0" layoutX="90.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true" />
+      <HBox layoutX="23.0" layoutY="250.0" prefHeight="51.0" prefWidth="422.0">
+         <children>
+            <ImageView fitHeight="88.0" fitWidth="110.0" mouseTransparent="true" onMouseClicked="#imageClick1" onMouseEntered="#backHover" onMouseExited="#backUnHover" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/BattleDeck/giant_00000.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fitHeight="88.0" fitWidth="110.0" mouseTransparent="true" onMouseClicked="#imageClick2" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/BattleDeck/inferno_00000.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fitHeight="88.0" fitWidth="110.0" mouseTransparent="true" onMouseClicked="#imageClick3" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/BattleDeck/mini%20pekka_00000.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fitHeight="88.0" fitWidth="110.0" mouseTransparent="true" onMouseClicked="#imageClick4" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/BattleDeck/rage_00000.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fitHeight="88.0" fitWidth="110.0" mouseTransparent="true" onMouseClicked="#imageClick5" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/BattleDeck/valkyrie_00000.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fitHeight="88.0" fitWidth="110.0" mouseTransparent="true" onMouseClicked="#imageClick6" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/BattleDeck/wizard_00000.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </children>
+      </HBox>
+      <ImageView fitHeight="40.0" fitWidth="192.0" layoutX="139.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/BattleDeck/Battle%20deck.PNG" />
+         </image>
+      </ImageView>
+      <HBox layoutX="62.0" layoutY="152.0" prefHeight="94.0" prefWidth="288.0">
+         <children>
+            <ImageView fx:id="slot5" fitHeight="98.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/BattleDeck/kart.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="slot6" fitHeight="98.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/BattleDeck/kart.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="slot2" fitHeight="98.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/BattleDeck/kart.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="slot7" fitHeight="98.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/BattleDeck/kart.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="62.0" layoutY="54.0" prefHeight="94.0" prefWidth="339.0">
+         <children>
+            <ImageView fx:id="slot1" fitHeight="98.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/BattleDeck/kart.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="slot3" fitHeight="98.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/BattleDeck/kart.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="slot4" fitHeight="98.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/BattleDeck/kart.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="slot8" fitHeight="98.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/BattleDeck/kart.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <ImageView fitHeight="40.0" fitWidth="50.0" layoutX="405.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="42.0" fitWidth="55.0" layoutX="409.0" layoutY="9.0" onDragEntered="#backHover" onDragExited="#backUnHover" onMouseClicked="#goToMenu" onMouseEntered="#backHover" onMouseExited="#backUnHover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Profile/goBack.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <Glow level="0.74" />
+         </effect>
+      </ImageView>
+      <Label fx:id="goBackLabel" alignment="TOP_RIGHT" layoutX="14.0" layoutY="14.0" opacity="0.0" prefHeight="31.0" prefWidth="86.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

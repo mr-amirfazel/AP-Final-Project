@@ -17,62 +17,63 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class MainMenu {
-        private SceneLoader sceneLoader = new SceneLoader();
-        @FXML
-        private Pane mainMenuPane;
+    private SceneLoader sceneLoader = new SceneLoader();
+    @FXML
+    private Pane mainMenuPane;
 
-        @FXML
-        private Button profileButton;
+    @FXML
+    private Button profileButton;
 
-        @FXML
-        private Button battleDeckButton;
+    @FXML
+    private Button battleDeckButton;
 
-        @FXML
-        private Button battleHistoryButton;
+    @FXML
+    private Button battleHistoryButton;
 
-        @FXML
-        private Button trainingCampButton;
+    @FXML
+    private Button trainingCampButton;
 
-        @FXML
-        private Button onevoneButton;
+    @FXML
+    private Button onevoneButton;
 
-        @FXML
-        private Button twovtwoButton;
-        @FXML
-        private Button menuBackButton;
+    @FXML
+    private Button twovtwoButton;
+    @FXML
+    private Button menuBackButton;
 
-        @FXML
-        void goTo1v1(ActionEvent event) {
+    @FXML
+    void goTo1v1(ActionEvent event) {
 
-        }
-
-        @FXML
-        void goTo2v2(ActionEvent event) {
-
-        }
-
-        @FXML
-        void goToBattleDeck(ActionEvent event) {
-
-        }
-
-        @FXML
-        void goToBattleHistory(ActionEvent event) {
-                        sceneLoader.goToBattleHistory(event);
-        }
-
-        @FXML
-        void goToProfile(ActionEvent event) {
-                sceneLoader.goToProfile(event);
-        }
-
-        @FXML
-        void goToTrainingCamp(ActionEvent event) {
-
-        }
-        @FXML
-        void menuBack(ActionEvent event) {
-               sceneLoader.goToLogin(event);
-        }
     }
+
+    @FXML
+    void goTo2v2(ActionEvent event) {
+
+    }
+
+    @FXML
+    void goToBattleDeck(ActionEvent event) {
+        sceneLoader.goToBattleDeck(event);
+    }
+
+    @FXML
+    void goToBattleHistory(ActionEvent event) {
+        sceneLoader.goToBattleHistory(event);
+    }
+
+    @FXML
+    void goToProfile(ActionEvent event) {
+        sceneLoader.goToProfile(event);
+    }
+
+    @FXML
+    void goToTrainingCamp(ActionEvent event) {
+
+    }
+
+    @FXML
+    void menuBack(ActionEvent event) {
+        sceneLoader.goToLogin(event);
+    }
+}
 
