@@ -54,9 +54,9 @@
             </Label>
          </children>
       </VBox>
-      <Pane fx:id="leftPane" layoutX="1.0" prefHeight="530.0" prefWidth="351.0">
+      <Pane fx:id="leftPane" layoutX="1.0" prefHeight="497.0" prefWidth="351.0">
          <children>
-            <VBox fx:id="profileVBox" alignment="TOP_CENTER" layoutX="4.0" layoutY="70.0" prefHeight="460.0" prefWidth="341.0">
+            <VBox fx:id="profileVBox" alignment="TOP_CENTER" layoutX="4.0" layoutY="70.0" prefHeight="448.0" prefWidth="341.0">
                <children>
                   <Label fx:id="usernameField" alignment="CENTER" prefHeight="27.0" prefWidth="371.0" text="username" textFill="#2a03ee">
                      <VBox.margin>
@@ -75,13 +75,16 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label fx:id="levelLabel" alignment="CENTER" opacity="0.0" prefHeight="38.0" prefWidth="171.0" />
+                        <Label fx:id="levelLabel" opacity="0.0" prefHeight="38.0" prefWidth="171.0">
+                           <padding>
+                              <Insets bottom="48.0" left="48.0" right="48.0" top="48.0" />
+                           </padding></Label>
                         <Label alignment="CENTER" opacity="0.0" prefHeight="37.0" prefWidth="175.0" GridPane.columnIndex="1" fx:id="xpLabel" />
                      </children>
                   </GridPane>
                   <HBox alignment="CENTER" prefHeight="58.0" prefWidth="341.0">
                      <children>
-                        <Label fx:id="levelID" alignment="CENTER" contentDisplay="CENTER" onMouseEntered="#levelHover" onMouseExited="#levelExit" prefHeight="51.0" prefWidth="65.0" text="level" textFill="#0dd01a">
+                        <Label fx:id="levelID" alignment="CENTER" contentDisplay="CENTER" onMouseEntered="#levelHover" onMouseExited="#levelExit" prefHeight="51.0" prefWidth="83.0" text="level" textFill="#0dd01a">
                            <HBox.margin>
                               <Insets right="20.0" />
                            </HBox.margin>
@@ -98,25 +101,17 @@
                            </cursor></ProgressBar>
                      </children>
                   </HBox>
-                  <Label fx:id="cupsLabel" prefHeight="17.0" prefWidth="266.0" text="Cups">
+                  <Label fx:id="DeckLabel" alignment="CENTER" prefHeight="39.0" prefWidth="337.0" text="Deck">
                      <font>
-                        <Font size="21.0" />
-                     </font></Label>
-                  <FlowPane fx:id="cupsFlowPane" prefHeight="39.0" prefWidth="338.0">
+                        <Font name="Elephant Italic" size="28.0" />
+                     </font>
                      <VBox.margin>
-                        <Insets top="9.0" />
-                     </VBox.margin>
-                  </FlowPane>
-                  <Label fx:id="leagueLabel" prefHeight="17.0" prefWidth="265.0" text="League">
-                     <font>
-                        <Font size="19.0" />
-                     </font></Label>
-                  <ImageView fx:id="LeageImage" fitHeight="69.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label fx:id="DeckLabel" prefHeight="17.0" prefWidth="273.0" text="Deck">
-                     <font>
-                        <Font size="18.0" />
-                     </font></Label>
-                  <FlowPane fx:id="DeckFlowPane" prefHeight="97.0" prefWidth="338.0" />
+                        <Insets top="26.0" />
+                     </VBox.margin></Label>
+                  <FlowPane fx:id="DeckFlowPane" prefHeight="178.0" prefWidth="341.0">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin></FlowPane>
                </children>
             </VBox>
             <Circle fx:id="ProfileHolder" fill="DODGERBLUE" layoutX="176.0" layoutY="64.0" radius="50.0" stroke="BLACK" strokeType="INSIDE">

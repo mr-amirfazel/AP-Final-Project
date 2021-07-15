@@ -97,11 +97,14 @@ public class Profile implements Initializable {
     }
     @FXML
     void profileHover(MouseEvent event) {
-        holderPane.setStyle("-fx-border-color: #a422e6;");
+        holderPane.setStyle("-fx-border-color: #0004ff;");
+        ProfileHolder.setRadius(ProfileHolder.getRadius()+1);
     }
     @FXML
     void profileExit(MouseEvent event) {
         holderPane.setStyle(holderPane.getStyle()+"-fx-border-color: #f711ab;");
+        ProfileHolder.setRadius(ProfileHolder.getRadius()-1);
+
     }
     @FXML
     void levelHover(MouseEvent event) {
