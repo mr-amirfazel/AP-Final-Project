@@ -14,7 +14,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
-<?import javafx.scene.shape.Ellipse?>
 <?import javafx.scene.text.Font?>
 
 <Pane fx:id="profilePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.Profile">
@@ -120,9 +119,15 @@
                   <FlowPane fx:id="DeckFlowPane" prefHeight="97.0" prefWidth="338.0" />
                </children>
             </VBox>
-            <Circle fx:id="ProfileHolder" fill="DODGERBLUE" layoutX="176.0" layoutY="64.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fill="#03284a" layoutX="176.0" layoutY="53.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
-            <Ellipse fill="#06294a" layoutX="176.0" layoutY="98.0" radiusX="16.0" radiusY="29.0" rotate="-91.7" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="ProfileHolder" fill="DODGERBLUE" layoutX="176.0" layoutY="64.0" radius="50.0" stroke="BLACK" strokeType="INSIDE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Circle>
+            <Pane fx:id="holderPane" layoutX="126.0" layoutY="14.0" onMouseEntered="#profileHover" onMouseExited="#profileExit" prefHeight="100.0" prefWidth="100.0" style="-fx-border-radius: 75%; -fx-border-color: #f711ab; -fx-border-width: 3px;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Pane>
          </children>
       </Pane>
    </children>

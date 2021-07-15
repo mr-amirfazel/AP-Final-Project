@@ -13,7 +13,7 @@
    <children>
       <HBox layoutX="23.0" layoutY="338.0" prefHeight="78.0" prefWidth="413.0">
          <children>
-            <ImageView fitHeight="88.0" fitWidth="110.0" mouseTransparent="true" onMouseClicked="#imageClick7" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="88.0" fitWidth="110.0" onMouseClicked="#imageClick7" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/BattleDeck/archer_00000.png" />
                </image>
@@ -21,7 +21,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="88.0" fitWidth="110.0" mouseTransparent="true" onMouseClicked="#imageClick8" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="88.0" fitWidth="110.0" onMouseClicked="#imageClick8" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/BattleDeck/arrows_00000.png" />
                </image>
@@ -29,7 +29,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="88.0" fitWidth="110.0" mouseTransparent="true" onMouseClicked="#imageClick9" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="88.0" fitWidth="110.0" onMouseClicked="#imageClick9" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/BattleDeck/barbarian_00000.png" />
                </image>
@@ -37,7 +37,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="88.0" fitWidth="110.0" mouseTransparent="true" onMouseClicked="#imageClick10" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="88.0" fitWidth="110.0" onMouseClicked="#imageClick10" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/BattleDeck/baby%20dragon_00000.png" />
                </image>
@@ -45,7 +45,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="88.0" fitWidth="110.0" mouseTransparent="true" onMouseClicked="#imageClick11" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="88.0" fitWidth="110.0" onMouseClicked="#imageClick11" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/BattleDeck/canon_00000.png" />
                </image>
@@ -53,7 +53,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="88.0" fitWidth="110.0" mouseTransparent="true" onMouseClicked="#imageClick12" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="88.0" fitWidth="110.0" onMouseClicked="#imageClick12" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/BattleDeck/fireball_00000.png" />
                </image>
@@ -66,7 +66,7 @@
       <ImageView fitHeight="78.0" fitWidth="63.0" layoutX="90.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true" />
       <HBox layoutX="23.0" layoutY="250.0" prefHeight="51.0" prefWidth="422.0">
          <children>
-            <ImageView fitHeight="88.0" fitWidth="110.0" mouseTransparent="true" onMouseClicked="#imageClick1" onMouseEntered="#backHover" onMouseExited="#backUnHover" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="88.0" fitWidth="110.0" onMouseClicked="#imageClick1" onMouseEntered="#backHover" onMouseExited="#backUnHover" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/BattleDeck/giant_00000.png" />
                </image>
@@ -74,7 +74,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="88.0" fitWidth="110.0" mouseTransparent="true" onMouseClicked="#imageClick2" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="88.0" fitWidth="110.0" onMouseClicked="#imageClick2" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/BattleDeck/inferno_00000.png" />
                </image>
@@ -82,7 +82,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="88.0" fitWidth="110.0" mouseTransparent="true" onMouseClicked="#imageClick3" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="88.0" fitWidth="110.0" onMouseClicked="#imageClick3" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/BattleDeck/mini%20pekka_00000.png" />
                </image>
@@ -90,7 +90,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="88.0" fitWidth="110.0" mouseTransparent="true" onMouseClicked="#imageClick4" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="88.0" fitWidth="110.0" onMouseClicked="#imageClick4" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/BattleDeck/rage_00000.png" />
                </image>
@@ -98,7 +98,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="88.0" fitWidth="110.0" mouseTransparent="true" onMouseClicked="#imageClick5" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="88.0" fitWidth="110.0" onMouseClicked="#imageClick5" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/BattleDeck/valkyrie_00000.png" />
                </image>
@@ -106,7 +106,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="88.0" fitWidth="110.0" mouseTransparent="true" onMouseClicked="#imageClick6" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="88.0" fitWidth="110.0" onMouseClicked="#imageClick6" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/BattleDeck/wizard_00000.png" />
                </image>

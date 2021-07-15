@@ -79,6 +79,8 @@ public class Profile implements Initializable {
 
     @FXML
     private Circle ProfileHolder;
+    @FXML
+    private Pane holderPane;
 
     @FXML
     void goToMenu(MouseEvent event) {
@@ -93,7 +95,14 @@ public class Profile implements Initializable {
     void levelExit(MouseEvent event) {
        fadeOut(levelLabel);
     }
-
+    @FXML
+    void profileHover(MouseEvent event) {
+        holderPane.setStyle("-fx-border-color: #a422e6;");
+    }
+    @FXML
+    void profileExit(MouseEvent event) {
+        holderPane.setStyle(holderPane.getStyle()+"-fx-border-color: #f711ab;");
+    }
     @FXML
     void levelHover(MouseEvent event) {
        fadeIn(levelLabel);
@@ -132,6 +141,7 @@ public class Profile implements Initializable {
        levelID.setText(player.getLevel()+"");
        progressBar.setProgress((player.getXp())/(maxXP(player.getLevel())));
        setLabels();
+       setProfile();
     }
 
     public double maxXP(int level){
@@ -159,7 +169,7 @@ public class Profile implements Initializable {
     public void setProfile()
     {
 
-        File imageFile = new File(player.getProfilePicDirectory());
+        File imageFile = new File("out/defultpfp.jpg");
         try {
           Image  image = new Image(new FileInputStream(imageFile));
             ProfileHolder.setFill(new ImagePattern(image));

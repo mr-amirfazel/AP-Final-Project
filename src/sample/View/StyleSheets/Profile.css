@@ -60,3 +60,9 @@
     -fx-background-radius: 2%;
     -fx-border-radius: 2%;
 }
+#holderPane
+{
+    -fx-border-radius: 75%;
+    -fx-border-width: 4px;
+    -fx-border-color: #f711ab;
+}
