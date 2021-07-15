@@ -19,6 +19,7 @@ public class BattleHistoryController implements Initializable {
     private final SharedData sharedData = SharedData.getInstance();
     private final Player player = sharedData.player;
     private final SceneLoader sceneLoader = new SceneLoader();
+
     @FXML
     private Label historyUserName;
     @FXML
