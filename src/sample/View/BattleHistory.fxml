@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="historyPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.BattleHistoryController">
    <children>
       <ImageView fitHeight="42.0" fitWidth="55.0" layoutX="357.0" onMouseClicked="#goToMenu" onMouseEntered="#backHover" onMouseExited="#backUnHover" pickOnBounds="true" preserveRatio="true">

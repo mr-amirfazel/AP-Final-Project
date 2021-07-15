@@ -58,6 +58,10 @@ public class Player implements Serializable {
         this.profilePicDirectory = profilePicDirectory;
     }
 
+    public ArrayList<BattleHistory> getHistory() {
+        return history;
+    }
+
     public void increaseXP(int achievedXP)
     {
         setXp(xp+achievedXP);

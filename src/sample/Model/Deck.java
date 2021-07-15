@@ -1,4 +1,6 @@
 package sample.Model;
 
-public class Deck {
+import java.io.Serializable;
+
+public class Deck implements Serializable {
 }

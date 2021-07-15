@@ -26,8 +26,7 @@
     -fx-border-width: 6px;
 
 }
-#historyList:hover
-{
+#historyList:hover {
     -fx-scale-x: 1.05;
     -fx-scale-y: 1.02;
 }
