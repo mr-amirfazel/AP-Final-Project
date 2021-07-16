@@ -1,6 +1,8 @@
 package sample.Model.Cards.SpellCards;
 
-public class Rage extends Spells {
+import java.io.Serializable;
+
+public class Rage extends Spells implements Serializable {
     double duration;
 
     public Rage() {

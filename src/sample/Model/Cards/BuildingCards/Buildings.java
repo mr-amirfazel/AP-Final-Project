@@ -2,7 +2,9 @@ package sample.Model.Cards.BuildingCards;
 
 import sample.Model.Cards.Card;
 
-public abstract class Buildings extends Card {
+import java.io.Serializable;
+
+public abstract class Buildings extends Card implements Serializable {
     int HP;
     int damage;
     double hitSpeed;

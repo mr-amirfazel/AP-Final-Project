@@ -16,6 +16,7 @@ import sample.Model.Cards.SpellCards.Arrows;
 import sample.Model.Cards.SpellCards.Fireball;
 import sample.Model.Cards.SpellCards.Rage;
 import sample.Model.Cards.TroopCards.*;
+import sample.Model.DataBase;
 import sample.Model.Deck;
 import sample.Model.Player;
 import sample.Model.SharedData;
@@ -29,7 +30,8 @@ public class DeckController {
     Image card = new Image("kart.png");
 
     private final SharedData sharedData = SharedData.getInstance();
-    private Player player = sharedData.player;
+    private final DataBase dataBase = new DataBase();
+    private final Player player = sharedData.player;
 
     @FXML
     private Button saveButton;
@@ -350,14 +352,17 @@ public class DeckController {
     public void saveCards(){
         if(saveDeck().size() == 8){
             player.setBattleDeck(new Deck(saveDeck()));
+            saveToFile();
         }
-
     }
-
-
+    void saveToFile()
+    {
+        String user = player.getUserName();
+        dataBase.savePlayer(player);
+        sharedData.player = dataBase.getPlayer(user);
+    }
     @FXML
     void goToMenu(MouseEvent event) {
-
         sceneLoader.goToMainMenu(event);
     }
 

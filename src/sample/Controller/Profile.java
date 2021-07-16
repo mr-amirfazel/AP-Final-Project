@@ -18,6 +18,14 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
+import sample.Model.Cards.BuildingCards.Cannon;
+import sample.Model.Cards.BuildingCards.InfernoTower;
+import sample.Model.Cards.Card;
+import sample.Model.Cards.SpellCards.Arrows;
+import sample.Model.Cards.SpellCards.Fireball;
+import sample.Model.Cards.SpellCards.Rage;
+import sample.Model.Cards.TroopCards.*;
+import sample.Model.DataBase;
 import sample.Model.Player;
 import sample.Model.SharedData;
 
@@ -25,12 +33,39 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class Profile implements Initializable {
     private final SharedData sharedData = SharedData.getInstance();
+    DataBase dataBase = new DataBase();
     private final Player player = sharedData.player;
     private final SceneLoader sceneLoader = new SceneLoader();
+
+    @FXML
+    private ImageView slot1;
+
+    @FXML
+    private ImageView slot2;
+
+    @FXML
+    private ImageView slot3;
+
+    @FXML
+    private ImageView slot4;
+
+    @FXML
+    private ImageView slot5;
+
+    @FXML
+    private ImageView slot6;
+
+    @FXML
+    private ImageView slot7;
+
+    @FXML
+    private ImageView slot8;
+
     @FXML
     private Label levelLabel;
     @FXML
@@ -55,19 +90,6 @@ public class Profile implements Initializable {
     private ProgressBar progressBar;
     @FXML
     private VBox profileVBox;
-
-    @FXML
-    private Label cupsLabel;
-
-    @FXML
-    private FlowPane cupsFlowPane;
-
-    @FXML
-    private Label leagueLabel;
-
-    @FXML
-    private ImageView LeageImage;
-
     @FXML
     private Label DeckLabel;
     @FXML
@@ -81,6 +103,8 @@ public class Profile implements Initializable {
     private Circle ProfileHolder;
     @FXML
     private Pane holderPane;
+
+    private final ArrayList<ImageView> slots = new ArrayList<>() ;
 
     @FXML
     void goToMenu(MouseEvent event) {
@@ -145,6 +169,7 @@ public class Profile implements Initializable {
        progressBar.setProgress((player.getXp())/(maxXP(player.getLevel())));
        setLabels();
        setProfile();
+       setDeck();
     }
 
     public double maxXP(int level){
@@ -186,6 +211,69 @@ public class Profile implements Initializable {
         xpLabel.setText("XP : "+player.getXp()+"/"+maxXP(player.getLevel()));
         settingLabel.setText("Setting");
         goBackLabel.setText("GO BACK!!!");
+    }
+    void setDeck()
+    {
+        addSlots();
+        if(player.getBattleDeck().getCards().size()==8){
+            int i =0;
+        for(Card card:player.getBattleDeck().getCards())
+        {
+            if (card instanceof Archer){
+                slots.get(i).setImage(new Image("archer_00000.png"));
+            }
+            else if (card instanceof BabyDragon){
+                slots.get(i).setImage((new Image("baby dragon_00000.png")));
+            }
+            else if (card instanceof Barbarian){
+                slots.get(i).setImage(new Image("barbarian_00000.png"));
+            }
+            else if (card instanceof Giant){
+                slots.get(i).setImage(new Image("giant_00000.png"));
+            }
+             else if (card instanceof MiniPekka){
+                slots.get(i).setImage(new Image("mini pekka_00000.png"));
+             }
+            else if (card instanceof Valkyrie){
+                slots.get(i).setImage(new Image("valkyrie_00000.png"));
+            }
+            else if (card instanceof Wizard){
+                slots.get(i).setImage(new Image("wizard_00000.png"));
+            }
+            else if (card instanceof Arrows){
+                slots.get(i).setImage(new Image("arrows_00000.png"));
+            }
+            else if (card instanceof Fireball){
+                slots.get(i).setImage(new Image("fireball_00000.png"));
+            }
+            else if (card instanceof Rage){
+                slots.get(i).setImage(new Image("rage_00000.png"));
+            }
+            else if (card instanceof Cannon){
+                slots.get(i).setImage(new Image("canon_00000.png"));
+            }
+            else if (card instanceof InfernoTower){
+                slots.get(i).setImage(new Image("inferno_00000.png"));
+            }
+           i++;
+        }
+        }
+        else
+        {
+           for(ImageView slot:slots)
+               slot.setImage(new Image("kart.png"));
+        }
+    }
+    void addSlots()
+    {
+        slots.add(slot1);
+        slots.add(slot2);
+        slots.add(slot3);
+        slots.add(slot4);
+        slots.add(slot5);
+        slots.add(slot6);
+        slots.add(slot7);
+        slots.add(slot8);
     }
     void fadeIn(Label label)
     {

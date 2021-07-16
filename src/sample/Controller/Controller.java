@@ -49,13 +49,12 @@ public class Controller {
             if(player!=null) {
                 if (player.getPassWord().equals(passwordField.getText())) {
                     WelcomeID.setText("hi Dear  " + userNameField.getText());
+                    sharedData.username = player.getUserName();
                     sharedData.player = player;
                     goToMainMenu(event);
                 } else
                     WelcomeID.setText("PassWord is INACCURATE");
             }
-            else
-                System.out.println("bruh");
         }
         else
             WelcomeID.setText("this account does not exist");

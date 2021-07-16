@@ -1,8 +1,9 @@
-.bodybg{
+#bodybg{
     -fx-background-size: 100% 100%;
     -fx-background-image: url(../Images/BattleDeck/bg-deck1.png);
 }
 #saveButton{
     -fx-background-color: url(../Images/BattleDeck/barbarian_00000.png);
-    -fx-border-radius: 5px;
+    -fx-border-radius: 10px;
 }
+

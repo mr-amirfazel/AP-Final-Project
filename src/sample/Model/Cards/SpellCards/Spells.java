@@ -2,7 +2,9 @@ package sample.Model.Cards.SpellCards;
 
 import sample.Model.Cards.Card;
 
-public abstract class Spells extends Card {
+import java.io.Serializable;
+
+public abstract class Spells extends Card implements Serializable {
     String ability;
     double radius;
     int cost;

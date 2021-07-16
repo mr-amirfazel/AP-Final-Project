@@ -111,7 +111,33 @@
                   <FlowPane fx:id="DeckFlowPane" prefHeight="178.0" prefWidth="341.0">
                      <VBox.margin>
                         <Insets top="20.0" />
-                     </VBox.margin></FlowPane>
+                     </VBox.margin>
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="340.0" style="-fx-background-color: transparent;">
+                           <children>
+                              <ImageView fx:id="slot1" fitHeight="99.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="slot2" fitHeight="99.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="slot3" fitHeight="99.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="slot4" fitHeight="99.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets right="-4.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="339.0" style="-fx-background-color: transparent;">
+                           <children>
+                              <ImageView fx:id="slot5" fitHeight="98.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="1.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fx:id="slot6" fitHeight="98.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="slot7" fitHeight="98.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="slot8" fitHeight="98.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </HBox>
+                     </children></FlowPane>
                </children>
             </VBox>
             <Circle fx:id="ProfileHolder" fill="DODGERBLUE" layoutX="176.0" layoutY="64.0" radius="50.0" stroke="BLACK" strokeType="INSIDE">

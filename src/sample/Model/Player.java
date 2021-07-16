@@ -1,5 +1,7 @@
 package sample.Model;
 
+import sample.Model.Cards.Card;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -19,12 +21,16 @@ public class Player implements Serializable {
         this.level = 1;
         history = new ArrayList<>();
         profilePicDirectory ="E:\\javaProjects\\FX Learn\\src\\sample\\View\\Images\\Profile\\defultpfp.jpg";
+        this.battleDeck = new Deck(new ArrayList<Card>());
     }
 
     public void setBattleDeck(Deck battleDeck) {
         this.battleDeck = battleDeck;
     }
 
+    public Deck getBattleDeck() {
+        return battleDeck;
+    }
 
     public String getUserName() {
         return userName;

@@ -1,6 +1,8 @@
 package sample.Model.Cards.SpellCards;
 
-public class Arrows extends Spells {
+import java.io.Serializable;
+
+public class Arrows extends Spells implements Serializable {
     double areaDamage;
 
     public Arrows() {

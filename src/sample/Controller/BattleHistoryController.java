@@ -9,6 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
+import sample.Model.DataBase;
 import sample.Model.Player;
 import sample.Model.SharedData;
 
@@ -17,6 +18,7 @@ import java.util.ResourceBundle;
 
 public class BattleHistoryController implements Initializable {
     private final SharedData sharedData = SharedData.getInstance();
+    private final DataBase dataBase = new DataBase();
     private final Player player = sharedData.player;
     private final SceneLoader sceneLoader = new SceneLoader();
 

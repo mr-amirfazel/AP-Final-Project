@@ -1,6 +1,8 @@
 package sample.Model.Cards.SpellCards;
 
-public class Fireball extends Spells {
+import java.io.Serializable;
+
+public class Fireball extends Spells implements Serializable {
     double areaDamage;
 
 

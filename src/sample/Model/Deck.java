@@ -17,5 +17,7 @@ public class Deck implements Serializable {
         this.cards = cards;
     }
 
-
+    public ArrayList<Card> getCards() {
+        return cards;
+    }
 }
