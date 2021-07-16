@@ -12,7 +12,6 @@ public class Player implements Serializable {
     private ArrayList<BattleHistory> history;
     private Deck battleDeck;
 
-
     public Player(String userName, String passWord) {
         this.userName = userName;
         this.passWord = passWord;
@@ -79,7 +78,6 @@ public class Player implements Serializable {
             setLevel(2);
         else if (xp>=300)
             setLevel(1);
-
     }
 
 }

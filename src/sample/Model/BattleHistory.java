@@ -3,8 +3,8 @@ package sample.Model;
 import java.io.Serializable;
 
 public class BattleHistory implements Serializable {
-   private final String opponent;
-   private final String matchState;
+    private final String opponent;
+    private final String matchState;
 
     public BattleHistory(String opponent, String matchState) {
         this.opponent = opponent;
@@ -13,20 +13,17 @@ public class BattleHistory implements Serializable {
 
     @Override
     public String toString() {
-        String  historyStatement;
-        String miniStatement="";
-        int earnedXP=0;
-        if(matchState.equals("win"))
-        {
-            earnedXP =200;
-            miniStatement ="won";
-        }
-        else if(matchState.equals("lost"))
-        {
+        String historyStatement;
+        String miniStatement = "";
+        int earnedXP = 0;
+        if (matchState.equals("win")) {
+            earnedXP = 200;
+            miniStatement = "won";
+        } else if (matchState.equals("lost")) {
             earnedXP = 70;
-            miniStatement ="defeated";
+            miniStatement = "defeated";
         }
-        historyStatement = miniStatement +" Against "+opponent+" & Earned: "+earnedXP+" XP's";
+        historyStatement = miniStatement + " Against " + opponent + " & Earned: " + earnedXP + " XP's";
 
         return historyStatement;
     }

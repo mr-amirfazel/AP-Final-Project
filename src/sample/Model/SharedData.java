@@ -1,6 +1,7 @@
 package sample.Model;
 
 public class SharedData {
+
     private static SharedData sharedData;
 
     private SharedData(){}
