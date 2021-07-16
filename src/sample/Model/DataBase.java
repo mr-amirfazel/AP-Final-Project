@@ -15,7 +15,7 @@ private String fileName;
     {
         fileName = player.getUserName() +".bin";
         try {
-            fileOutputStream = new FileOutputStream("PlayersData/"+fileName,true);
+            fileOutputStream = new FileOutputStream("PlayersData/"+fileName,false);
             objectOutputStream = new ObjectOutputStream(fileOutputStream);
              objectOutputStream.writeObject(player);
              objectOutputStream.close();
