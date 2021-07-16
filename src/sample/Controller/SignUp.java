@@ -19,8 +19,10 @@ import sample.Model.Player;
 import java.io.IOException;
 
 public class SignUp {
+
     private DataBase dataBase;
     private final SceneLoader sceneLoader = new SceneLoader();
+
     @FXML
     private Pane SignupPage;
 
