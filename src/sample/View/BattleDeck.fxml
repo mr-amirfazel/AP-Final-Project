@@ -169,12 +169,12 @@
                   <Image url="@Images/BattleDeck/kart.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="slot2" fitHeight="98.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="slot7" fitHeight="98.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/BattleDeck/kart.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="slot7" fitHeight="98.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="slot8" fitHeight="98.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/BattleDeck/kart.png" />
                </image>
@@ -188,17 +188,17 @@
                   <Image url="@Images/BattleDeck/kart.png" />
                </image>
             </ImageView>
+            <ImageView fx:id="slot2" fitHeight="98.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/BattleDeck/kart.png" />
+               </image>
+            </ImageView>
             <ImageView fx:id="slot3" fitHeight="98.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/BattleDeck/kart.png" />
                </image>
             </ImageView>
             <ImageView fx:id="slot4" fitHeight="98.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Images/BattleDeck/kart.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="slot8" fitHeight="98.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/BattleDeck/kart.png" />
                </image>
