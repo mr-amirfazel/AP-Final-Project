@@ -2,11 +2,25 @@ package sample.Controller;
 
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.*;
 import javafx.util.Duration;
+import jdk.jfr.Event;
+import sample.Model.Cards.BuildingCards.Cannon;
+import sample.Model.Cards.BuildingCards.InfernoTower;
+import sample.Model.Cards.Card;
+import sample.Model.Cards.SpellCards.Arrows;
+import sample.Model.Cards.SpellCards.Fireball;
+import sample.Model.Cards.SpellCards.Rage;
+import sample.Model.Cards.TroopCards.*;
+import sample.Model.Deck;
+import sample.Model.Player;
+import sample.Model.SharedData;
+
+
 import java.util.ArrayList;
 
 public class DeckController {
@@ -14,6 +28,11 @@ public class DeckController {
     private final SceneLoader sceneLoader = new SceneLoader();
     Image card = new Image("kart.png");
 
+    private final SharedData sharedData = SharedData.getInstance();
+    private Player player = sharedData.player;
+
+    @FXML
+    private Button saveButton;
     @FXML
     private Label goBackLabel;
     @FXML
@@ -273,8 +292,72 @@ public class DeckController {
         }
     }
 
+    public ArrayList<Card> saveDeck() {
+
+        ArrayList <Card> cards = new ArrayList<Card>();
+
+        if (img1IsUsed){
+            Card giant = new Giant();
+            cards.add(giant);
+        }
+        if (img2IsUsed){
+            Card infernoTower = new InfernoTower();
+            cards.add(infernoTower);
+        }
+        if (img3IsUsed){
+            Card miniPekka = new MiniPekka();
+            cards.add(miniPekka);
+        }
+        if (img4IsUsed){
+            Card rage = new Rage();
+            cards.add(rage);
+        }
+        if (img5IsUsed){
+            Card valkyrie = new Valkyrie();
+            cards.add(valkyrie);
+        }
+        if (img6IsUsed){
+            Card wizard = new Wizard();
+            cards.add(wizard);
+        }
+        if (img7IsUsed){
+            Card archer = new Archer();
+            cards.add(archer);
+        }
+        if (img8IsUsed){
+            Card arrows = new Arrows();
+            cards.add(arrows);
+        }
+        if (img9IsUsed){
+            Card barbarian = new Barbarian();
+            cards.add(barbarian);
+        }
+        if (img10IsUsed){
+            Card babyDragon = new BabyDragon();
+            cards.add(babyDragon);
+        }
+        if (img11IsUsed){
+            Card canon = new Cannon();
+            cards.add(canon);
+        }
+        if (img12IsUsed){
+            Card fireBall = new Fireball();
+            cards.add(fireBall);
+        }
+        return cards;
+    }
+
+    public void saveCards(){
+        if(saveDeck().size() == 8){
+            player.setBattleDeck(new Deck(saveDeck()));
+        }
+
+    }
+
+
     @FXML
     void goToMenu(MouseEvent event) {
+
         sceneLoader.goToMainMenu(event);
     }
 

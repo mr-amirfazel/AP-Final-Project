@@ -21,6 +21,11 @@ public class Player implements Serializable {
         profilePicDirectory ="E:\\javaProjects\\FX Learn\\src\\sample\\View\\Images\\Profile\\defultpfp.jpg";
     }
 
+    public void setBattleDeck(Deck battleDeck) {
+        this.battleDeck = battleDeck;
+    }
+
+
     public String getUserName() {
         return userName;
     }

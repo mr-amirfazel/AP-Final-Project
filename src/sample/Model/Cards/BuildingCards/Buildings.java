@@ -1,6 +1,8 @@
-package sample.Model.Cards;
+package sample.Model.Cards.BuildingCards;
 
-class Buildings extends Card {
+import sample.Model.Cards.Card;
+
+public abstract class Buildings extends Card {
     int HP;
     int damage;
     double hitSpeed;
@@ -28,17 +30,3 @@ class Buildings extends Card {
     }
 }
 
-class Cannon extends Buildings {
-
-    public Cannon() {
-        super(380, 60, 0.8, "Ground", "5.5", 30, 6);
-    }
-
-}
-
-class InfernoTower extends Buildings {
-
-    public InfernoTower() {
-        super(800, 20, 0.4, "Air&Ground", "6", 40, 5);
-    }
-}
