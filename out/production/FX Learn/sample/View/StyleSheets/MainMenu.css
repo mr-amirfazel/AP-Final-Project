@@ -1,0 +1,62 @@
+#mainMenuPane
+{
+    -fx-background-image: url(../Images/MainMenu/MenuPane.jpg);
+    -fx-background-size: cover;
+}
+#profileButton , #battleDeckButton , #battleHistoryButton , #trainingCampButton , #onevoneButton
+,#twovtwoButton
+{
+    -fx-border-radius: 0%;
+    -fx-text-fill: #ab0e35;
+}
+#profileButton:hover , #battleDeckButton:hover , #battleHistoryButton:hover, #trainingCampButton:hover , #onevoneButton:hover
+,#twovtwoButton:hover
+{
+  -fx-border-color: red;
+    -fx-border-width: 1px;
+}
+#profileButton
+{
+    -fx-background-image: url(../Images/MainMenu/archer.png);
+    -fx-background-size: cover;
+}
+#battleDeckButton
+{
+    -fx-background-image: url(../Images/MainMenu/barbar.png);
+    -fx-background-size: cover;
+}
+#battleHistoryButton
+{
+    -fx-background-image: url(../Images/MainMenu/king.png);
+    -fx-background-size: cover;
+}
+#trainingCampButton
+{
+    -fx-background-image: url(../Images/MainMenu/Knight.png);
+    -fx-background-size: cover;
+}
+#onevoneButton
+{
+    -fx-background-image: url(../Images/MainMenu/pekka.png);
+    -fx-background-size: cover;
+}
+#twovtwoButton
+{
+    -fx-background-image: url(../Images/MainMenu/wizard.png);
+    -fx-background-size: cover;
+}
+#menuBackButton
+{
+    -fx-border-radius: 69%;
+    -fx-text-fill: Black;
+    -fx-font-size: 20px;
+    -fx-background-color: transparent;
+    -fx-border-color: red;
+    -fx-border-width: 3px;
+}
+#menuBackButton:hover
+{
+    -fx-border-width: 2px;
+    -fx-border-style: dashed;
+}
+
