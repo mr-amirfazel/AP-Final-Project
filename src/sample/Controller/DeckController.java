@@ -2,6 +2,7 @@ package sample.Controller;
 
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -22,9 +23,14 @@ import sample.Model.Player;
 import sample.Model.SharedData;
 
 
+import javax.sound.sampled.*;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class DeckController {
+public class DeckController implements Initializable {
 
     private final SceneLoader sceneLoader = new SceneLoader();
     Image card = new Image("kart.png");
@@ -32,6 +38,7 @@ public class DeckController {
     private final SharedData sharedData = SharedData.getInstance();
     private final DataBase dataBase = new DataBase();
     private final Player player = sharedData.player;
+    private  AudioInputStream audioInputStream;
 
     @FXML
     private Button saveButton;
@@ -350,7 +357,22 @@ public class DeckController {
     }
 
     public void saveCards(){
+
         if(saveDeck().size() == 8){
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Clip clip = AudioSystem.getClip();
+                        clip.open(audioInputStream);
+                        clip.start();
+                    } catch (LineUnavailableException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
             player.setBattleDeck(new Deck(saveDeck()));
             saveToFile();
         }
@@ -391,4 +413,15 @@ public class DeckController {
         ft.play();
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try
+        {
+          audioInputStream = AudioSystem.getAudioInputStream(new File("src/sample/SoundEffects/deckSaveButton.wav"));
+        } catch (UnsupportedAudioFileException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
