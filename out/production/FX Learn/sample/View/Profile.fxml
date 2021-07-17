@@ -124,6 +124,9 @@
                                  </HBox.margin>
                               </ImageView>
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="339.0" style="-fx-background-color: transparent;">
                            <children>
@@ -136,6 +139,9 @@
                               <ImageView fx:id="slot7" fitHeight="98.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" />
                               <ImageView fx:id="slot8" fitHeight="98.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" />
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </HBox>
                      </children></FlowPane>
                </children>

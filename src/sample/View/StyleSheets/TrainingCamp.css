@@ -1,0 +1,29 @@
+#DummyBotButton
+{
+    -fx-background-image: url(../Images/TrainingCamp/RetardedWojack.png);
+}
+#smartBotButton
+{
+    -fx-background-image: url(../Images/TrainingCamp/GigaChad.jpg);
+}
+#smartBotButton , #DummyBotButton
+{
+    -fx-background-size: cover;
+    -fx-border-radius: 38px;
+}
+#TrainingCampPane
+{
+
+    -fx-background-image: url(../Images/TrainingCamp/back.jpg);
+    -fx-background-size: cover;
+}
+#dummyLabel , #smartLabel
+{
+    -fx-background-color: #fc782b;
+    -fx-text-fill: #06069e;
+}
+#ribbonLabel
+{
+    -fx-background-color: linear-gradient(to right, rgba(230,55,49,1) 0%, rgba(115,26,20,1) 100%);
+    -fx-text-fill: #83e3f2;
+}

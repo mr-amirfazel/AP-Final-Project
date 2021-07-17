@@ -164,7 +164,7 @@ public class Profile implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        usernameField.setText(player.getUserName());
+       usernameField.setText(player.getUserName());
        levelID.setText(player.getLevel()+"");
        progressBar.setProgress((player.getXp())/(maxXP(player.getLevel())));
        setLabels();

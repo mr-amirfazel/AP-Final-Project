@@ -68,7 +68,7 @@ public class MainMenu {
 
     @FXML
     void goToTrainingCamp(ActionEvent event) {
-
+        sceneLoader.goToTrainingCamp(event);
     }
 
     @FXML
