@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.GameController">
+   <children>
+      <Canvas fx:id="canvas" height="500.0" width="400.0" />
+      <HBox alignment="CENTER" layoutY="486.0" prefHeight="73.0" prefWidth="400.0">
+         <children>
+            <ImageView fitHeight="69.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/BattleDeck/fireball_00000.png" />
+               </image>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </ImageView>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="300.0" style="-fx-border-color: purple;">
+               <children>
+                  <ImageView fitHeight="65.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/BattleDeck/archer_00000.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="65.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/BattleDeck/baby%20dragon_00000.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fitHeight="65.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/BattleDeck/barbarian_00000.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fitHeight="65.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/BattleDeck/giant_00000.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <Label layoutX="33.0" layoutY="569.0" prefHeight="27.0" prefWidth="38.0" text="NEXT" />
+      <ProgressBar layoutX="100.0" layoutY="569.0" prefHeight="27.0" prefWidth="296.0" progress="0.0" />
+   </children>
+</AnchorPane>
