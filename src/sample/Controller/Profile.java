@@ -3,18 +3,14 @@ package sample.Controller;
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.SnapshotParameters;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
@@ -223,7 +219,7 @@ public class Profile implements Initializable {
                 slots.get(i).setImage(new Image("archer_00000.png"));
             }
             else if (card instanceof BabyDragon){
-                slots.get(i).setImage((new Image("baby dragon_00000.png")));
+                slots.get(i).setImage((new Image("babyDragon_00000.png")));
             }
             else if (card instanceof Barbarian){
                 slots.get(i).setImage(new Image("barbarian_00000.png"));
@@ -232,7 +228,7 @@ public class Profile implements Initializable {
                 slots.get(i).setImage(new Image("giant_00000.png"));
             }
              else if (card instanceof MiniPekka){
-                slots.get(i).setImage(new Image("mini pekka_00000.png"));
+                slots.get(i).setImage(new Image("miniPekka_00000.png"));
              }
             else if (card instanceof Valkyrie){
                 slots.get(i).setImage(new Image("valkyrie_00000.png"));

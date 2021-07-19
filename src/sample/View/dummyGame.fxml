@@ -8,10 +8,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="pane" onMouseClicked="#groundClick" prefHeight="630.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.GameController">
    <children>
-      <Canvas fx:id="canvas" height="500.0" layoutY="-17.0" width="400.0" />
+      <Canvas fx:id="canvas" height="502.0" layoutY="-1.0" onMouseClicked="#spawnCharacter" width="400.0" />
       <HBox alignment="CENTER" layoutY="500.0" prefHeight="73.0" prefWidth="400.0" style="-fx-background-color: PURPLE;">
          <children>
             <ImageView fitHeight="69.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true">
@@ -24,12 +25,12 @@
             </ImageView>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="300.0" style="-fx-border-color: purple;">
                <children>
-                  <ImageView fx:id="slot1" fitHeight="65.0" fitWidth="75.0" onMouseClicked="#slot1Click" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="slot1" fitHeight="65.0" fitWidth="75.0" onMouseClicked="#slot1Click" onMouseEntered="#slot1Hover" onMouseExited="#slot1Exit" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Images/BattleDeck/archer_00000.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="slot2" fitHeight="65.0" fitWidth="75.0" onMouseClicked="#slot2Click" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="slot2" fitHeight="65.0" fitWidth="75.0" onMouseClicked="#slot2Click" onMouseEntered="#slot2Hover" onMouseExited="#slot2Exit" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Images/BattleDeck/baby%20dragon_00000.png" />
                      </image>
@@ -37,7 +38,7 @@
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                      </HBox.margin>
                   </ImageView>
-                  <ImageView fx:id="slot3" fitHeight="65.0" fitWidth="75.0" onMouseClicked="#slot3Click" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="slot3" fitHeight="65.0" fitWidth="75.0" onMouseClicked="#slot3Click" onMouseEntered="#slot3Hover" onMouseExited="#slot3Exit" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Images/BattleDeck/barbarian_00000.png" />
                      </image>
@@ -45,7 +46,7 @@
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                      </HBox.margin>
                   </ImageView>
-                  <ImageView fx:id="slot4" fitHeight="65.0" fitWidth="75.0" onMouseClicked="#slot4Click" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="slot4" fitHeight="65.0" fitWidth="75.0" onMouseClicked="#slot4Click" onMouseEntered="#slot4Hover" onMouseExited="#slot4Exit" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Images/BattleDeck/giant_00000.png" />
                      </image>
@@ -56,10 +57,13 @@
       </HBox>
       <HBox alignment="CENTER_RIGHT" layoutY="575.0" prefHeight="54.0" prefWidth="400.0" style="-fx-background-color: purple;">
          <children>
-            <Label alignment="TOP_CENTER" prefHeight="26.0" prefWidth="72.0" text="NEXT">
+            <Label alignment="TOP_CENTER" prefHeight="26.0" prefWidth="72.0" text="NEXT" textFill="#f8e800">
                <HBox.margin>
                   <Insets right="20.0" />
                </HBox.margin>
+               <font>
+                  <Font name="Arial Black" size="16.0" />
+               </font>
             </Label>
             <ProgressBar prefHeight="27.0" prefWidth="300.0" progress="0.3">
                <padding>

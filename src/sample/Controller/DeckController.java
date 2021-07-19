@@ -9,7 +9,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.*;
 import javafx.util.Duration;
-import jdk.jfr.Event;
 import sample.Model.Cards.BuildingCards.Cannon;
 import sample.Model.Cards.BuildingCards.InfernoTower;
 import sample.Model.Cards.Card;
@@ -183,7 +182,7 @@ public class DeckController implements Initializable {
 
     @FXML
     public void imageClick3(MouseEvent event) {
-        Image image = new Image("mini pekka_00000.png");
+        Image image = new Image("miniPekka_00000.png");
         if (!img3IsUsed) {
             checkSlot(image);
             img3IsUsed = true;
@@ -267,7 +266,7 @@ public class DeckController implements Initializable {
 
     @FXML
     public void imageClick10(MouseEvent event) {
-        Image image = new Image("baby dragon_00000.png");
+        Image image = new Image("babyDragon_00000.png");
         if (!img10IsUsed) {
             checkSlot(image);
             img10IsUsed = true;

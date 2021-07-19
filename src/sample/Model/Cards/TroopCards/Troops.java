@@ -32,6 +32,10 @@ public abstract class Troops extends Card implements Serializable {
 
     }
 
+//    public Troops(int hp, int damage, double hitSpeed, String fast, String ground, String melee, boolean areaSplash, int count, int cost) {
+//        super();
+//    }
+
 
     public void setHP(int HP) {
         this.HP = HP;
