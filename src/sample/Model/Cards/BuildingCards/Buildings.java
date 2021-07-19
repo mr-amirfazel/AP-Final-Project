@@ -1,5 +1,6 @@
 package sample.Model.Cards.BuildingCards;
 
+import javafx.scene.image.Image;
 import sample.Model.Cards.Card;
 
 import java.io.Serializable;
@@ -13,7 +14,8 @@ public abstract class Buildings extends Card implements Serializable {
     int lifeTime;
     int cost;
 
-    public Buildings(int HP, int damage, double hitSpeed, String target, String range, int lifeTime, int cost) {
+    public Buildings(int HP, int damage, double hitSpeed, String target, String range, int lifeTime, int cost, Image image) {
+        super(image);
         this.HP = HP;
         this.damage = damage;
         this.hitSpeed = hitSpeed;
@@ -22,6 +24,9 @@ public abstract class Buildings extends Card implements Serializable {
         this.lifeTime = lifeTime;
         this.cost = cost;
     }
+
+
+
 
     public void setHP(int HP) {
         this.HP = HP;

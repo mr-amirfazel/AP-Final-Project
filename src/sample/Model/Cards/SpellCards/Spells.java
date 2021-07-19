@@ -1,5 +1,6 @@
 package sample.Model.Cards.SpellCards;
 
+import javafx.scene.image.Image;
 import sample.Model.Cards.Card;
 
 import java.io.Serializable;
@@ -9,10 +10,13 @@ public abstract class Spells extends Card implements Serializable {
     double radius;
     int cost;
 
-    public Spells(String ability, double radius, int cost) {
+
+    public Spells(String ability, double radius, int cost, Image image) {
+        super(image);
         this.ability = ability;
         this.radius = radius;
         this.cost = cost;
     }
+
 }
 

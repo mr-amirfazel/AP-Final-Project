@@ -1,5 +1,6 @@
 package sample.Model.Cards.TroopCards;
 
+import javafx.scene.image.Image;
 import sample.Model.Cards.Card;
 
 import java.io.Serializable;
@@ -15,9 +16,10 @@ public abstract class Troops extends Card implements Serializable {
     boolean areaSplash;//radius 1
     int count;
     int cost;
+    Image image;
 
-    public Troops(int HP, int damage, double hitSpeed, String speed, String target, String range, boolean areaSplash, int count, int cost) {
-
+    public Troops(int HP, int damage, double hitSpeed, String speed, String target, String range, boolean areaSplash, int count, int cost, Image image) {
+        super(image);
         this.HP = HP;
         this.damage = damage;
         this.hitSpeed = hitSpeed;
@@ -27,7 +29,9 @@ public abstract class Troops extends Card implements Serializable {
         this.areaSplash = areaSplash;
         this.count = count;
         this.cost = cost;
+
     }
+
 
     public void setHP(int HP) {
         this.HP = HP;

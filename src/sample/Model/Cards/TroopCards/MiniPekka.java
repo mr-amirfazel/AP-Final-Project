@@ -1,5 +1,7 @@
 package sample.Model.Cards.TroopCards;
 
+import javafx.scene.image.Image;
+
 import java.io.Serializable;
 
 public class MiniPekka extends Troops implements Serializable {
