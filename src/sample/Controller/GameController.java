@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.Glow;
@@ -40,6 +41,13 @@ public class GameController implements Initializable {
     private HBox gameDeck;
     @FXML
     private ImageView upComingPhoto;
+    @FXML
+    private Label blueScore;
+
+    @FXML
+    private Label redScore;
+    @FXML
+    private Label timerLabel;
 
 
     private boolean slot1Selected = false;
@@ -122,7 +130,10 @@ public class GameController implements Initializable {
         }
         return exists;
     }
-
+    @FXML
+    void goBack(MouseEvent event) {
+        new SceneLoader().goToTrainingCamp(event);
+    }
     @FXML
     public void slot1Click(MouseEvent event){
         if(!(slot1.getEffect() instanceof DropShadow)){
