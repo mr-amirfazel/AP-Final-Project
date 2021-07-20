@@ -49,7 +49,7 @@
             </ImageView>
             <ImageView fitHeight="88.0" fitWidth="110.0" onMouseClicked="#imageClick10" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Images/BattleDeck/baby%20dragon_00000.png" />
+                  <Image url="@Images/BattleDeck/babyDragon_00000.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -109,7 +109,7 @@
             </ImageView>
             <ImageView fitHeight="88.0" fitWidth="110.0" onMouseClicked="#imageClick3" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Images/BattleDeck/mini%20pekka_00000.png" />
+                  <Image url="@Images/BattleDeck/miniPekka_00000.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />

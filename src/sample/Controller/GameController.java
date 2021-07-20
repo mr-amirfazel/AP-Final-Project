@@ -49,10 +49,10 @@ public class GameController implements Initializable {
     private boolean slot4Selected = false;
 
     private Random randomGenerator;
-//    private ArrayList<Card>cards;
+    private ArrayList<Card>cards;
     private ArrayList<ImageView>slots;
-//    private final SharedData sharedData = SharedData.getInstance();
-//    private final Player player = sharedData.player;
+    private final SharedData sharedData = SharedData.getInstance();
+    private final Player player = sharedData.player;
     private GraphicsContext gc;
     private final ArrayList<Spawn> spawnCharacters = new ArrayList<>();
     private final GameModel gameModel = new GameModel();
@@ -63,10 +63,7 @@ public class GameController implements Initializable {
 //    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        slots = new ArrayList<>();
-        slots.add(slot1);slots.add(slot2);slots.add(slot3);slots.add(slot4);
-//        cards = player.getBattleDeck().getCards();
-//        initGameDeck();
+        initGameDeck();
         gc = canvas.getGraphicsContext2D();
         Image ground = new Image("ground.png", 400, 500, false, false);
         gc.drawImage(ground, 0, 0);
@@ -86,22 +83,45 @@ public class GameController implements Initializable {
         System.out.println("x :" + x);
         System.out.println("y :" + y);
     }
-//    void initGameDeck()
-//    {
-//        slots.add(slot1);slots.add(slot2);slots.add(slot3);slots.add(slot4);
-//        Collections.shuffle(cards);
-//        for (int i = 0; i < 3; i++) {
-//            slots.get(i).setImage(cards.get(i).getImage());
-//        }
-//        setNextPhoto();
-//    }
-//    void setNextPhoto()
-//    {
-//        Image image = cards.get(randomGenerator.nextInt(cards.size())).getImage();
-//        ImageView imageView = new ImageView(image);
-//        if(!(slots.contains(imageView)))
-//            upComingPhoto.setImage(image);
-//    }
+    void initGameDeck()
+    {
+        cards = player.getBattleDeck().getCards();
+        slots = new ArrayList<>();
+        slots.add(slot1);slots.add(slot2);slots.add(slot3);slots.add(slot4);
+        Collections.shuffle(cards);
+        for (int i = 0; i < 4; i++) {
+            slots.get(i).setImage(cards.get(i).getImage());
+        }
+        setNextPhoto();
+    }
+    void setNextPhoto()
+    {
+        Image image;
+        ImageView imageView;
+        while(true){
+            Collections.shuffle(cards);
+             image = cards.get(0).getImage();
+             imageView = new ImageView(image);
+             if(!isInSlots(image)){
+                  upComingPhoto.setImage(image);
+                  break;
+             }
+        }
+
+
+    }
+    private boolean isInSlots(Image image)
+    {
+        boolean exists = false;
+        for (ImageView imageView:slots)
+        {
+            if (imageView.getImage().getUrl().equals(image.getUrl())){
+                    exists = true;
+                    break;
+            }
+        }
+        return exists;
+    }
 
     @FXML
     public void slot1Click(MouseEvent event){
@@ -251,25 +271,8 @@ public class GameController implements Initializable {
             }
 
             if(photoChange)
-//                setNextPhoto();
+                setNextPhoto();
             System.out.println(spawnCharacters.size());
         }
     }
-
-
-//    @FXML
-//    void slot1Click(MouseEvent event) {
-//        slot1.setEffect(getEffect());
-//        delteEffects(slot1);
-//        for (int row = 0; row < 15; row++) {
-//            for (int col = 0; col < 18; col++) {
-//                Image image =  new Image("grass.png");
-//                map[row][col].setImage(image);
-//            }
-//        }
-//
-//
-//    }
-
-
 }

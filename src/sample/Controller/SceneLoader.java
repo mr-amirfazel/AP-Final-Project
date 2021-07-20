@@ -174,7 +174,7 @@ public class SceneLoader {
         scene = new Scene(root);
         String css = this.getClass().getResource("../View/StyleSheets/DummyGame.css").toExternalForm();
         scene.getStylesheets().add(css);
-        stage.setTitle("TrainingCamp");
+        stage.setTitle("Dummy BOT");
         stage.setScene(scene);
         stage.show();
     }

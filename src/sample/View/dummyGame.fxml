@@ -4,7 +4,6 @@
 <?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -16,41 +15,24 @@
       <HBox alignment="CENTER" layoutY="500.0" prefHeight="73.0" prefWidth="400.0" style="-fx-background-color: PURPLE;">
          <children>
             <ImageView fx:id="upComingPhoto" fitHeight="69.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Images/BattleDeck/fireball_00000.png" />
-               </image>
                <HBox.margin>
                   <Insets right="20.0" />
                </HBox.margin>
             </ImageView>
             <HBox fx:id="gameDeck" alignment="CENTER" prefHeight="100.0" prefWidth="300.0" style="-fx-border-color: purple;">
                <children>
-                  <ImageView fx:id="slot1" fitHeight="65.0" fitWidth="75.0" onMouseClicked="#slot1Click" onMouseEntered="#slot1Hover" onMouseExited="#slot1Exit" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Images/BattleDeck/archer_00000.png" />
-                     </image>
-                  </ImageView>
+                  <ImageView fx:id="slot1" fitHeight="65.0" fitWidth="75.0" onMouseClicked="#slot1Click" onMouseEntered="#slot1Hover" onMouseExited="#slot1Exit" pickOnBounds="true" preserveRatio="true" />
                   <ImageView fx:id="slot2" fitHeight="65.0" fitWidth="75.0" onMouseClicked="#slot2Click" onMouseEntered="#slot2Hover" onMouseExited="#slot2Exit" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Images/BattleDeck/babyDragon_00000.png" />
-                     </image>
                      <HBox.margin>
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                      </HBox.margin>
                   </ImageView>
                   <ImageView fx:id="slot3" fitHeight="65.0" fitWidth="75.0" onMouseClicked="#slot3Click" onMouseEntered="#slot3Hover" onMouseExited="#slot3Exit" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Images/BattleDeck/barbarian_00000.png" />
-                     </image>
                      <HBox.margin>
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                      </HBox.margin>
                   </ImageView>
-                  <ImageView fx:id="slot4" fitHeight="65.0" fitWidth="75.0" onMouseClicked="#slot4Click" onMouseEntered="#slot4Hover" onMouseExited="#slot4Exit" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Images/BattleDeck/giant_00000.png" />
-                     </image>
-                  </ImageView>
+                  <ImageView fx:id="slot4" fitHeight="65.0" fitWidth="75.0" onMouseClicked="#slot4Click" onMouseEntered="#slot4Hover" onMouseExited="#slot4Exit" pickOnBounds="true" preserveRatio="true" />
                </children>
             </HBox>
          </children>
