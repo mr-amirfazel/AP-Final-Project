@@ -356,6 +356,7 @@ public class GameController implements Initializable {
                                     spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(),spawn.getPoint2D().getY()-1));
                             }
                             else
+                                //testComment
                                 spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(),spawn.getPoint2D().getY()-1));
 
                         }
