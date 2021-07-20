@@ -65,31 +65,6 @@ public class GameController implements Initializable {
         int index = randomGenerator.nextInt(cards.size());
         return cards.get(index);
     }
-
-
-    public void addToSlots(){
-        boolean flag = true;
-        if (slot1Selected){
-            while  (flag){
-                if (slotCards.contains(anyCard())){
-                    anyCard();
-                }
-                else{
-                    flag = false;
-                }
-            }
-
-
-            slot1.setImage(anyCard().getImage());
-            slotCards.add(anyCard());
-
-        }
-        if (slot2Selected){
-
-        }
-    }
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         gc = canvas.getGraphicsContext2D();
@@ -115,31 +90,59 @@ public class GameController implements Initializable {
 
     @FXML
     public void slot1Click(MouseEvent event){
+        if(!(slot1.getEffect() instanceof DropShadow)){
         addDropShadow(slot1);
         slot1Selected = true;
         slot2Selected=slot3Selected=slot4Selected=false;
+        }
+        else if(slot1.getEffect() instanceof DropShadow)
+        {
+            slot1.setEffect(null);
+            slot1Selected= slot2Selected=slot3Selected=slot4Selected=false;
+        }
 
     }
 
     @FXML
     public void slot2Click(MouseEvent event){
-        addDropShadow(slot2);
-        slot2Selected = true;
-        slot1Selected=slot3Selected=slot4Selected=false;
+        if(!(slot2.getEffect() instanceof DropShadow)){
+            addDropShadow(slot2);
+            slot2Selected = true;
+            slot1Selected=slot3Selected=slot4Selected=false;
+        }
+        else if(slot2.getEffect() instanceof DropShadow)
+        {
+            slot2.setEffect(null);
+            slot1Selected= slot2Selected=slot3Selected=slot4Selected=false;
+        }
     }
 
     @FXML
     public void slot3Click(MouseEvent event){
-        addDropShadow(slot3);
-        slot3Selected = true;
-        slot2Selected=slot1Selected=slot4Selected=false;
+        if(!(slot3.getEffect() instanceof DropShadow)){
+            addDropShadow(slot3);
+            slot3Selected = true;
+            slot2Selected=slot1Selected=slot4Selected=false;
+        }
+        else if(slot3.getEffect() instanceof DropShadow)
+        {
+            slot3.setEffect(null);
+            slot1Selected= slot2Selected=slot3Selected=slot4Selected=false;
+        }
     }
 
     @FXML
     public void slot4Click(MouseEvent event){
-        addDropShadow(slot4);
-        slot4Selected = true;
-        slot2Selected=slot3Selected=slot1Selected=false;
+        if(!(slot4.getEffect() instanceof DropShadow)){
+            addDropShadow(slot4);
+            slot4Selected = true;
+            slot2Selected=slot3Selected=slot1Selected=false;
+        }
+        else if(slot4.getEffect() instanceof DropShadow)
+        {
+            slot4.setEffect(null);
+            slot1Selected= slot2Selected=slot3Selected=slot4Selected=false;
+        }
     }
     @FXML
     void slot1Exit(MouseEvent event) {
