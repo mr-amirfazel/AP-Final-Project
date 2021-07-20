@@ -34,19 +34,18 @@ public class Spawn {
     private void setElement()
     {
         if(card instanceof Valkyrie)
-            element = new Image("valkyrie.png");
+            element = new Image("valkyrie.png", 60, 75, false, false);
         else if(card instanceof Archer)
-            element = new Image("archer.png");
+            element = new Image("archer.png", 60, 75, false, false);
         else if(card instanceof Barbarian)
-            element = new Image("barbar.png");
+            element = new Image("barbar.png", 60, 75, false, false);
         else if(card instanceof BabyDragon)
-            element = new Image("babyDragon");
+            element = new Image("babyDragon", 60, 75, false, false);
         else if(card instanceof Giant)
-            element = new Image("giant.png");
+            element = new Image("giant.png", 60, 75, false, false);
         else if( card instanceof  Wizard)
-            element = new Image("wizard.png");
+            element = new Image("wizard.png", 60, 75, false, false);
         else if(card instanceof MiniPekka)
-            element = new Image("miniPekka.png");
-
+            element = new Image("miniPekka.png", 60, 75, false, false);
     }
 }

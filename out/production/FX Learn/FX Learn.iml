@@ -12,6 +12,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/sample/View/Images/Profile" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/sample/View/Images/FieldElements" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/sample/View/Images/TrainingCamp" type="java-resource" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

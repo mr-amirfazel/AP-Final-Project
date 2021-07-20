@@ -285,12 +285,21 @@ public class GameController implements Initializable {
                 double t = (currentNanoTime - startNanoTime) / 1000000000.0;
 
                 Image ground = new Image("ground.png", 400, 500, false, false);
-                Image archerB = new Image("archerTowerB.png");
-                Image archerR = new Image("archerR.png");
-                Image kingB = new Image("kingTowerB.png");
-                Image val= new Image("valkyrie.png");
+
+                Image archerB = new Image("Buildings/archerTowerB.png",60,75,false,false);
+                Image archerR = new Image("Buildings/archerR.png",60,75,false,false);
+                Image kingR = new Image("Buildings/kingR.png",70,85,false,false);
+                Image kingB = new Image("Buildings/kingTowerB.png",70,85,false,false);
+
+                Image val= new Image("valkyrie.png",60,75,false,false);
                 Image val2= new Image("chr_valkyrie_sprite_071.png",60,75,false,false);
+
                 gc.drawImage(ground, 0, 0);
+                gc.drawImage(kingB, 165, 330);
+//                gc.drawImage(archerR,  );
+                gc.drawImage(archerB, 80 , 290);
+//                gc.drawImage(archerR, );
+
 //                gc.drawImage(archerB,110,372);
 //                gc.drawImage(archerB,287,372);
 //                gc.drawImage(kingB,194,375);
@@ -307,8 +316,21 @@ public class GameController implements Initializable {
 //                else
 //                    gc.drawImage(val, (35), 40);
 
-                System.out.println(t);
             }
         }.start();
     }
+
+//    void startTimer()
+//    {
+//        final long startNanoTime = System.nanoTime();
+//        new AnimationTimer()
+//        {
+//            public void handle(long currentNanoTime)
+//            {
+//                double t = (currentNanoTime - startNanoTime) / 1000000000.0;
+//                gc.drawImage("ground.png");
+//                // background image clears canvas
+//            }
+//        }.start();
+//    }
 }
