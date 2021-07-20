@@ -11,8 +11,8 @@ public abstract class Spells extends Card implements Serializable {
     int cost;
 
 
-    public Spells(String ability, double radius, int cost, Image image) {
-        super(image);
+    public Spells(String ability, double radius, int cost, String url) {
+        super(url);
         this.ability = ability;
         this.radius = radius;
         this.cost = cost;

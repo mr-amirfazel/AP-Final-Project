@@ -18,8 +18,8 @@ public abstract class Troops extends Card implements Serializable {
     int cost;
     Image image;
 
-    public Troops(int HP, int damage, double hitSpeed, String speed, String target, String range, boolean areaSplash, int count, int cost, Image image) {
-        super(image);
+    public Troops(int HP, int damage, double hitSpeed, String speed, String target, String range, boolean areaSplash, int count, int cost, String url) {
+        super(url);
         this.HP = HP;
         this.damage = damage;
         this.hitSpeed = hitSpeed;

@@ -15,7 +15,7 @@
       <Canvas fx:id="canvas" height="502.0" layoutY="-1.0" onMouseClicked="#spawnCharacter" width="400.0" />
       <HBox alignment="CENTER" layoutY="500.0" prefHeight="73.0" prefWidth="400.0" style="-fx-background-color: PURPLE;">
          <children>
-            <ImageView fitHeight="69.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="upComingPhoto" fitHeight="69.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/BattleDeck/fireball_00000.png" />
                </image>

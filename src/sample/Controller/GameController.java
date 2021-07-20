@@ -15,18 +15,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
+import sample.Model.*;
 import sample.Model.Cards.Card;
 import sample.Model.Cards.TroopCards.Archer;
-import sample.Model.GameModel;
-import sample.Model.Player;
-import sample.Model.SharedData;
-import sample.Model.Spawn;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class GameController implements Initializable {
     @FXML
@@ -45,6 +39,9 @@ public class GameController implements Initializable {
     private ProgressBar elixirBar;
     @FXML
     private HBox gameDeck;
+    @FXML
+    private ImageView upComingPhoto;
+
 
     private boolean slot1Selected = false;
     private boolean slot2Selected = false;
@@ -52,25 +49,27 @@ public class GameController implements Initializable {
     private boolean slot4Selected = false;
 
     private Random randomGenerator;
-    private ArrayList<Card>cards;
-    private ArrayList<Card>slotCards;
-    private final SharedData sharedData = SharedData.getInstance();
-    private final Player player = sharedData.player;
+//    private ArrayList<Card>cards;
+    private ArrayList<ImageView>slots;
+//    private final SharedData sharedData = SharedData.getInstance();
+//    private final Player player = sharedData.player;
     private GraphicsContext gc;
-    private  ImageView[] slots;
-    private ArrayList<Spawn> spawnCharacters = new ArrayList<>();
+    private final ArrayList<Spawn> spawnCharacters = new ArrayList<>();
     private final GameModel gameModel = new GameModel();
 
-    public Card anyCard() {
-        int index = randomGenerator.nextInt(cards.size());
-        return cards.get(index);
-    }
+//    public Card anyCard() {
+//        int index = randomGenerator.nextInt(cards.size());
+//        return cards.get(index);
+//    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        slots = new ArrayList<>();
+        slots.add(slot1);slots.add(slot2);slots.add(slot3);slots.add(slot4);
+//        cards = player.getBattleDeck().getCards();
+//        initGameDeck();
         gc = canvas.getGraphicsContext2D();
         Image ground = new Image("ground.png", 400, 500, false, false);
         gc.drawImage(ground, 0, 0);
-         slots = new ImageView[]{slot1, slot2, slot3, slot4};
     }
 
 
@@ -87,6 +86,22 @@ public class GameController implements Initializable {
         System.out.println("x :" + x);
         System.out.println("y :" + y);
     }
+//    void initGameDeck()
+//    {
+//        slots.add(slot1);slots.add(slot2);slots.add(slot3);slots.add(slot4);
+//        Collections.shuffle(cards);
+//        for (int i = 0; i < 3; i++) {
+//            slots.get(i).setImage(cards.get(i).getImage());
+//        }
+//        setNextPhoto();
+//    }
+//    void setNextPhoto()
+//    {
+//        Image image = cards.get(randomGenerator.nextInt(cards.size())).getImage();
+//        ImageView imageView = new ImageView(image);
+//        if(!(slots.contains(imageView)))
+//            upComingPhoto.setImage(image);
+//    }
 
     @FXML
     public void slot1Click(MouseEvent event){
@@ -204,27 +219,39 @@ public class GameController implements Initializable {
     @FXML
     void spawnCharacter(MouseEvent event) {
         if(event.getY()>228) {
-            Point2D point2D = new Point2D(event.getX(), event.getY());;
+            Point2D point2D = new Point2D(event.getX(), event.getY());
+            boolean photoChange = false;
             if (slot1Selected){
                 spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot1.getImage()), point2D));
                 slot1Selected=false;
                 slot1.setEffect(null);
+                slot1.setImage(upComingPhoto.getImage());
+                photoChange = true;
             }
             if (slot2Selected){
                 spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot2.getImage()), point2D));
                 slot2Selected=false;
                 slot2.setEffect(null);
+                slot2.setImage(upComingPhoto.getImage());
+                photoChange = true;
             }
             if (slot3Selected){
                 spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot3.getImage()), point2D));
                 slot3Selected=false;
                 slot3.setEffect(null);
+                slot3.setImage(upComingPhoto.getImage());
+                photoChange = true;
             }
             if (slot4Selected){
                 spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot4.getImage()), point2D));
                 slot4Selected=false;
                 slot4.setEffect(null);
+                slot4.setImage(upComingPhoto.getImage());
+                photoChange = true;
             }
+
+            if(photoChange)
+//                setNextPhoto();
             System.out.println(spawnCharacters.size());
         }
     }

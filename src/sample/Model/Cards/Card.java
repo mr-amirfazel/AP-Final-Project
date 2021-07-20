@@ -5,14 +5,14 @@ import javafx.scene.image.Image;
 import java.io.Serializable;
 
 public abstract class Card implements Serializable {
-    private Image image;
+    private final String imageUrl;
 
-    public Card(Image image) {
-        this.image = image;
+    public Card(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public Image getImage() {
-        return image;
+        return new Image(imageUrl);
     }
 }
 

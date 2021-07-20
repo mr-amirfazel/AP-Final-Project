@@ -8,7 +8,7 @@ public class Rage extends Spells implements Serializable {
     double duration;
 
     public Rage() {
-        super("increase 40%", 5, 3, new Image("rage_00000.png"));
+        super("increase 40%", 5, 3, "rage_00000.png");
 //        ability = "increase 40%";//+40% Damage Boost +40% Speed Boost +40% Hit Speed Boost
         this.duration = 6;
     }
