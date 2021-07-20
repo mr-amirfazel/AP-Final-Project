@@ -6,12 +6,14 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.Glow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import sample.Model.Cards.Card;
 import sample.Model.Cards.TroopCards.Archer;
@@ -39,6 +41,10 @@ public class GameController implements Initializable {
     private ImageView slot3;
     @FXML
     private ImageView slot4;
+    @FXML
+    private ProgressBar elixirBar;
+    @FXML
+    private HBox gameDeck;
 
     private boolean slot1Selected = false;
     private boolean slot2Selected = false;
@@ -197,17 +203,26 @@ public class GameController implements Initializable {
         if(event.getY()>228) {
             Point2D point2D = new Point2D(event.getX(), event.getY());;
             if (slot1Selected){
-                spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot1.getImage().getUrl()), point2D));
+                spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot1.getImage()), point2D));
+                slot1Selected=false;
+                slot1.setEffect(null);
             }
             if (slot2Selected){
-                spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot2.getImage().getUrl()), point2D));
+                spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot2.getImage()), point2D));
+                slot2Selected=false;
+                slot2.setEffect(null);
             }
             if (slot3Selected){
-                spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot3.getImage().getUrl()), point2D));
+                spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot3.getImage()), point2D));
+                slot3Selected=false;
+                slot3.setEffect(null);
             }
             if (slot4Selected){
-                spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot4.getImage().getUrl()), point2D));
+                spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot4.getImage()), point2D));
+                slot4Selected=false;
+                slot4.setEffect(null);
             }
+            System.out.println(spawnCharacters.size());
         }
     }
 

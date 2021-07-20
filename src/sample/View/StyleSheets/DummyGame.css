@@ -1,0 +1,8 @@
+.progress-bar .bar
+{
+    -fx-background-color: linear-gradient(to right, rgb(161, 8, 238) 0%, rgb(53, 7, 102) 100%);
+}
+#gameDeck
+{
+    -fx-border-color: #22016d;
+}

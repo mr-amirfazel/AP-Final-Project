@@ -57,7 +57,7 @@ public class TrainingCamp implements Initializable {
 
     @FXML
     void goToDummyBot(ActionEvent event) {
-
+        sceneLoader.goToDummy(event);
     }
 
     @FXML

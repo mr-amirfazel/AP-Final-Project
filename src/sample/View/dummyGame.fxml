@@ -23,7 +23,7 @@
                   <Insets right="20.0" />
                </HBox.margin>
             </ImageView>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="300.0" style="-fx-border-color: purple;">
+            <HBox fx:id="gameDeck" alignment="CENTER" prefHeight="100.0" prefWidth="300.0" style="-fx-border-color: purple;">
                <children>
                   <ImageView fx:id="slot1" fitHeight="65.0" fitWidth="75.0" onMouseClicked="#slot1Click" onMouseEntered="#slot1Hover" onMouseExited="#slot1Exit" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -32,7 +32,7 @@
                   </ImageView>
                   <ImageView fx:id="slot2" fitHeight="65.0" fitWidth="75.0" onMouseClicked="#slot2Click" onMouseEntered="#slot2Hover" onMouseExited="#slot2Exit" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Images/BattleDeck/baby%20dragon_00000.png" />
+                        <Image url="@Images/BattleDeck/babyDragon_00000.png" />
                      </image>
                      <HBox.margin>
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -65,7 +65,7 @@
                   <Font name="Arial Black" size="16.0" />
                </font>
             </Label>
-            <ProgressBar prefHeight="27.0" prefWidth="300.0" progress="0.3">
+            <ProgressBar fx:id="elixirBar" prefHeight="27.0" prefWidth="300.0" progress="0.3">
                <padding>
                   <Insets right="10.0" />
                </padding>
