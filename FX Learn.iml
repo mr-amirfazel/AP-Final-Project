@@ -10,6 +10,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src/sample/View/Images/MainMenu" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/sample/View/Images/Phase1" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/sample/View/Images/Profile" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/sample/View/Images/FieldElements" type="java-resource" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

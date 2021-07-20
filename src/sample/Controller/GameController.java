@@ -1,7 +1,6 @@
 package sample.Controller;
 
 import javafx.animation.AnimationTimer;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Point2D;
@@ -18,7 +17,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import sample.Model.*;
 import sample.Model.Cards.Card;
-import sample.Model.Cards.TroopCards.Archer;
 
 import java.net.URL;
 import java.util.*;
@@ -285,8 +283,31 @@ public class GameController implements Initializable {
             public void handle(long currentNanoTime)
             {
                 double t = (currentNanoTime - startNanoTime) / 1000000000.0;
-                gc.drawImage("ground.png");
+
+                Image ground = new Image("ground.png", 400, 500, false, false);
+                Image archerB = new Image("archerTowerB.png");
+                Image archerR = new Image("archerR.png");
+                Image kingB = new Image("kingTowerB.png");
+                Image val= new Image("valkyrie.png");
+                Image val2= new Image("chr_valkyrie_sprite_071.png",60,75,false,false);
+                gc.drawImage(ground, 0, 0);
+//                gc.drawImage(archerB,110,372);
+//                gc.drawImage(archerB,287,372);
+//                gc.drawImage(kingB,194,375);
+//                gc.drawImage(kingR,197,78);
+//                gc.drawImage(archerR,111,79);
+//                gc.drawImage(archerR,287,79);
                 // background image clears canvas
+
+
+                        gc.drawImage(val, (35), 300 - 20 * t);
+
+                        gc.drawImage(val2, (135), 300 - 20 * t);
+
+//                else
+//                    gc.drawImage(val, (35), 40);
+
+                System.out.println(t);
             }
         }.start();
     }
