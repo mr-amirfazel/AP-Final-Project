@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="profilePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.Profile">
+   <children>
+      <VBox fx:id="sideVBox" layoutX="351.0" prefHeight="575.0" prefWidth="99.0" spacing="45.0">
+         <children>
+            <ImageView fitHeight="207.0" fitWidth="99.0" onMouseClicked="#goToMenu" onMouseEntered="#goBackHover" onMouseExited="#goBackExit" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/Profile/goBack.png" />
+               </image>
+               <VBox.margin>
+                  <Insets top="65.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <Label fx:id="goBackLabel" alignment="CENTER" opacity="0.0" prefHeight="17.0" prefWidth="111.0">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="150.0" fitWidth="99.0" onMouseClicked="#goToSetting" onMouseEntered="#settingHover" onMouseExited="#settingExit" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/Profile/Setting.png" />
+               </image>
+               <VBox.margin>
+                  <Insets top="65.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <Label fx:id="settingLabel" alignment="CENTER" onMouseEntered="#settingHover" onMouseExited="#settingExit" opacity="0.0" prefHeight="46.0" prefWidth="110.0">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <Pane fx:id="leftPane" layoutX="1.0" prefHeight="497.0" prefWidth="351.0">
+         <children>
+            <VBox fx:id="profileVBox" alignment="TOP_CENTER" layoutX="4.0" layoutY="70.0" prefHeight="448.0" prefWidth="341.0">
+               <children>
+                  <Label fx:id="usernameField" alignment="CENTER" prefHeight="27.0" prefWidth="371.0" text="username" textFill="#2a03ee">
+                     <VBox.margin>
+                        <Insets top="59.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Eras Bold ITC" size="18.0" />
+                     </font>
+                  </Label>
+                  <GridPane prefHeight="38.0" prefWidth="341.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label fx:id="levelLabel" opacity="0.0" prefHeight="38.0" prefWidth="171.0">
+                           <padding>
+                              <Insets bottom="48.0" left="48.0" right="48.0" top="48.0" />
+                           </padding></Label>
+                        <Label alignment="CENTER" opacity="0.0" prefHeight="37.0" prefWidth="175.0" GridPane.columnIndex="1" fx:id="xpLabel" />
+                     </children>
+                  </GridPane>
+                  <HBox alignment="CENTER" prefHeight="58.0" prefWidth="341.0">
+                     <children>
+                        <Label fx:id="levelID" alignment="CENTER" contentDisplay="CENTER" onMouseEntered="#levelHover" onMouseExited="#levelExit" prefHeight="51.0" prefWidth="83.0" text="level" textFill="#0dd01a">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <ProgressBar fx:id="progressBar" onMouseEntered="#progressHover" onMouseExited="#progressExit" prefHeight="28.0" prefWidth="200.0" progress="0.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></ProgressBar>
+                     </children>
+                  </HBox>
+                  <Label fx:id="DeckLabel" alignment="CENTER" prefHeight="39.0" prefWidth="337.0" text="Deck">
+                     <font>
+                        <Font name="Elephant Italic" size="28.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="26.0" />
+                     </VBox.margin></Label>
+                  <FlowPane fx:id="DeckFlowPane" prefHeight="178.0" prefWidth="341.0">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="340.0" style="-fx-background-color: transparent;">
+                           <children>
+                              <ImageView fx:id="slot1" fitHeight="99.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="slot2" fitHeight="99.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="slot3" fitHeight="99.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="slot4" fitHeight="99.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets right="-4.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="339.0" style="-fx-background-color: transparent;">
+                           <children>
+                              <ImageView fx:id="slot5" fitHeight="98.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="1.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fx:id="slot6" fitHeight="98.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="slot7" fitHeight="98.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="slot8" fitHeight="98.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </HBox>
+                     </children></FlowPane>
+               </children>
+            </VBox>
+            <Circle fx:id="ProfileHolder" fill="DODGERBLUE" layoutX="176.0" layoutY="64.0" radius="50.0" stroke="BLACK" strokeType="INSIDE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Circle>
+            <Pane fx:id="holderPane" layoutX="126.0" layoutY="14.0" onMouseEntered="#profileHover" onMouseExited="#profileExit" prefHeight="100.0" prefWidth="100.0" style="-fx-border-radius: 75%; -fx-border-color: #f711ab; -fx-border-width: 3px;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</Pane>
