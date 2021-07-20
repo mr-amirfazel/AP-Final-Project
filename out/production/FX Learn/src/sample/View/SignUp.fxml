@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="SignupPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="401.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.SignUp">
+   <children>
+      <VBox fx:id="SignUpMenu" layoutX="14.0" layoutY="138.0" prefHeight="337.0" prefWidth="171.0">
+         <children>
+            <Label fx:id="usernameLabel" prefHeight="17.0" prefWidth="142.0" text="username">
+               <VBox.margin>
+                  <Insets top="69.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="usernameField" promptText="username">
+               <VBox.margin>
+                  <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+               </VBox.margin>
+            </TextField>
+            <Label fx:id="passLabel" prefHeight="17.0" prefWidth="171.0" text="password" />
+            <TextField fx:id="passField" promptText="password">
+               <VBox.margin>
+                  <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+               </VBox.margin>
+            </TextField>
+            <Label fx:id="secpassLabel" prefHeight="17.0" prefWidth="171.0" text="verify password" />
+            <TextField fx:id="secPassField" promptText="password">
+               <VBox.margin>
+                  <Insets bottom="74.0" left="6.0" right="6.0" top="6.0" />
+               </VBox.margin>
+            </TextField>
+            <Button fx:id="signUpSubmitButton" mnemonicParsing="false" onAction="#signUpSubmit" prefHeight="25.0" prefWidth="102.0" text="Sign Up">
+               <VBox.margin>
+                  <Insets left="69.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </VBox>
+      <Button fx:id="backToMain" layoutX="280.0" layoutY="491.0" mnemonicParsing="false" onAction="#backToMain" prefHeight="39.0" prefWidth="121.0" text="GO BACK">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label fx:id="signUpLabel" layoutX="11.0" layoutY="14.0" prefHeight="35.0" prefWidth="380.0" text="Sign Up">
+         <font>
+            <Font name="Calibri" size="30.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

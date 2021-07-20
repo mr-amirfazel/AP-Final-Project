@@ -1,0 +1,179 @@
+#enterPane{
+    /*background: rgb(13,110,148);*/
+    -fx-background-color: linear-gradient(to top, rgba(247,78,152,1) 0%, rgba(61,189,250,1) 100%)
+    /*, radial-gradient(center 50% 50%, radius 50%, #FFFFFF33, #00000033)*/
+;
+}
+#LogDisplay
+{
+
+    -fx-background-color: linear-gradient(to bottom, rgba(3,5,98,1) 54%, rgba(14,21,124,1) 72%, rgba(44,89,156,1) 90%);
+    -fx-border-color: #1877F2;
+    -fx-border-radius: 2.3%;
+}
+#passwordField,#userNameField{
+    -fx-background-color: #224C98;
+}
+#SubmitButton
+{
+    -fx-text-alignment: center;
+    -fx-font-size: 17px;
+    -fx-text-fill: #eb1dfd;
+    -fx-background-color: linear-gradient(to right, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+
+}
+#SubmitButton:hover
+{
+    -fx-text-alignment: center;
+    -fx-font-size: 17px;
+    -fx-text-fill: #960018;
+    -fx-background-color: linear-gradient(to right, rgba(3,5,98,1) 54%, rgba(124,80,14,1) 72%, rgba(44,89,156,1) 90%);
+
+}
+#LoginPane
+{
+    /*-fx-background-color: #318CE7;*/
+    -fx-background-image: url(../Images/Phase1/Wallpaper-Clash-Royale.jpg);
+    -fx-background-size: cover;
+}
+#loginLabel
+{
+
+    -fx-font-size: 17;
+    -fx-text-alignment: center;
+    -fx-text-fill: brown;
+    -fx-border-color: red;
+    -fx-border-radius: 5%;
+    -fx-background-radius: 5%;
+    -fx-alignment: center;
+
+}
+#toEnterance
+{
+    -fx-fill: #32a852;
+    -fx-border-color: #94eb52;
+}
+#FirstMenu
+{
+    -fx-background-image: url(../Images/Phase1/gameswallpapers-clashroyalewallpapers.jpg);
+    -fx-background-size: cover;
+}
+#LoginButton , #SignupButton
+{
+-fx-background-color: linear-gradient(to right, rgba(4,9,246,1) 26%, rgba(44,89,156,1) 82%);
+    -fx-text-fill: #f7941b;
+    -fx-border-radius: 2%;
+    -fx-border-color: black;
+
+}
+#LoginButton:hover , #SignupButton:hover
+{
+    -fx-text-fill: #e31b1b;
+    -fx-font-size: 16px;
+}
+#gobackLabel
+{
+    -fx-background-color: black;
+    -fx-border-radius: 1.2%;
+
+}
+#SignupPage
+{
+    -fx-background-image: url(../Images/Phase1/royaleking_clashroyalekingdom_1080x1920.jpg);
+    -fx-background-size:100% 100%;
+}
+#backToMain
+{
+    -fx-text-fill: black;
+    -fx-background-color:#ebf1f5;
+    -fx-font-size: 10px;
+}
+#backToMain:hover
+{
+    -fx-text-fill: #ebf1f5;
+    -fx-background-color: black;
+
+}
+#usernameField , #passField , #secPassField
+{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #191970 transparent;
+}
+#usernameLabel , #passLabel ,#secpassLabel
+{
+    -fx-font-size: 14px;
+    -fx-font-family: "Arial Black";
+    -fx-text-fill: #191970;
+}
+#signUpLabel
+{
+    -fx-alignment: center;
+    -fx-border-color: #49a2d6;
+    -fx-border-style: dashed;
+    -fx-border-radius: 5.2%;
+    -fx-border-width: 4px;
+    -fx-text-fill: #BFFF00;
+}
+#signUpLabel:hover
+{
+    -fx-border-color: #379c2c;
+    -fx-text-fill: #49a2d6;
+}
+#signUpSubmitButton
+{
+
+    -fx-font-size: 17px;
+    -fx-background-color: linear-gradient(to right, rgba(246,4,4,1) 26%, rgba(234,242,30,1) 82%);
+    -fx-text-fill: #191970;
+}
+#signUpSubmitButton:hover
+{
+    -fx-background-color: linear-gradient(to left, rgba(246,4,4,1) 26%, rgba(234,242,30,1) 82%);
+}
+/**
+gradients:
+blue & green:
+linear-gradient(107deg, rgba(4,131,246,1) 35%, rgba(69,212,36,1) 75%)
+red & pink :
+linear-gradient(107deg, rgba(219,60,46,1) 35%, rgba(242,94,244,1) 75%)
+orange & lil green:
+ linear-gradient(107deg, rgba(250,129,42,1) 35%, rgba(94,244,174,1) 75%)
+ */
+#bcircle1
+{
+    -fx-fill: linear-gradient(to bottom, rgba(4,131,246,1) 35%, rgba(69,212,36,1) 75%);
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+}
+#bcircle2
+{
+    -fx-fill: linear-gradient(to bottom, rgba(219,60,46,1) 35%, rgba(242,94,244,1) 75%);
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+}
+#bcircle3
+{
+    -fx-fill: linear-gradient(to bottom, rgba(250,129,42,1) 35%, rgba(94,244,174,1) 75%);
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+}
+#bcircle4
+{
+    -fx-fill:linear-gradient(to top, rgba(247,78,152,1) 0%, rgba(61,189,250,1) 100%);
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+}
+#bottomPane
+{
+    -fx-background-color: midnightblue;
+    -fx-border-radius: 2.3%;
+}
+#ExitButton
+{
+    -fx-background-color: transparent;
+    -fx-border-width: 2px;
+    -fx-border-style: dashed;
+    -fx-border-color: #b33232;
+    -fx-border-radius: 2.3%;
+    -fx-text-fill: #f0ed3a;
+}
