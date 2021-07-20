@@ -2,6 +2,8 @@ package sample.Model;
 
 import javafx.geometry.Point2D;
 import javafx.scene.image.Image;
+import sample.Model.Cards.BuildingCards.Cannon;
+import sample.Model.Cards.BuildingCards.InfernoTower;
 import sample.Model.Cards.Card;
 import sample.Model.Cards.TroopCards.*;
 
@@ -47,5 +49,14 @@ public class Spawn {
             element = new Image("wizard.png", 60, 75, false, false);
         else if(card instanceof MiniPekka)
             element = new Image("miniPekka.png", 60, 75, false, false);
+        else if(card instanceof Cannon)
+            element = new Image("Buildings/cannon.png", 60, 75, false, false);
+        else if(card instanceof InfernoTower)
+            element = new Image("Buildings/inferno.png", 60, 75, false, false);
+
+    }
+
+    public Image getElement() {
+        return element;
     }
 }

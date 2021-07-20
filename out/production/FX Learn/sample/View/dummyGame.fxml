@@ -4,15 +4,17 @@
 <?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" onMouseClicked="#groundClick" prefHeight="630.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.GameController">
+<AnchorPane fx:id="pane" onMouseClicked="#groundClick" prefHeight="630.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.GameController">
    <children>
-      <Canvas fx:id="canvas" height="502.0" layoutY="-1.0" onMouseClicked="#spawnCharacter" width="400.0" />
-      <HBox alignment="CENTER" layoutY="500.0" prefHeight="73.0" prefWidth="400.0" style="-fx-background-color: PURPLE;">
+      <Canvas fx:id="canvas" height="500.0" layoutY="-1.0" onMouseClicked="#spawnCharacter" width="400.0" />
+      <HBox alignment="CENTER" layoutY="500.0" prefHeight="75.0" prefWidth="339.0" style="-fx-background-color: PURPLE;">
          <children>
             <ImageView fx:id="upComingPhoto" fitHeight="69.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>
@@ -54,5 +56,58 @@
             </ProgressBar>
          </children>
       </HBox>
+      <VBox alignment="TOP_CENTER" layoutX="400.0" layoutY="-3.0" prefHeight="628.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(to bottom, rgb(161, 8, 238) 0%, rgb(53, 7, 102) 100%);">
+         <children>
+            <HBox prefHeight="65.0" prefWidth="150.0">
+               <children>
+                  <ImageView fitHeight="61.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/FieldElements/BCrown.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/FieldElements/RCrown.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="150.0">
+               <children>
+                  <Label fx:id="blueScore" alignment="CENTER" prefHeight="40.0" prefWidth="86.0" text="0">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="redScore" alignment="CENTER" prefHeight="40.0" prefWidth="82.0" text="0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="125.0" text="TIMER!!" textFill="#ff8c0a">
+               <font>
+                  <Font size="32.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="69.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="timerLabel" alignment="CENTER" prefHeight="17.0" prefWidth="119.0" text="00:00">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="145.0" fitWidth="178.0" onMouseClicked="#goBack" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/Profile/goBack.png" />
+               </image>
+               <VBox.margin>
+                  <Insets top="112.0" />
+               </VBox.margin>
+            </ImageView>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

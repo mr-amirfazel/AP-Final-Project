@@ -17,7 +17,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import sample.Model.*;
+import sample.Model.Cards.BuildingCards.Buildings;
 import sample.Model.Cards.Card;
+import sample.Model.Cards.SpellCards.Arrows;
+import sample.Model.Cards.SpellCards.Fireball;
+import sample.Model.Cards.SpellCards.Rage;
+import sample.Model.Cards.SpellCards.Spells;
 
 import java.net.URL;
 import java.util.*;
@@ -77,20 +82,16 @@ public class GameController implements Initializable {
         Image archerR = new Image("Buildings/archerR.png", 60, 75, false, false);
         Image kingR = new Image("Buildings/kingR.png", 70, 85, false, false);
         Image kingB = new Image("Buildings/kingTowerB.png", 70, 85, false, false);
-        gc.drawImage(ground,0,0);
-        gc.drawImage(kingB,165,330);
-        gc.drawImage(kingR,165,16);
-        gc.drawImage(archerR,83,75);
-        gc.drawImage(archerR,255,75);
-        gc.drawImage(archerB,80,290);
-        gc.drawImage(archerB,250,290);
         gc.drawImage(ground, 0, 0);
-//        startTimer();
+        gc.drawImage(kingB, 165, 330);
+        gc.drawImage(kingR, 165, 16);
+        gc.drawImage(archerR, 83, 75);
+        gc.drawImage(archerR, 255, 75);
+        gc.drawImage(archerB, 80, 290);
+        gc.drawImage(archerB, 250, 290);
+        gc.drawImage(ground, 0, 0);
+        startTimer();
     }
-
-
-
-
 
 
     @FXML
@@ -143,10 +144,12 @@ public class GameController implements Initializable {
         }
         return exists;
     }
+
     @FXML
     void goBack(MouseEvent event) {
         new SceneLoader().goToTrainingCamp(event);
     }
+
     @FXML
     public void slot1Click(MouseEvent event) {
         if (!(slot1.getEffect() instanceof DropShadow)) {
@@ -322,39 +325,22 @@ public class GameController implements Initializable {
 
                 gc.drawImage(archerB, 80, 290);
                 gc.drawImage(archerB, 250, 290);
-//                gc.drawImage(archerR, );
 
-//                gc.drawImage(archerB,110,372);
-//                gc.drawImage(archerB,287,372);
-//                gc.drawImage(kingB,194,375);
-//                gc.drawImage(kingR,197,78);
-//                gc.drawImage(archerR,111,79);
-//                gc.drawImage(archerR,287,79);
-                // background image clears canvas
+                for (Spawn spawn : spawnCharacters) {
+                    if (!(spawn.getCard() instanceof Spells))
+                    {
+                        if(spawn.getCard() instanceof Buildings)
+                                gc.drawImage(spawn.getElement(), spawn.getPoint2D().getX()-spawn.getElement().getWidth()/2,spawn.getPoint2D().getY()-spawn.getElement().getHeight()/2);
+                        else
+                        {
+                            gc.drawImage(spawn.getElement(), spawn.getPoint2D().getX()-spawn.getElement().getWidth()/2,spawn.getPoint2D().getY()-spawn.getElement().getHeight()/2);
+                            spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(),spawn.getPoint2D().getY()-15));
+                        }
+                    }
+                }
 
-
-                gc.drawImage(val, (35), 300 - 20 * t);
-
-                gc.drawImage(val2, (135), 300 - 20 * t);
-
-//                else
-//                    gc.drawImage(val, (35), 40);
 
             }
         }.start();
     }
-
-//    void startTimer()
-//    {
-//        final long startNanoTime = System.nanoTime();
-//        new AnimationTimer()
-//        {
-//            public void handle(long currentNanoTime)
-//            {
-//                double t = (currentNanoTime - startNanoTime) / 1000000000.0;
-//                gc.drawImage("ground.png");
-//                // background image clears canvas
-//            }
-//        }.start();
-//    }
 }
