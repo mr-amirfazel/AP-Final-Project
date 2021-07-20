@@ -10,16 +10,16 @@ import sample.Model.Cards.TroopCards.*;
 
 public class Spawn {
     private final Card card;
+    private String imageURL;
     private Point2D point2D;
-    private Image element;
+    private String element;
 
-    public Spawn(Card card, Point2D point2D) {
+
+    public Spawn(Card card, String imageURL, Point2D point2D) {
         this.card = card;
+        this.imageURL = imageURL;
         this.point2D = point2D;
-        setElement();
     }
-
-
 
     public Card getCard() {
         return card;
@@ -33,30 +33,8 @@ public class Spawn {
         this.point2D = point2D;
     }
 
-    private void setElement()
-    {
-        if(card instanceof Valkyrie)
-            element = new Image("valkyrie.png", 60, 75, false, false);
-        else if(card instanceof Archer)
-            element = new Image("archer.png", 60, 75, false, false);
-        else if(card instanceof Barbarian)
-            element = new Image("barbar.png", 60, 75, false, false);
-        else if(card instanceof BabyDragon)
-            element = new Image("babyDragon", 60, 75, false, false);
-        else if(card instanceof Giant)
-            element = new Image("giant.png", 60, 75, false, false);
-        else if( card instanceof  Wizard)
-            element = new Image("wizard.png", 60, 75, false, false);
-        else if(card instanceof MiniPekka)
-            element = new Image("miniPekka.png", 60, 75, false, false);
-        else if(card instanceof Cannon)
-            element = new Image("Buildings/cannon.png", 60, 75, false, false);
-        else if(card instanceof InfernoTower)
-            element = new Image("Buildings/inferno.png", 60, 75, false, false);
 
-    }
-
-    public Image getElement() {
-        return element;
+    public String getImageURL() {
+        return imageURL;
     }
 }

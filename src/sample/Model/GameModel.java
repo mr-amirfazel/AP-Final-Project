@@ -42,41 +42,72 @@ public class GameModel {
     {
             Card card = null;
 
-                if (image.equals(archer))
+                if (image.getUrl().equals(archer.getUrl()))
                     card = new Archer();
 
-              if (image.equals(arrows))
+              if (image.getUrl().equals(arrows.getUrl()))
                     card = new Arrows();
 
-              if (image.equals(babyDragon))
+              if (image.getUrl().equals(babyDragon.getUrl()))
                     card = new BabyDragon();
 
-                if (image.equals(babyDragon))
-                        card = new Barbarian();
-
-                if (image.equals(canon))
+                if (image.getUrl().equals(canon.getUrl()))
                     card = new Cannon();
 
-                 if (image.equals(fireball))
+                 if (image.getUrl().equals(fireball.getUrl()))
                     card = new Fireball();
-                   if (image.equals(giant))
+                   if (image.getUrl().equals(giant.getUrl()))
                     card = new Giant();
-                if (image.equals(inferno))
+                if (image.getUrl().equals(inferno.getUrl()))
                     card = new InfernoTower();
 
-                  if (image.equals(miniPekka))
+                  if (image.getUrl().equals(miniPekka.getUrl()))
                     card = new MiniPekka();
 
-                  if (image.equals(rage))
+                  if (image.getUrl().equals(rage.getUrl()))
                     card = new Rage();
 
-                     if (image.equals(valkyrie))
+                     if (image.getUrl().equals(valkyrie.getUrl()))
                      card = new Valkyrie();
 
-                    if (image.equals(wizard))
+                    if (image.getUrl().equals(wizard.getUrl()))
                     card = new Wizard();
-
 
             return card;
     }
+    public String getUrl(Image image)
+    {
+            String url = "";
+
+                if (image.getUrl().equals(archer.getUrl()))
+                   url = "archer.png";
+
+              if (image.equals(arrows))
+
+
+              if (image.getUrl().equals(babyDragon.getUrl()))
+                  url = "babyDragon.png";
+
+                if (image.getUrl().equals(archer.getUrl()))
+                    url = "archer.png";
+                else if(image.getUrl().equals(babyDragon.getUrl()))
+                    url = "babyDragon.png";
+                else if(image.getUrl().equals(barbarian.getUrl()))
+                    url ="barbar.png";
+                else if(image.getUrl().equals(valkyrie.getUrl()))
+                    url ="valkyrie.png";
+                else if(image.getUrl().equals(giant.getUrl()))
+                    url ="giant.png";
+                else if(image.getUrl().equals(miniPekka.getUrl()))
+                    url ="miniPekka.png";
+                else if(image.getUrl().equals(wizard.getUrl()))
+                    url ="wizard.png";
+                else if(image.getUrl().equals(canon.getUrl()))
+                    url ="Buildings/cannon.png";
+                else if(image.getUrl().equals(inferno.getUrl()))
+                    url ="Buildings/inferno.png";
+
+            return url;
+    }
+
 }

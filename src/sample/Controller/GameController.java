@@ -265,28 +265,28 @@ public class GameController implements Initializable {
             Point2D point2D = new Point2D(event.getX(), event.getY());
             boolean photoChange = false;
             if (slot1Selected) {
-                spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot1.getImage()), point2D));
+                spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot1.getImage()),gameModel.getUrl(slot1.getImage()), point2D));
                 slot1Selected = false;
                 slot1.setEffect(null);
                 slot1.setImage(upComingPhoto.getImage());
                 photoChange = true;
             }
             if (slot2Selected) {
-                spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot2.getImage()), point2D));
+                spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot2.getImage()),gameModel.getUrl(slot2.getImage()), point2D));
                 slot2Selected = false;
                 slot2.setEffect(null);
                 slot2.setImage(upComingPhoto.getImage());
                 photoChange = true;
             }
             if (slot3Selected) {
-                spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot3.getImage()), point2D));
+                spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot3.getImage()),gameModel.getUrl(slot3.getImage()), point2D));
                 slot3Selected = false;
                 slot3.setEffect(null);
                 slot3.setImage(upComingPhoto.getImage());
                 photoChange = true;
             }
             if (slot4Selected) {
-                spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot4.getImage()), point2D));
+                spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot4.getImage()),gameModel.getUrl(slot4.getImage()), point2D));
                 slot4Selected = false;
                 slot4.setEffect(null);
                 slot4.setImage(upComingPhoto.getImage());
@@ -329,12 +329,35 @@ public class GameController implements Initializable {
                 for (Spawn spawn : spawnCharacters) {
                     if (!(spawn.getCard() instanceof Spells))
                     {
+                        Image image = new Image(spawn.getImageURL(), 60, 75, false, false);
+
                         if(spawn.getCard() instanceof Buildings)
-                                gc.drawImage(spawn.getElement(), spawn.getPoint2D().getX()-spawn.getElement().getWidth()/2,spawn.getPoint2D().getY()-spawn.getElement().getHeight()/2);
+                                gc.drawImage(image, spawn.getPoint2D().getX(),spawn.getPoint2D().getY());
                         else
                         {
-                            gc.drawImage(spawn.getElement(), spawn.getPoint2D().getX()-spawn.getElement().getWidth()/2,spawn.getPoint2D().getY()-spawn.getElement().getHeight()/2);
-                            spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(),spawn.getPoint2D().getY()-15));
+
+                            gc.drawImage(image, spawn.getPoint2D().getX(),spawn.getPoint2D().getY());
+                            if(spawn.getPoint2D().getY()>232)
+                            spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(),spawn.getPoint2D().getY()-1));
+                            else if(spawn.getPoint2D().getY()==232) {
+                                if (!(((spawn.getPoint2D().getX() >= 99) && (spawn.getPoint2D().getX() <= 126)) || ((spawn.getPoint2D().getX() >= 270) && (spawn.getPoint2D().getX() <= 298))))
+                                {
+                                    if(spawn.getPoint2D().getX()<99)
+                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX()+1,spawn.getPoint2D().getY()));
+                                    else if(spawn.getPoint2D().getX()>298)
+                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX()-1,spawn.getPoint2D().getY()));
+                                    else if((spawn.getPoint2D().getX()-126)<(spawn.getPoint2D().getX()-270))
+                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX()-1,spawn.getPoint2D().getY()));
+                                    else
+                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX()+1,spawn.getPoint2D().getY()));
+
+                                }
+                                else
+                                    spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(),spawn.getPoint2D().getY()-1));
+                            }
+                            else
+                                spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(),spawn.getPoint2D().getY()-1));
+
                         }
                     }
                 }
