@@ -1,5 +1,6 @@
 package sample.Controller;
 
+import javafx.animation.AnimationTimer;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -67,6 +68,7 @@ public class GameController implements Initializable {
         gc = canvas.getGraphicsContext2D();
         Image ground = new Image("ground.png", 400, 500, false, false);
         gc.drawImage(ground, 0, 0);
+        startTimer();
     }
 
 
@@ -274,5 +276,18 @@ public class GameController implements Initializable {
                 setNextPhoto();
             System.out.println(spawnCharacters.size());
         }
+    }
+    void startTimer()
+    {
+        final long startNanoTime = System.nanoTime();
+        new AnimationTimer()
+        {
+            public void handle(long currentNanoTime)
+            {
+                double t = (currentNanoTime - startNanoTime) / 1000000000.0;
+                gc.drawImage("ground.png");
+                // background image clears canvas
+            }
+        }.start();
     }
 }
