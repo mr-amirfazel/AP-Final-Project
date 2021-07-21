@@ -380,6 +380,7 @@ public class GameController implements Initializable {
         {
             prevTime = currentNanoTime;
             timeTick();
+            timerLabel.setText(dispalyTime());
         }
 
     }
@@ -396,6 +397,20 @@ public class GameController implements Initializable {
     void incrementMinutes()
     {
         minutes =(minutes+1)%60;
+    }
+    String dispalyTime()
+    {
+        String min,sec;
+        if(seconds<10)
+            sec="0"+seconds;
+        else
+            sec = seconds+"";
+        if(minutes<10)
+            min = "0"+minutes;
+        else
+            min = minutes+"";
+
+        return min+":"+sec;
     }
 
 }
