@@ -55,6 +55,7 @@ public class GameController implements Initializable {
     private Label timerLabel;
 
 
+
     private boolean slot1Selected = false;
     private boolean slot2Selected = false;
     private boolean slot3Selected = false;
@@ -68,6 +69,9 @@ public class GameController implements Initializable {
     private GraphicsContext gc;
     private final ArrayList<Spawn> spawnCharacters = new ArrayList<>();
     private final GameModel gameModel = new GameModel();
+    private long prevTime =0;
+    private int minutes = 0;
+    private int seconds =0;
 
     //    public Card anyCard() {
 //        int index = randomGenerator.nextInt(cards.size());
@@ -304,6 +308,7 @@ public class GameController implements Initializable {
         new AnimationTimer() {
             public void handle(long currentNanoTime) {
                 double t = (currentNanoTime - startNanoTime) / 1000000000.0;
+                manageGameTimer(currentNanoTime);
 
                 Image ground = new Image("ground.png", 400, 500, false, false);
 
@@ -366,5 +371,15 @@ public class GameController implements Initializable {
 
             }
         }.start();
+    }
+    void manageGameTimer(long currentNanoTime)
+    {
+        long dt = currentNanoTime - prevTime;
+        dt = dt/1000000000;
+        if(dt>=1)
+        {
+            prevTime = currentNanoTime;
+            System.out.println(dt);
+        }
     }
 }
