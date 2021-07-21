@@ -99,6 +99,8 @@ public class Profile implements Initializable {
     private Circle ProfileHolder;
     @FXML
     private Pane holderPane;
+    @FXML
+    private ImageView leaguePhoto;
 
     private final ArrayList<ImageView> slots = new ArrayList<>() ;
 
@@ -166,6 +168,7 @@ public class Profile implements Initializable {
        setLabels();
        setProfile();
        setDeck();
+       setLeague();
     }
 
     public double maxXP(int level){
@@ -207,6 +210,28 @@ public class Profile implements Initializable {
         xpLabel.setText("XP : "+player.getXp()+"/"+maxXP(player.getLevel()));
         settingLabel.setText("Setting");
         goBackLabel.setText("GO BACK!!!");
+    }
+    public void setLeague()
+    {
+        switch (player.getLevel())
+        {
+            case 1:
+                leaguePhoto.setImage(new Image("Liga1.png"));
+                break;
+                case 2:
+                leaguePhoto.setImage(new Image("Liga2.png"));
+                break;
+                case 3:
+                leaguePhoto.setImage(new Image("Liga3.png"));
+                break;
+                case 4:
+                leaguePhoto.setImage(new Image("Liga4.png"));
+                break;
+                case 5:
+                leaguePhoto.setImage(new Image("Liga5.png"));
+                break;
+
+        }
     }
     void setDeck()
     {
@@ -260,6 +285,7 @@ public class Profile implements Initializable {
                slot.setImage(new Image("kart.png"));
         }
     }
+
     void addSlots()
     {
         slots.add(slot1);
