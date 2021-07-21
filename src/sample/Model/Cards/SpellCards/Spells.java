@@ -12,7 +12,7 @@ public abstract class Spells extends Card implements Serializable {
 
 
     public Spells(String ability, double radius, int cost, String url) {
-        super(url);
+        super(cost, url);
         this.ability = ability;
         this.radius = radius;
         this.cost = cost;

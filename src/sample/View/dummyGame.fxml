@@ -107,6 +107,17 @@
                   <Insets top="112.0" />
                </VBox.margin>
             </ImageView>
+            <Label fx:id="elixirLabel" alignment="CENTER" prefHeight="29.0" prefWidth="74.0" style="-fx-background-color: #ef711c;">
+               <VBox.margin>
+                  <Insets top="70.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <padding>
+                  <Insets bottom="1.0" left="1.0" right="1.0" top="2.0" />
+               </padding>
+            </Label>
          </children>
       </VBox>
    </children>

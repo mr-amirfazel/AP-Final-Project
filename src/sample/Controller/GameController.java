@@ -19,9 +19,6 @@ import javafx.scene.paint.Color;
 import sample.Model.*;
 import sample.Model.Cards.BuildingCards.Buildings;
 import sample.Model.Cards.Card;
-import sample.Model.Cards.SpellCards.Arrows;
-import sample.Model.Cards.SpellCards.Fireball;
-import sample.Model.Cards.SpellCards.Rage;
 import sample.Model.Cards.SpellCards.Spells;
 
 import java.net.URL;
@@ -48,11 +45,12 @@ public class GameController implements Initializable {
     private ImageView upComingPhoto;
     @FXML
     private Label blueScore;
-
     @FXML
     private Label redScore;
     @FXML
     private Label timerLabel;
+    @FXML
+    private Label elixirLabel;
 
 
 
@@ -72,6 +70,11 @@ public class GameController implements Initializable {
     private long prevTime =0;
     private int minutes = 0;
     private int seconds =0;
+    int elixirCount =0;
+
+
+
+
 
     //    public Card anyCard() {
 //        int index = randomGenerator.nextInt(cards.size());
@@ -269,11 +272,15 @@ public class GameController implements Initializable {
             Point2D point2D = new Point2D(event.getX(), event.getY());
             boolean photoChange = false;
             if (slot1Selected) {
-                spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot1.getImage()),gameModel.getUrl(slot1.getImage()), point2D));
+                if (gameModel.getCardByDirectory(slot1.getImage()).getCost()<= elixirCount){
+                    elixirCount-=gameModel.getCardByDirectory(slot1.getImage()).getCost();
+                    elixirBar.setProgress(elixirBar.getProgress()-gameModel.getCardByDirectory(slot1.getImage()).getCost()*0.07);
+                    spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot1.getImage()),gameModel.getUrl(slot1.getImage()), point2D));
+                    slot1.setImage(upComingPhoto.getImage());
+                    photoChange = true;
+                }
                 slot1Selected = false;
                 slot1.setEffect(null);
-                slot1.setImage(upComingPhoto.getImage());
-                photoChange = true;
             }
             if (slot2Selected) {
                 spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot2.getImage()),gameModel.getUrl(slot2.getImage()), point2D));
@@ -309,7 +316,6 @@ public class GameController implements Initializable {
             public void handle(long currentNanoTime) {
                 double t = (currentNanoTime - startNanoTime) / 1000000000.0;
 
-                manageElixirBar(currentNanoTime);
                 manageGameTimer(currentNanoTime);
 
 
@@ -338,15 +344,13 @@ public class GameController implements Initializable {
                     if (!(spawn.getCard() instanceof Spells))
                     {
                         Image image = new Image(spawn.getImageURL(), 60, 75, false, false);
-
                         if(spawn.getCard() instanceof Buildings)
-                                gc.drawImage(image, spawn.getPoint2D().getX(),spawn.getPoint2D().getY());
+                            gc.drawImage(image, spawn.getPoint2D().getX(),spawn.getPoint2D().getY());
                         else
                         {
-
                             gc.drawImage(image, spawn.getPoint2D().getX(),spawn.getPoint2D().getY());
                             if(spawn.getPoint2D().getY()>232)
-                            spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(),spawn.getPoint2D().getY()-1));
+                                spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(),spawn.getPoint2D().getY()-1));
                             else if(spawn.getPoint2D().getY()==232) {
                                 if (!(((spawn.getPoint2D().getX() >= 99) && (spawn.getPoint2D().getX() <= 126)) || ((spawn.getPoint2D().getX() >= 270) && (spawn.getPoint2D().getX() <= 298))))
                                 {
@@ -383,16 +387,23 @@ public class GameController implements Initializable {
         {
             prevTime = currentNanoTime;
             timeTick();
-            timerLabel.setText(dispalyTime());
+            timerLabel.setText(displayTime());
         }
 
     }
     void timeTick()
     {
         incrementSeconds();
+        if (elixirBar.getProgress()<1){
+            elixirBar.setProgress(elixirBar.getProgress()+0.07);
+            elixirCount++;
+            if (elixirCount <=10)
+                elixirLabel.setText(elixirCount +"");
+        }
+
         if(seconds==0){
-           incrementMinutes();
-    }
+            incrementMinutes();
+        }
     }
     void incrementSeconds(){
         seconds=(seconds+1)%60;
@@ -401,7 +412,7 @@ public class GameController implements Initializable {
     {
         minutes =(minutes+1)%60;
     }
-    String dispalyTime()
+    String displayTime()
     {
         String min,sec;
         if(seconds<10)
@@ -415,21 +426,4 @@ public class GameController implements Initializable {
 
         return min+":"+sec;
     }
-    void manageElixirBar(long currentNanoTime)
-    {
-        long dt = currentNanoTime - prevTime;
-        dt = dt/1000000000;
-        if(dt>1)
-        {
-            prevTime = currentNanoTime;
-            increaseBar();
-            System.out.println("elixir :"+elixirBar.getProgress());
-        }
-
-    }
-    void increaseBar()
-    {
-        elixirBar.setProgress(elixirBar.getProgress()+0.1);
-    }
-
 }

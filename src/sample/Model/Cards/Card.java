@@ -6,9 +6,17 @@ import java.io.Serializable;
 
 public abstract class Card implements Serializable {
     private final String imageUrl;
+    private int cost;
 
-    public Card(String imageUrl) {
+
+    public Card(int cost, String imageUrl) {
+        this.cost = cost;
         this.imageUrl = imageUrl;
+
+    }
+
+    public int getCost() {
+        return cost;
     }
 
     public Image getImage() {

@@ -15,7 +15,7 @@ public abstract class Buildings extends Card implements Serializable {
     int cost;
 
     public Buildings(int HP, int damage, double hitSpeed, String target, String range, int lifeTime, int cost, String url) {
-        super(url);
+        super(cost, url);
         this.HP = HP;
         this.damage = damage;
         this.hitSpeed = hitSpeed;
