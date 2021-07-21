@@ -12,20 +12,18 @@ public class Spawn {
     private final Card card;
     private String imageURL;
     private Point2D point2D;
-    private String element;
+   private int velocity;
 
 
-    public Spawn(Card card, String imageURL, Point2D point2D) {
+    public Spawn(Card card, String imageURL, Point2D point2D,int velocity) {
         this.card = card;
         this.imageURL = imageURL;
         this.point2D = point2D;
+        this.velocity = velocity;
+
     }
 
-    public Spawn(String imageURL, Point2D point2D) {
-        this.imageURL = imageURL;
-        this.point2D = point2D;
-        card = null;
-    }
+
 
     public Card getCard() {
         return card;
@@ -42,5 +40,9 @@ public class Spawn {
 
     public String getImageURL() {
         return imageURL;
+    }
+
+    public int getVelocity() {
+        return velocity;
     }
 }

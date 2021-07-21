@@ -276,7 +276,7 @@ public class GameController implements Initializable {
                 if (gameModel.getCardByDirectory(slot1.getImage()).getCost()<= elixirCount){
                     elixirCount-=gameModel.getCardByDirectory(slot1.getImage()).getCost();
                     elixirBar.setProgress(elixirBar.getProgress()-gameModel.getCardByDirectory(slot1.getImage()).getCost()*0.07);
-                    spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot1.getImage()),gameModel.getUrl(slot1.getImage()), point2D));
+                    spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot1.getImage()),gameModel.getUrl(slot1.getImage()), point2D,1));
                     slot1.setImage(upComingPhoto.getImage());
                     photoChange = true;
                     botMove(point2D);
@@ -285,7 +285,7 @@ public class GameController implements Initializable {
                 slot1.setEffect(null);
             }
             if (slot2Selected) {
-                spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot2.getImage()),gameModel.getUrl(slot2.getImage()), point2D));
+                spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot2.getImage()),gameModel.getUrl(slot2.getImage()), point2D,1));
                 slot2Selected = false;
                 slot2.setEffect(null);
                 slot2.setImage(upComingPhoto.getImage());
@@ -293,7 +293,7 @@ public class GameController implements Initializable {
                 botMove(point2D);
             }
             if (slot3Selected) {
-                spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot3.getImage()),gameModel.getUrl(slot3.getImage()), point2D));
+                spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot3.getImage()),gameModel.getUrl(slot3.getImage()), point2D,1));
                 slot3Selected = false;
                 slot3.setEffect(null);
                 slot3.setImage(upComingPhoto.getImage());
@@ -301,7 +301,7 @@ public class GameController implements Initializable {
                 botMove(point2D);
             }
             if (slot4Selected) {
-                spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot4.getImage()),gameModel.getUrl(slot4.getImage()), point2D));
+                spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot4.getImage()),gameModel.getUrl(slot4.getImage()), point2D,1));
                 slot4Selected = false;
                 slot4.setEffect(null);
                 slot4.setImage(upComingPhoto.getImage());
@@ -348,6 +348,7 @@ public class GameController implements Initializable {
                 gc.drawImage(archerB, 250, 290);
 
                 for (Spawn spawn : spawnCharacters) {
+                    int i = spawn.getVelocity();
 
                     if (!(spawn.getCard() instanceof Spells))
                     {
@@ -360,26 +361,26 @@ public class GameController implements Initializable {
                         {
                             gc.drawImage(image, spawn.getPoint2D().getX(),spawn.getPoint2D().getY());
                             if(spawn.getPoint2D().getY()>232)
-                                spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(),spawn.getPoint2D().getY()-1));
+                                spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(),spawn.getPoint2D().getY()-i));
                             else if(spawn.getPoint2D().getY()==232) {
                                 if (!(((spawn.getPoint2D().getX() >= 99) && (spawn.getPoint2D().getX() <= 126)) || ((spawn.getPoint2D().getX() >= 270) && (spawn.getPoint2D().getX() <= 298))))
                                 {
                                     if(spawn.getPoint2D().getX()<99)
-                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX()+1,spawn.getPoint2D().getY()));
+                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX()+i,spawn.getPoint2D().getY()));
                                     else if(spawn.getPoint2D().getX()>298)
-                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX()-1,spawn.getPoint2D().getY()));
+                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX()-i,spawn.getPoint2D().getY()));
                                     else if((spawn.getPoint2D().getX()-126)<(spawn.getPoint2D().getX()-270))
-                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX()-1,spawn.getPoint2D().getY()));
+                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX()-i,spawn.getPoint2D().getY()));
                                     else
-                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX()+1,spawn.getPoint2D().getY()));
+                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX()+i,spawn.getPoint2D().getY()));
 
                                 }
                                 else
-                                    spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(),spawn.getPoint2D().getY()-1));
+                                    spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(),spawn.getPoint2D().getY()-i));
                             }
                             else
                                 //testComment
-                                spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(),spawn.getPoint2D().getY()-1));
+                                spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(),spawn.getPoint2D().getY()-i));
 
                         }
                     }
@@ -396,7 +397,7 @@ public class GameController implements Initializable {
                 {
                     image = new Image(((DummyBot) bot).getElement(),60 ,70,false,false);
                     point = ((DummyBot) bot).getBotCoordinate();
-                    spawnCharacters.add(new Spawn(((DummyBot) bot).getElement(),point));
+                    spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(image),((DummyBot) bot).getElement(),point,-1));
                 }
                 else
                 {

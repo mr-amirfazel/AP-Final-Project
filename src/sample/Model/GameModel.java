@@ -22,6 +22,15 @@ public class GameModel {
     private Image rage;
     private Image valkyrie;
     private Image wizard;
+    private Image archerB;
+    private Image babyDragonB;
+    private Image barbarianB;
+    private Image canonB;
+    private Image giantB;
+    private Image infernoB;
+    private Image miniPekkaB;
+    private Image valkyrieB;
+    private Image wizardB;
 
     public GameModel() {
         archer = new Image("archer_00000.png");
@@ -36,6 +45,15 @@ public class GameModel {
         rage = new Image("rage_00000.png");
         valkyrie = new Image("valkyrie_00000.png");
         wizard = new Image("wizard_00000.png");
+        archerB = new Image("archerB.png");
+        babyDragonB = new Image("babyDragonB.png");
+        barbarianB = new Image("barbarianB.png");
+        giantB = new Image("giantB.png");
+        miniPekkaB = new Image("miniPekkaB.png");
+        valkyrieB = new Image("valkyrieB.png");
+        wizardB = new Image("wizardB.png");
+        canonB = new Image("Buildings/cannonB.png");
+        infernoB = new Image("Buildings/inferno.png");
     }
 
     public Card getCardByDirectory(Image image) {
@@ -75,8 +93,28 @@ public class GameModel {
         if (image.getUrl().equals(wizard.getUrl()))
             card = new Wizard();
 
+        if (image.getUrl().equals(archerB.getUrl()))
+            card = new Archer();
+        if (image.getUrl().equals(barbarianB.getUrl()))
+            card = new Barbarian();
+        if (image.getUrl().equals(babyDragonB.getUrl()))
+            card = new BabyDragon();
+        if (image.getUrl().equals(giantB.getUrl()))
+            card = new Giant();
+        if (image.getUrl().equals(miniPekkaB.getUrl()))
+            card = new MiniPekka();
+        if (image.getUrl().equals(valkyrieB.getUrl()))
+            card = new Valkyrie();
+        if (image.getUrl().equals(wizardB.getUrl()))
+            card = new Wizard();
+        if (image.getUrl().equals(infernoB.getUrl()))
+            card = new InfernoTower();
+        if (image.getUrl().equals(canonB.getUrl()))
+            card = new Cannon();
+
         return card;
     }
+
 
     public String getUrl(Image image) {
         String url = "";

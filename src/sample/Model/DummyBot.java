@@ -14,7 +14,7 @@ public class DummyBot extends Bot {
         random = new Random();
     }
     public Point2D getBotCoordinate(){
-            int Y = random.nextInt(64)+140;
+            int Y = random.nextInt(64)+120;
             int X = random.nextInt(264)+45;
 
             return  new Point2D(X,Y);
