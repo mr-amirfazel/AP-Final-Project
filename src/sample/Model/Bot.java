@@ -1,4 +1,4 @@
-package sample.Model.Cards;
+package sample.Model;
 
 public abstract class Bot {
 }

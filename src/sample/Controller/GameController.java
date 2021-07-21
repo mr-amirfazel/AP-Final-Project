@@ -70,10 +70,8 @@ public class GameController implements Initializable {
     private long prevTime =0;
     private int minutes = 0;
     private int seconds =0;
-    int elixirCount =0;
-
-
-
+    private int elixirCount =0;
+    private Bot bot;
 
 
     //    public Card anyCard() {
@@ -84,22 +82,25 @@ public class GameController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initGameDeck();
         gc = canvas.getGraphicsContext2D();
-        Image ground = new Image("ground.png", 400, 500, false, false);
-        Image archerB = new Image("Buildings/archerTowerB.png", 60, 75, false, false);
-        Image archerR = new Image("Buildings/archerR.png", 60, 75, false, false);
-        Image kingR = new Image("Buildings/kingR.png", 70, 85, false, false);
-        Image kingB = new Image("Buildings/kingTowerB.png", 70, 85, false, false);
-        gc.drawImage(ground, 0, 0);
-        gc.drawImage(kingB, 165, 330);
-        gc.drawImage(kingR, 165, 16);
-        gc.drawImage(archerR, 83, 75);
-        gc.drawImage(archerR, 255, 75);
-        gc.drawImage(archerB, 80, 290);
-        gc.drawImage(archerB, 250, 290);
-        gc.drawImage(ground, 0, 0);
+        determineBot();
         startTimer();
     }
 
+    void determineBot()
+    {
+        DummyBot dummyBot = new DummyBot();
+        AverageBot averageBot = new AverageBot();
+        int r  = new Random().nextInt(2);
+        bot = dummyBot;
+//        if(r==0){
+//            bot = dummyBot;
+//            System.out.println("bot is dummy");
+//        }
+//        else {
+//            bot = averageBot;
+//            System.out.println("bot is average");
+//        }
+    }
 
     @FXML
     public void groundClick(MouseEvent mouseEvent) {
@@ -278,6 +279,7 @@ public class GameController implements Initializable {
                     spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot1.getImage()),gameModel.getUrl(slot1.getImage()), point2D));
                     slot1.setImage(upComingPhoto.getImage());
                     photoChange = true;
+                    botMove(point2D);
                 }
                 slot1Selected = false;
                 slot1.setEffect(null);
@@ -288,6 +290,7 @@ public class GameController implements Initializable {
                 slot2.setEffect(null);
                 slot2.setImage(upComingPhoto.getImage());
                 photoChange = true;
+                botMove(point2D);
             }
             if (slot3Selected) {
                 spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot3.getImage()),gameModel.getUrl(slot3.getImage()), point2D));
@@ -295,6 +298,7 @@ public class GameController implements Initializable {
                 slot3.setEffect(null);
                 slot3.setImage(upComingPhoto.getImage());
                 photoChange = true;
+                botMove(point2D);
             }
             if (slot4Selected) {
                 spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot4.getImage()),gameModel.getUrl(slot4.getImage()), point2D));
@@ -302,6 +306,7 @@ public class GameController implements Initializable {
                 slot4.setEffect(null);
                 slot4.setImage(upComingPhoto.getImage());
                 photoChange = true;
+                botMove(point2D);
             }
 
             if (photoChange)
@@ -314,6 +319,8 @@ public class GameController implements Initializable {
         final long startNanoTime = System.nanoTime();
         new AnimationTimer() {
             public void handle(long currentNanoTime) {
+                if(timerLabel.getText().equals("03:00"))
+                    this.stop();
                 double t = (currentNanoTime - startNanoTime) / 1000000000.0;
 
                 manageGameTimer(currentNanoTime);
@@ -341,11 +348,14 @@ public class GameController implements Initializable {
                 gc.drawImage(archerB, 250, 290);
 
                 for (Spawn spawn : spawnCharacters) {
+
                     if (!(spawn.getCard() instanceof Spells))
                     {
+
                         Image image = new Image(spawn.getImageURL(), 60, 75, false, false);
                         if(spawn.getCard() instanceof Buildings)
                             gc.drawImage(image, spawn.getPoint2D().getX(),spawn.getPoint2D().getY());
+
                         else
                         {
                             gc.drawImage(image, spawn.getPoint2D().getX(),spawn.getPoint2D().getY());
@@ -378,6 +388,20 @@ public class GameController implements Initializable {
 
             }
         }.start();
+    }
+    void botMove(Point2D point2D){
+        Image image;
+        Point2D point;
+                if (bot instanceof DummyBot )
+                {
+                    image = new Image(((DummyBot) bot).getElement(),60 ,70,false,false);
+                    point = ((DummyBot) bot).getBotCoordinate();
+                    spawnCharacters.add(new Spawn(((DummyBot) bot).getElement(),point));
+                }
+                else
+                {
+
+                }
     }
     void manageGameTimer(long currentNanoTime)
     {

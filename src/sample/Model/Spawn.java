@@ -21,6 +21,12 @@ public class Spawn {
         this.point2D = point2D;
     }
 
+    public Spawn(String imageURL, Point2D point2D) {
+        this.imageURL = imageURL;
+        this.point2D = point2D;
+        card = null;
+    }
+
     public Card getCard() {
         return card;
     }
