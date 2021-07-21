@@ -391,11 +391,11 @@ public class GameController implements Initializable {
     }
     }
     void incrementSeconds(){
-        seconds++;
+        seconds=(seconds+1)%60;
     }
     void incrementMinutes()
     {
-        minutes++;
+        minutes =(minutes+1)%60;
     }
 
 }
