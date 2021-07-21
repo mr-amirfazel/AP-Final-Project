@@ -379,7 +379,23 @@ public class GameController implements Initializable {
         if(dt>=1)
         {
             prevTime = currentNanoTime;
-            System.out.println(dt);
+            timeTick();
         }
+
     }
+    void timeTick()
+    {
+        incrementSeconds();
+        if(seconds==0){
+           incrementMinutes();
+    }
+    }
+    void incrementSeconds(){
+        seconds=(seconds+1)%60;
+    }
+    void incrementMinutes()
+    {
+        minutes =(minutes+1)%60;
+    }
+
 }
