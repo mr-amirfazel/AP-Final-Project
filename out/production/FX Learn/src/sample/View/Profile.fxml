@@ -155,6 +155,8 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Pane>
+            <ImageView fx:id="leaguePhoto" fitHeight="79.0" fitWidth="83.0" layoutX="4.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" />
+            <Label alignment="CENTER" layoutY="6.0" prefHeight="17.0" prefWidth="73.0" text="League" />
          </children>
       </Pane>
    </children>
