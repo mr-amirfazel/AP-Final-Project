@@ -308,7 +308,10 @@ public class GameController implements Initializable {
         new AnimationTimer() {
             public void handle(long currentNanoTime) {
                 double t = (currentNanoTime - startNanoTime) / 1000000000.0;
+
+                manageElixirBar(currentNanoTime);
                 manageGameTimer(currentNanoTime);
+
 
                 Image ground = new Image("ground.png", 400, 500, false, false);
 
@@ -380,6 +383,7 @@ public class GameController implements Initializable {
         {
             prevTime = currentNanoTime;
             timeTick();
+            timerLabel.setText(dispalyTime());
         }
 
     }
@@ -396,6 +400,36 @@ public class GameController implements Initializable {
     void incrementMinutes()
     {
         minutes =(minutes+1)%60;
+    }
+    String dispalyTime()
+    {
+        String min,sec;
+        if(seconds<10)
+            sec="0"+seconds;
+        else
+            sec = seconds+"";
+        if(minutes<10)
+            min = "0"+minutes;
+        else
+            min = minutes+"";
+
+        return min+":"+sec;
+    }
+    void manageElixirBar(long currentNanoTime)
+    {
+        long dt = currentNanoTime - prevTime;
+        dt = dt/1000000000;
+        if(dt>1)
+        {
+            prevTime = currentNanoTime;
+            increaseBar();
+            System.out.println("elixir :"+elixirBar.getProgress());
+        }
+
+    }
+    void increaseBar()
+    {
+        elixirBar.setProgress(elixirBar.getProgress()+0.1);
     }
 
 }
