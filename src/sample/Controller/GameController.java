@@ -91,7 +91,7 @@ public class GameController implements Initializable {
         DummyBot dummyBot = new DummyBot();
         AverageBot averageBot = new AverageBot();
         int r  = new Random().nextInt(2);
-        bot = dummyBot;
+        bot = averageBot;
 //        if(r==0){
 //            bot = dummyBot;
 //            System.out.println("bot is dummy");
@@ -352,7 +352,8 @@ public class GameController implements Initializable {
 
                     if (!(spawn.getCard() instanceof Spells))
                     {
-
+                        if (spawn.getVelocity()==-1)
+                        System.out.println(spawn.getCard().getClass());
                         Image image = new Image(spawn.getImageURL(), 60, 75, false, false);
                         if(spawn.getCard() instanceof Buildings)
                             gc.drawImage(image, spawn.getPoint2D().getX(),spawn.getPoint2D().getY());
@@ -366,13 +367,13 @@ public class GameController implements Initializable {
                                 if (!(((spawn.getPoint2D().getX() >= 99) && (spawn.getPoint2D().getX() <= 126)) || ((spawn.getPoint2D().getX() >= 270) && (spawn.getPoint2D().getX() <= 298))))
                                 {
                                     if(spawn.getPoint2D().getX()<99)
-                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX()+i,spawn.getPoint2D().getY()));
+                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX()+Math.abs(i),spawn.getPoint2D().getY()));
                                     else if(spawn.getPoint2D().getX()>298)
-                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX()-i,spawn.getPoint2D().getY()));
+                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX()-Math.abs(i),spawn.getPoint2D().getY()));
                                     else if((spawn.getPoint2D().getX()-126)<(spawn.getPoint2D().getX()-270))
-                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX()-i,spawn.getPoint2D().getY()));
+                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX()-Math.abs(i),spawn.getPoint2D().getY()));
                                     else
-                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX()+i,spawn.getPoint2D().getY()));
+                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX()+Math.abs(i),spawn.getPoint2D().getY()));
 
                                 }
                                 else
@@ -392,17 +393,18 @@ public class GameController implements Initializable {
     }
     void botMove(Point2D point2D){
         Image image;
-        Point2D point;
+        Point2D point = null;
+        String imageUrl = bot.getElement();
+        image = new Image(imageUrl,60 ,70,false,false);
                 if (bot instanceof DummyBot )
                 {
-                    image = new Image(((DummyBot) bot).getElement(),60 ,70,false,false);
                     point = ((DummyBot) bot).getBotCoordinate();
-                    spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(image),((DummyBot) bot).getElement(),point,-1));
                 }
-                else
+                else if(bot instanceof AverageBot)
                 {
-
+                   point = ((AverageBot) bot).getBotCoordinate(point2D);
                 }
+        spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(image),imageUrl,point,-1));
     }
     void manageGameTimer(long currentNanoTime)
     {
