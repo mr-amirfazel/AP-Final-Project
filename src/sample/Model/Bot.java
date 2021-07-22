@@ -9,8 +9,8 @@ public abstract class Bot {
     private Random random;
 
     public Bot() {
-        cardsUrl = new String[]{"archerB.png","babyDragonB.png","barbarianB.png","Buildings/cannonB.png","miniPekkaB.png","giantB.png","wizardB.png",
-                "valkyrieB.png","Buildings/inferno.png"};
+        cardsUrl = new String[]{"archerB.png","babyDragonB.png","barbarianB.png","miniPekkaB.png","giantB.png","wizardB.png",
+                "valkyrieB.png"};
         random = new Random();
     }
 

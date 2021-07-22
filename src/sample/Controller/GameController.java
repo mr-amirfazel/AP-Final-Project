@@ -345,8 +345,35 @@ public class GameController implements Initializable {
         final long startNanoTime = System.nanoTime();
         new AnimationTimer() {
             public void handle(long currentNanoTime) {
-                if (timerLabel.getText().equals("03:00"))
+                String opponent ="";
+                if(bot instanceof DummyBot)
+                    opponent = "DummyBot";
+                else
+                    opponent ="AverageBot";
+                if (timerLabel.getText().equals("03:00")){
                     this.stop();
+                    System.out.println("timer is stopped");
+                    if(Integer.parseInt(redScore.getText())<Integer.parseInt(blueScore.getText()))
+                    {
+                        player.getHistory().add(new BattleHistory(opponent,"win"));
+                        player.increaseXP(200);
+                    }
+                    else{
+                        player.getHistory().add(new BattleHistory(opponent,"lost"));
+                        player.increaseXP(70);
+
+                    }
+                }
+                if(redScore.getText().equals("3"))
+                {
+                    player.getHistory().add(new BattleHistory(opponent,"lost"));
+                    player.increaseXP(70);
+                }
+                else if(blueScore.getText().equals("3"))
+                {
+                    player.getHistory().add(new BattleHistory(opponent,"win"));
+                    player.increaseXP(200);
+                }
                 double t = (currentNanoTime - startNanoTime) / 1000000000.0;
 
                 manageGameTimer(currentNanoTime);
@@ -356,11 +383,14 @@ public class GameController implements Initializable {
 
                 Image archerB = new Image("Buildings/archerTowerB.png", 60, 75, false, false);
                 Image archerR = new Image("Buildings/archerR.png", 60, 75, false, false);
+
                 Image kingR = new Image("Buildings/kingR.png", 70, 85, false, false);
                 Image kingB = new Image("Buildings/kingTowerB.png", 70, 85, false, false);
 
                 Image destroyed = new Image("Buildings/Destroy.png", 60, 75, false, false);
 
+                    int blueCrown =0;
+                    int redCrown =0;
 
                 gc.drawImage(ground, 0, 0);
                 if (kingTower.getHP() >= 0)
@@ -370,31 +400,41 @@ public class GameController implements Initializable {
                 if (kingTowerB.getHP() >= 0)
                     gc.drawImage(kingR, 165, 16);
                 else
-                    gc.drawImage(destroyed, 165, 330);
+                    gc.drawImage(destroyed, 165, 16);
+
                 if (archerTowerLeftB.getHP() >= 0)
                     gc.drawImage(archerR, 83, 75);
-                else
-                    gc.drawImage(destroyed, 165, 330);
+                else{
+                    gc.drawImage(destroyed, 83, 75);
+                    blueCrown++;
+                }
                 if (archerTowerRightB.getHP() >= 0)
                     gc.drawImage(archerR, 255, 75);
-                else
-                    gc.drawImage(destroyed, 165, 330);
+                else{
+                    gc.drawImage(destroyed, 225, 75);
+                    blueCrown++;
+                }
                 if (archerTowerLeft.getHP() >= 0)
                     gc.drawImage(archerB, 80, 290);
-                else
-                    gc.drawImage(destroyed, 165, 330);
+                else{
+                    gc.drawImage(destroyed, 80, 290);
+                    redCrown++;
+                }
                 if (archerTowerRight.getHP() >= 0)
                     gc.drawImage(archerB, 250, 290);
-                else
-                    gc.drawImage(destroyed, 165, 330);
-
+                else{
+                    gc.drawImage(destroyed, 250, 290);
+                    redCrown++;
+                }
+                blueScore.setText(blueCrown+"");
+                redScore.setText(redCrown+"");
 
                 Iterator<Spawn> it = spawnCharacters.iterator();
 
 
                 while (it.hasNext()) {
                     Spawn spawn = it.next();
-                    checkPlayerDistance(spawn);
+
                     int i = spawn.getVelocity() * 5;
                     if (!(spawn.getCard() instanceof Spells)) {
                         Image image = new Image(spawn.getImageURL(), 60, 75, false, false);
@@ -402,6 +442,7 @@ public class GameController implements Initializable {
                             gc.drawImage(image, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
 
                         else {
+                            checkPlayerDistance(spawn);
                             if (((Troops) spawn.getCard()).getHP() <= 0){
                                 it.remove();
                             }
@@ -454,6 +495,7 @@ public class GameController implements Initializable {
 
                         }
                     }
+
                 } else if (sharedData.archerTowerRight.distance(spawn.getPoint2D()) <= 7.5) {
                     if (archerTowerRight.getHP() > 0) {
                         gc.drawImage(image, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
@@ -540,6 +582,7 @@ public class GameController implements Initializable {
     void checkPlayerDistance(Spawn spawn) {
         Iterator<Spawn> chr = spawnCharacters.iterator();
         while (chr.hasNext()) {
+            if(spawn.getCard() instanceof  Troops){
             Spawn player = chr.next();
             if (!player.equals(spawn)) {
                 double distance = player.getPoint2D().distance(spawn.getPoint2D());
@@ -548,7 +591,6 @@ public class GameController implements Initializable {
                     if (spawn.getVelocity() != player.getVelocity()) {
                         System.out.println("folani said : salam");
                         gc.drawImage(img, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
-                        if(spawn.getCard() instanceof  Troops){
                         ((Troops) spawn.getCard()).setHP(((Troops) spawn.getCard()).getHP() - ((Troops) player.getCard()).getDamage());
                         ((Troops) player.getCard()).setHP(((Troops) player.getCard()).getHP() - ((Troops) spawn.getCard()).getDamage());
                         }
