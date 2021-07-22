@@ -22,6 +22,7 @@ import sample.Model.Cards.Card;
 import sample.Model.Cards.SpellCards.Spells;
 import sample.Model.Cards.Towers.ArcherTower;
 import sample.Model.Cards.Towers.KingTower;
+import sample.Model.Cards.TroopCards.Troops;
 
 import java.net.URL;
 import java.util.*;
@@ -98,17 +99,16 @@ public class GameController implements Initializable {
         DummyBot dummyBot = new DummyBot();
         AverageBot averageBot = new AverageBot();
         int r = new Random().nextInt(2);
-        if(r==0){
+        if (r == 0) {
             bot = dummyBot;
             System.out.println("bot is dummy");
-        }
-        else {
+        } else {
             bot = averageBot;
             System.out.println("bot is average");
         }
     }
-    void initTowers()
-    {
+
+    void initTowers() {
         kingTower = new KingTower();
         kingTowerB = new KingTower();
         archerTowerRight = new ArcherTower();
@@ -357,31 +357,31 @@ public class GameController implements Initializable {
                 Image kingR = new Image("Buildings/kingR.png", 70, 85, false, false);
                 Image kingB = new Image("Buildings/kingTowerB.png", 70, 85, false, false);
 
-                Image destroyed = new Image("Buildings/Destroy.png",60 , 75,false , false);
+                Image destroyed = new Image("Buildings/Destroy.png", 60, 75, false, false);
 
                 gc.drawImage(ground, 0, 0);
-                if (kingTower.getHP() !=0)
-                gc.drawImage(kingB, 165, 330);
+                if (kingTower.getHP() != 0)
+                    gc.drawImage(kingB, 165, 330);
                 else
                     gc.drawImage(destroyed, 165, 330);
-                if(kingTowerB.getHP()!=0)
-                gc.drawImage(kingR, 165, 16);
+                if (kingTowerB.getHP() != 0)
+                    gc.drawImage(kingR, 165, 16);
                 else
                     gc.drawImage(destroyed, 165, 330);
-                if(archerTowerLeftB.getHP()!=0)
-                gc.drawImage(archerR, 83, 75);
+                if (archerTowerLeftB.getHP() != 0)
+                    gc.drawImage(archerR, 83, 75);
                 else
                     gc.drawImage(destroyed, 165, 330);
-                if(archerTowerRightB.getHP()!=0)
-                gc.drawImage(archerR, 255, 75);
+                if (archerTowerRightB.getHP() != 0)
+                    gc.drawImage(archerR, 255, 75);
                 else
                     gc.drawImage(destroyed, 165, 330);
-                if(archerTowerLeft.getHP()!=0)
-                gc.drawImage(archerB, 80, 290);
+                if (archerTowerLeft.getHP() != 0)
+                    gc.drawImage(archerB, 80, 290);
                 else
                     gc.drawImage(destroyed, 165, 330);
-                if(archerTowerRight.getHP()!=0)
-                gc.drawImage(archerB, 250, 290);
+                if (archerTowerRight.getHP() != 0)
+                    gc.drawImage(archerB, 250, 290);
                 else
                     gc.drawImage(destroyed, 165, 330);
 
@@ -391,14 +391,17 @@ public class GameController implements Initializable {
 
                 while (it.hasNext()) {
                     Spawn spawn = it.next();
+                    checkPlayerDistance(spawn);
                     int i = spawn.getVelocity() * 5;
-
                     if (!(spawn.getCard() instanceof Spells)) {
                         Image image = new Image(spawn.getImageURL(), 60, 75, false, false);
                         if (spawn.getCard() instanceof Buildings)
                             gc.drawImage(image, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
 
                         else {
+                            if (((Troops) spawn.getCard()).getHP() <= 0){
+                                it.remove();
+                            }
                             if (!botAttack(spawn, image)) {
                                 gc.drawImage(image, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
                                 if (spawn.getPoint2D().getY() > 288) {
@@ -430,25 +433,23 @@ public class GameController implements Initializable {
             }
         }.start();
     }
-    private boolean botAttack(Spawn spawn,Image image)
-    {
+
+    private boolean botAttack(Spawn spawn, Image image) {
         boolean doesAttack = false;
 
 
-        if((sharedData.archerTowerLeft.distance(spawn.getPoint2D())<=7.5)||(sharedData.archerTowerRight.distance(spawn.getPoint2D())<=7.5))
-        {
-            if (spawn.getVelocity()<0){
-                gc.drawImage(image,spawn.getPoint2D().getX(),spawn.getPoint2D().getY());
+        if ((sharedData.archerTowerLeft.distance(spawn.getPoint2D()) <= 7.5) || (sharedData.archerTowerRight.distance(spawn.getPoint2D()) <= 7.5)) {
+            if (spawn.getVelocity() < 0) {
+                gc.drawImage(image, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
 //            System.out.println("salam");
-            doesAttack = true;
+                doesAttack = true;
             }
         }
-        if((sharedData.archerTowerLeftB.distance(spawn.getPoint2D())<=7.5)||(sharedData.archerTowerRightB.distance(spawn.getPoint2D())<=7.5))
-        {
-            if (spawn.getVelocity()>0){
-                gc.drawImage(image,spawn.getPoint2D().getX(),spawn.getPoint2D().getY());
+        if ((sharedData.archerTowerLeftB.distance(spawn.getPoint2D()) <= 7.5) || (sharedData.archerTowerRightB.distance(spawn.getPoint2D()) <= 7.5)) {
+            if (spawn.getVelocity() > 0) {
+                gc.drawImage(image, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
 //            System.out.println("salam");
-            doesAttack = true;
+                doesAttack = true;
             }
         }
         return doesAttack;
@@ -489,6 +490,27 @@ public class GameController implements Initializable {
 
         if (seconds == 0) {
             incrementMinutes();
+        }
+    }
+
+    void checkPlayerDistance(Spawn spawn) {
+        Iterator<Spawn> chr = spawnCharacters.iterator();
+        while (chr.hasNext()) {
+            Spawn player = chr.next();
+            if (!player.equals(spawn)) {
+                double distance = player.getPoint2D().distance(spawn.getPoint2D());
+                if (distance < 4.00) {
+                    Image img = new Image("bloodSplash.png", 40, 40, false, false);
+                    if (spawn.getVelocity() != player.getVelocity()) {
+                        System.out.println("salam");
+                        gc.drawImage(img, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
+                        ((Troops) spawn.getCard()).setHP(((Troops) spawn.getCard()).getHP() - ((Troops) player.getCard()).getDamage());
+                        ((Troops) player.getCard()).setHP(((Troops) player.getCard()).getHP() - ((Troops) spawn.getCard()).getDamage());
+                        System.out.println("spawn hp"+((Troops) spawn.getCard()).getHP());
+                        System.out.println("player hp"+((Troops) player.getCard()).getHP());
+                    }
+                }
+            }
         }
     }
 

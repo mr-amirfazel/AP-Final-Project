@@ -22,6 +22,8 @@ public abstract class Card implements Serializable {
     public Image getImage() {
         return new Image(imageUrl);
     }
+
+
 }
 
 
