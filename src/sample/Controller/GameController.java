@@ -53,7 +53,6 @@ public class GameController implements Initializable {
     private Label elixirLabel;
 
 
-
     private boolean slot1Selected = false;
     private boolean slot2Selected = false;
     private boolean slot3Selected = false;
@@ -67,10 +66,10 @@ public class GameController implements Initializable {
     private GraphicsContext gc;
     private final ArrayList<Spawn> spawnCharacters = new ArrayList<>();
     private final GameModel gameModel = new GameModel();
-    private long prevTime =0;
+    private long prevTime = 0;
     private int minutes = 0;
-    private int seconds =0;
-    private int elixirCount =0;
+    private int seconds = 0;
+    private int elixirCount = 0;
     private Bot bot;
 
 
@@ -86,11 +85,10 @@ public class GameController implements Initializable {
         startTimer();
     }
 
-    void determineBot()
-    {
+    void determineBot() {
         DummyBot dummyBot = new DummyBot();
         AverageBot averageBot = new AverageBot();
-        int r  = new Random().nextInt(2);
+        int r = new Random().nextInt(2);
         bot = averageBot;
 //        if(r==0){
 //            bot = dummyBot;
@@ -267,25 +265,32 @@ public class GameController implements Initializable {
 
     }
 
+    void alterElixir(ImageView slot) {
+        if (gameModel.getCardByDirectory(slot.getImage()).getCost() <= elixirCount) {
+            elixirCount -= gameModel.getCardByDirectory(slot.getImage()).getCost();
+            elixirBar.setProgress(elixirBar.getProgress() - gameModel.getCardByDirectory(slot.getImage()).getCost() * 0.07);
+        }
+    }
+
+
     @FXML
     void spawnCharacter(MouseEvent event) {
         if (event.getY() > 228) {
             Point2D point2D = new Point2D(event.getX(), event.getY());
             boolean photoChange = false;
             if (slot1Selected) {
-                if (gameModel.getCardByDirectory(slot1.getImage()).getCost()<= elixirCount){
-                    elixirCount-=gameModel.getCardByDirectory(slot1.getImage()).getCost();
-                    elixirBar.setProgress(elixirBar.getProgress()-gameModel.getCardByDirectory(slot1.getImage()).getCost()*0.07);
-                    spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot1.getImage()),gameModel.getUrl(slot1.getImage()), point2D,1));
-                    slot1.setImage(upComingPhoto.getImage());
-                    photoChange = true;
-                    botMove(point2D);
-                }
+                alterElixir(slot1);
+                spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot1.getImage()), gameModel.getUrl(slot1.getImage()), point2D, 1));
+                slot1.setImage(upComingPhoto.getImage());
+                photoChange = true;
                 slot1Selected = false;
                 slot1.setEffect(null);
+                botMove(point2D);
+
             }
             if (slot2Selected) {
-                spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot2.getImage()),gameModel.getUrl(slot2.getImage()), point2D,1));
+                alterElixir(slot2);
+                spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot2.getImage()), gameModel.getUrl(slot2.getImage()), point2D, 1));
                 slot2Selected = false;
                 slot2.setEffect(null);
                 slot2.setImage(upComingPhoto.getImage());
@@ -293,7 +298,8 @@ public class GameController implements Initializable {
                 botMove(point2D);
             }
             if (slot3Selected) {
-                spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot3.getImage()),gameModel.getUrl(slot3.getImage()), point2D,1));
+                alterElixir(slot3);
+                spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot3.getImage()), gameModel.getUrl(slot3.getImage()), point2D, 1));
                 slot3Selected = false;
                 slot3.setEffect(null);
                 slot3.setImage(upComingPhoto.getImage());
@@ -301,7 +307,8 @@ public class GameController implements Initializable {
                 botMove(point2D);
             }
             if (slot4Selected) {
-                spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot4.getImage()),gameModel.getUrl(slot4.getImage()), point2D,1));
+                alterElixir(slot4);
+                spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(slot4.getImage()), gameModel.getUrl(slot4.getImage()), point2D, 1));
                 slot4Selected = false;
                 slot4.setEffect(null);
                 slot4.setImage(upComingPhoto.getImage());
@@ -319,7 +326,7 @@ public class GameController implements Initializable {
         final long startNanoTime = System.nanoTime();
         new AnimationTimer() {
             public void handle(long currentNanoTime) {
-                if(timerLabel.getText().equals("03:00"))
+                if (timerLabel.getText().equals("03:00"))
                     this.stop();
                 double t = (currentNanoTime - startNanoTime) / 1000000000.0;
 
@@ -347,41 +354,39 @@ public class GameController implements Initializable {
                 gc.drawImage(archerB, 80, 290);
                 gc.drawImage(archerB, 250, 290);
 
-                for (Spawn spawn : spawnCharacters) {
-                    int i = spawn.getVelocity()*5;
 
-                    if (!(spawn.getCard() instanceof Spells))
-                    {
-                        if (spawn.getVelocity()==-1)
-                        System.out.println(spawn.getCard().getClass());
+                Iterator<Spawn> it = spawnCharacters.iterator();
+
+
+                while (it.hasNext()) {
+                    Spawn spawn = it.next();
+                    int i = spawn.getVelocity() * 5;
+
+                    if (!(spawn.getCard() instanceof Spells)) {
                         Image image = new Image(spawn.getImageURL(), 60, 75, false, false);
-                        if(spawn.getCard() instanceof Buildings)
-                            gc.drawImage(image, spawn.getPoint2D().getX(),spawn.getPoint2D().getY());
+                        if (spawn.getCard() instanceof Buildings)
+                            gc.drawImage(image, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
 
-                        else
-                        {
-                            gc.drawImage(image, spawn.getPoint2D().getX(),spawn.getPoint2D().getY());
-                            if(spawn.getPoint2D().getY()>288)
-                                spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(),spawn.getPoint2D().getY()-i));
-                            else if((spawn.getPoint2D().getY()<=288)||(spawn.getPoint2D().getY()>=232)) {
-                                if (!(((spawn.getPoint2D().getX() >= 99) && (spawn.getPoint2D().getX() <= 126)) || ((spawn.getPoint2D().getX() >= 270) && (spawn.getPoint2D().getX() <= 298))))
-                                {
-                                    if(spawn.getPoint2D().getX()<99)
-                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX()+Math.abs(i),spawn.getPoint2D().getY()));
-                                    else if(spawn.getPoint2D().getX()>298)
-                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX()-Math.abs(i),spawn.getPoint2D().getY()));
-                                    else if((spawn.getPoint2D().getX()-126)<(spawn.getPoint2D().getX()-270))
-                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX()-Math.abs(i),spawn.getPoint2D().getY()));
+                        else {
+                            gc.drawImage(image, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
+                            if (spawn.getPoint2D().getY() > 288)
+                                spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(), spawn.getPoint2D().getY() - i));
+                            else if ((spawn.getPoint2D().getY() <= 288) || (spawn.getPoint2D().getY() >= 232)) {
+                                if (!(((spawn.getPoint2D().getX() >= 99) && (spawn.getPoint2D().getX() <= 126)) || ((spawn.getPoint2D().getX() >= 270) && (spawn.getPoint2D().getX() <= 298)))) {
+                                    if (spawn.getPoint2D().getX() < 99)
+                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() + Math.abs(i), spawn.getPoint2D().getY()));
+                                    else if (spawn.getPoint2D().getX() > 298)
+                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() - Math.abs(i), spawn.getPoint2D().getY()));
+                                    else if ((spawn.getPoint2D().getX() - 126) < (spawn.getPoint2D().getX() - 270))
+                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() - Math.abs(i), spawn.getPoint2D().getY()));
                                     else
-                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX()+Math.abs(i),spawn.getPoint2D().getY()));
+                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() + Math.abs(i), spawn.getPoint2D().getY()));
 
-                                }
-                                else
-                                    spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(),spawn.getPoint2D().getY()-i));
-                            }
-                            else
+                                } else
+                                    spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(), spawn.getPoint2D().getY() - i));
+                            } else
                                 //testComment
-                                spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(),spawn.getPoint2D().getY()-i));
+                                spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(), spawn.getPoint2D().getY() - i));
 
                         }
                     }
@@ -391,66 +396,64 @@ public class GameController implements Initializable {
             }
         }.start();
     }
-    void botMove(Point2D point2D){
+
+    void botMove(Point2D point2D) {
         Image image;
         Point2D point = null;
         String imageUrl = bot.getElement();
-        image = new Image(imageUrl,60 ,70,false,false);
-                if (bot instanceof DummyBot )
-                {
-                    point = ((DummyBot) bot).getBotCoordinate();
-                }
-                else if(bot instanceof AverageBot)
-                {
-                   point = ((AverageBot) bot).getBotCoordinate(point2D);
-                }
-        spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(image),imageUrl,point,-1));
+        image = new Image(imageUrl, 60, 70, false, false);
+        if (bot instanceof DummyBot) {
+            point = ((DummyBot) bot).getBotCoordinate();
+        } else if (bot instanceof AverageBot) {
+            point = ((AverageBot) bot).getBotCoordinate(point2D);
+        }
+        spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(image), imageUrl, point, -1));
     }
-    void manageGameTimer(long currentNanoTime)
-    {
+
+    void manageGameTimer(long currentNanoTime) {
         long dt = currentNanoTime - prevTime;
-        dt = dt/1000000000;
-        if(dt>=1)
-        {
+        dt = dt / 1000000000;
+        if (dt >= 1) {
             prevTime = currentNanoTime;
             timeTick();
             timerLabel.setText(displayTime());
         }
 
     }
-    void timeTick()
-    {
+
+    void timeTick() {
         incrementSeconds();
-        if (elixirBar.getProgress()<1){
-            elixirBar.setProgress(elixirBar.getProgress()+0.07);
+        if (elixirBar.getProgress() < 1) {
+            elixirBar.setProgress(elixirBar.getProgress() + 0.07);
             elixirCount++;
-            if (elixirCount <=10)
-                elixirLabel.setText(elixirCount +"");
+            if (elixirCount <= 10)
+                elixirLabel.setText(elixirCount + "");
         }
 
-        if(seconds==0){
+        if (seconds == 0) {
             incrementMinutes();
         }
     }
-    void incrementSeconds(){
-        seconds=(seconds+1)%60;
-    }
-    void incrementMinutes()
-    {
-        minutes =(minutes+1)%60;
-    }
-    String displayTime()
-    {
-        String min,sec;
-        if(seconds<10)
-            sec="0"+seconds;
-        else
-            sec = seconds+"";
-        if(minutes<10)
-            min = "0"+minutes;
-        else
-            min = minutes+"";
 
-        return min+":"+sec;
+    void incrementSeconds() {
+        seconds = (seconds + 1) % 60;
+    }
+
+    void incrementMinutes() {
+        minutes = (minutes + 1) % 60;
+    }
+
+    String displayTime() {
+        String min, sec;
+        if (seconds < 10)
+            sec = "0" + seconds;
+        else
+            sec = seconds + "";
+        if (minutes < 10)
+            min = "0" + minutes;
+        else
+            min = minutes + "";
+
+        return min + ":" + sec;
     }
 }

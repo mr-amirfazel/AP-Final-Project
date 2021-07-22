@@ -13,6 +13,7 @@ public class SharedData {
         return sharedData;
     }
 
+
     public String username;
     public Player player;
     public final int LVL2_MAX = 500;

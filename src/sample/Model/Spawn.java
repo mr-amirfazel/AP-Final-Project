@@ -12,7 +12,7 @@ public class Spawn {
     private final Card card;
     private String imageURL;
     private Point2D point2D;
-   private int velocity;
+    private int velocity;
 
 
     public Spawn(Card card, String imageURL, Point2D point2D,int velocity) {
