@@ -28,4 +28,6 @@ public class SharedData {
     public final Point2D archerTowerRightB = new Point2D(271,132);
     public final Point2D archerTowerLeft = new Point2D(99,316);
     public final Point2D archerTowerLeftB = new Point2D(101,129);
+    public final Point2D KingTower = new Point2D(195,335);
+    public final Point2D KingTowerB = new Point2D(195,93);
 }
