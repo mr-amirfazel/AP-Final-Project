@@ -402,7 +402,7 @@ public class GameController implements Initializable {
                             if (((Troops) spawn.getCard()).getHP() <= 0){
                                 it.remove();
                             }
-                            if (!botAttack(spawn, image)) {
+                            if (!attackOnArcherTower(spawn, image)) {
                                 gc.drawImage(image, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
                                 if (spawn.getPoint2D().getY() > 288) {
 
@@ -434,20 +434,46 @@ public class GameController implements Initializable {
         }.start();
     }
 
-    private boolean botAttack(Spawn spawn, Image image) {
+    private boolean attackOnArcherTower(Spawn spawn, Image image) {
         boolean doesAttack = false;
 
 
         if ((sharedData.archerTowerLeft.distance(spawn.getPoint2D()) <= 7.5) || (sharedData.archerTowerRight.distance(spawn.getPoint2D()) <= 7.5)) {
             if (spawn.getVelocity() < 0) {
+                if(sharedData.archerTowerLeft.distance(spawn.getPoint2D()) <= 7.5){
                 gc.drawImage(image, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
+                if(spawn.getCard() instanceof Troops){
+                archerTowerLeft.setHP(archerTowerLeft.getHP()-((Troops) spawn.getCard()).getDamage());
+                ((Troops) spawn.getCard()).setHP(((Troops) spawn.getCard()).getHP()-archerTowerLeft.getDamage());
+                }
+                }
+                else if(sharedData.archerTowerRight.distance(spawn.getPoint2D()) <= 7.5){
+                    gc.drawImage(image, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
+                    if(spawn.getCard() instanceof Troops){
+                        archerTowerLeft.setHP(archerTowerRight.getHP()-((Troops) spawn.getCard()).getDamage());
+                        ((Troops) spawn.getCard()).setHP(((Troops) spawn.getCard()).getHP()-archerTowerRight.getDamage());
+                    }
+                }
 //            System.out.println("salam");
                 doesAttack = true;
             }
         }
         if ((sharedData.archerTowerLeftB.distance(spawn.getPoint2D()) <= 7.5) || (sharedData.archerTowerRightB.distance(spawn.getPoint2D()) <= 7.5)) {
             if (spawn.getVelocity() > 0) {
+                if(sharedData.archerTowerLeftB.distance(spawn.getPoint2D()) <= 7.5){
                 gc.drawImage(image, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
+                    if(spawn.getCard() instanceof Troops){
+                        archerTowerLeftB.setHP(archerTowerLeft.getHP()-((Troops) spawn.getCard()).getDamage());
+                        ((Troops) spawn.getCard()).setHP(((Troops) spawn.getCard()).getHP()-archerTowerLeftB.getDamage());
+                    }
+                }
+                else if(sharedData.archerTowerRightB.distance(spawn.getPoint2D()) <= 7.5){
+                    gc.drawImage(image, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
+                    if(spawn.getCard() instanceof Troops){
+                        archerTowerLeftB.setHP(archerTowerLeft.getHP()-((Troops) spawn.getCard()).getDamage());
+                        ((Troops) spawn.getCard()).setHP(((Troops) spawn.getCard()).getHP()-archerTowerRightB.getDamage());
+                    }
+                }
 //            System.out.println("salam");
                 doesAttack = true;
             }
@@ -502,7 +528,7 @@ public class GameController implements Initializable {
                 if (distance < 4.00) {
                     Image img = new Image("bloodSplash.png", 40, 40, false, false);
                     if (spawn.getVelocity() != player.getVelocity()) {
-                        System.out.println("salam");
+                        System.out.println("folani said : salam");
                         gc.drawImage(img, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
                         ((Troops) spawn.getCard()).setHP(((Troops) spawn.getCard()).getHP() - ((Troops) player.getCard()).getDamage());
                         ((Troops) player.getCard()).setHP(((Troops) player.getCard()).getHP() - ((Troops) spawn.getCard()).getDamage());
