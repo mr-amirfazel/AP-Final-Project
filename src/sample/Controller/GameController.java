@@ -348,7 +348,7 @@ public class GameController implements Initializable {
                 gc.drawImage(archerB, 250, 290);
 
                 for (Spawn spawn : spawnCharacters) {
-                    int i = spawn.getVelocity();
+                    int i = spawn.getVelocity()*5;
 
                     if (!(spawn.getCard() instanceof Spells))
                     {
@@ -360,9 +360,9 @@ public class GameController implements Initializable {
                         else
                         {
                             gc.drawImage(image, spawn.getPoint2D().getX(),spawn.getPoint2D().getY());
-                            if(spawn.getPoint2D().getY()>232)
+                            if(spawn.getPoint2D().getY()>288)
                                 spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(),spawn.getPoint2D().getY()-i));
-                            else if(spawn.getPoint2D().getY()==232) {
+                            else if((spawn.getPoint2D().getY()<=288)||(spawn.getPoint2D().getY()>=232)) {
                                 if (!(((spawn.getPoint2D().getX() >= 99) && (spawn.getPoint2D().getX() <= 126)) || ((spawn.getPoint2D().getX() >= 270) && (spawn.getPoint2D().getX() <= 298))))
                                 {
                                     if(spawn.getPoint2D().getX()<99)
