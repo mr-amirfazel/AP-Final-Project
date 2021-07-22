@@ -20,6 +20,8 @@ import sample.Model.*;
 import sample.Model.Cards.BuildingCards.Buildings;
 import sample.Model.Cards.Card;
 import sample.Model.Cards.SpellCards.Spells;
+import sample.Model.Cards.Towers.ArcherTower;
+import sample.Model.Cards.Towers.KingTower;
 
 import java.net.URL;
 import java.util.*;
@@ -71,6 +73,12 @@ public class GameController implements Initializable {
     private int seconds = 0;
     private int elixirCount = 0;
     private Bot bot;
+    private KingTower kingTower;
+    private KingTower kingTowerB;
+    private ArcherTower archerTowerRight;
+    private ArcherTower archerTowerRightB;
+    private ArcherTower archerTowerLeft;
+    private ArcherTower archerTowerLeftB;
 
 
     //    public Card anyCard() {
@@ -82,6 +90,7 @@ public class GameController implements Initializable {
         initGameDeck();
         gc = canvas.getGraphicsContext2D();
         determineBot();
+        initTowers();
         startTimer();
     }
 
@@ -89,15 +98,23 @@ public class GameController implements Initializable {
         DummyBot dummyBot = new DummyBot();
         AverageBot averageBot = new AverageBot();
         int r = new Random().nextInt(2);
-        bot = averageBot;
-//        if(r==0){
-//            bot = dummyBot;
-//            System.out.println("bot is dummy");
-//        }
-//        else {
-//            bot = averageBot;
-//            System.out.println("bot is average");
-//        }
+        if(r==0){
+            bot = dummyBot;
+            System.out.println("bot is dummy");
+        }
+        else {
+            bot = averageBot;
+            System.out.println("bot is average");
+        }
+    }
+    void initTowers()
+    {
+        kingTower = new KingTower();
+        kingTowerB = new KingTower();
+        archerTowerRight = new ArcherTower();
+        archerTowerRightB = new ArcherTower();
+        archerTowerLeft = new ArcherTower();
+        archerTowerLeftB = new ArcherTower();
     }
 
     @FXML
@@ -340,19 +357,33 @@ public class GameController implements Initializable {
                 Image kingR = new Image("Buildings/kingR.png", 70, 85, false, false);
                 Image kingB = new Image("Buildings/kingTowerB.png", 70, 85, false, false);
 
-                Image val = new Image("valkyrie.png", 60, 75, false, false);
-                Image val2 = new Image("chr_valkyrie_sprite_071.png", 60, 75, false, false);
+                Image destroyed = new Image("Buildings/Destroy.png",60 , 75,false , false);
 
                 gc.drawImage(ground, 0, 0);
-
+                if (kingTower.getHP() !=0)
                 gc.drawImage(kingB, 165, 330);
+                else
+                    gc.drawImage(destroyed, 165, 330);
+                if(kingTowerB.getHP()!=0)
                 gc.drawImage(kingR, 165, 16);
-
+                else
+                    gc.drawImage(destroyed, 165, 330);
+                if(archerTowerLeftB.getHP()!=0)
                 gc.drawImage(archerR, 83, 75);
+                else
+                    gc.drawImage(destroyed, 165, 330);
+                if(archerTowerRightB.getHP()!=0)
                 gc.drawImage(archerR, 255, 75);
-
+                else
+                    gc.drawImage(destroyed, 165, 330);
+                if(archerTowerLeft.getHP()!=0)
                 gc.drawImage(archerB, 80, 290);
+                else
+                    gc.drawImage(destroyed, 165, 330);
+                if(archerTowerRight.getHP()!=0)
                 gc.drawImage(archerB, 250, 290);
+                else
+                    gc.drawImage(destroyed, 165, 330);
 
 
                 Iterator<Spawn> it = spawnCharacters.iterator();
@@ -368,26 +399,29 @@ public class GameController implements Initializable {
                             gc.drawImage(image, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
 
                         else {
-                            gc.drawImage(image, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
-                            if (spawn.getPoint2D().getY() > 288)
-                                spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(), spawn.getPoint2D().getY() - i));
-                            else if ((spawn.getPoint2D().getY() <= 288) || (spawn.getPoint2D().getY() >= 232)) {
-                                if (!(((spawn.getPoint2D().getX() >= 99) && (spawn.getPoint2D().getX() <= 126)) || ((spawn.getPoint2D().getX() >= 270) && (spawn.getPoint2D().getX() <= 298)))) {
-                                    if (spawn.getPoint2D().getX() < 99)
-                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() + Math.abs(i), spawn.getPoint2D().getY()));
-                                    else if (spawn.getPoint2D().getX() > 298)
-                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() - Math.abs(i), spawn.getPoint2D().getY()));
-                                    else if ((spawn.getPoint2D().getX() - 126) < (spawn.getPoint2D().getX() - 270))
-                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() - Math.abs(i), spawn.getPoint2D().getY()));
-                                    else
-                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() + Math.abs(i), spawn.getPoint2D().getY()));
+                            if (!botAttack(spawn, image)) {
+                                gc.drawImage(image, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
+                                if (spawn.getPoint2D().getY() > 288) {
 
-                                } else
                                     spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(), spawn.getPoint2D().getY() - i));
-                            } else
-                                //testComment
-                                spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(), spawn.getPoint2D().getY() - i));
+                                } else if ((spawn.getPoint2D().getY() <= 288) || (spawn.getPoint2D().getY() >= 232)) {
+                                    if (!(((spawn.getPoint2D().getX() >= 99) && (spawn.getPoint2D().getX() <= 126)) || ((spawn.getPoint2D().getX() >= 270) && (spawn.getPoint2D().getX() <= 298)))) {
+                                        if (spawn.getPoint2D().getX() < 99)
+                                            spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() + Math.abs(i), spawn.getPoint2D().getY()));
+                                        else if (spawn.getPoint2D().getX() > 298)
+                                            spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() - Math.abs(i), spawn.getPoint2D().getY()));
+                                        else if ((spawn.getPoint2D().getX() - 126) < (spawn.getPoint2D().getX() - 270))
+                                            spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() - Math.abs(i), spawn.getPoint2D().getY()));
+                                        else
+                                            spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() + Math.abs(i), spawn.getPoint2D().getY()));
 
+                                    } else
+                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(), spawn.getPoint2D().getY() - i));
+                                } else
+                                    //testComment
+                                    spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(), spawn.getPoint2D().getY() - i));
+
+                            }
                         }
                     }
                 }
@@ -395,6 +429,29 @@ public class GameController implements Initializable {
 
             }
         }.start();
+    }
+    private boolean botAttack(Spawn spawn,Image image)
+    {
+        boolean doesAttack = false;
+
+
+        if((sharedData.archerTowerLeft.distance(spawn.getPoint2D())<=7.5)||(sharedData.archerTowerRight.distance(spawn.getPoint2D())<=7.5))
+        {
+            if (spawn.getVelocity()<0){
+                gc.drawImage(image,spawn.getPoint2D().getX(),spawn.getPoint2D().getY());
+//            System.out.println("salam");
+            doesAttack = true;
+            }
+        }
+        if((sharedData.archerTowerLeftB.distance(spawn.getPoint2D())<=7.5)||(sharedData.archerTowerRightB.distance(spawn.getPoint2D())<=7.5))
+        {
+            if (spawn.getVelocity()>0){
+                gc.drawImage(image,spawn.getPoint2D().getX(),spawn.getPoint2D().getY());
+//            System.out.println("salam");
+            doesAttack = true;
+            }
+        }
+        return doesAttack;
     }
 
     void botMove(Point2D point2D) {
