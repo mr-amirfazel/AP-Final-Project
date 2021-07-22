@@ -76,6 +76,7 @@ public class TrainingCamp implements Initializable {
         labelFadeIn(smartLabel);
         smartBotButton.setEffect(new GaussianBlur(5.5));
     }
+
     void labelFadeIn(Label label)
     {
         FadeTransition ft = new FadeTransition(Duration.seconds(0.5),label);
@@ -84,6 +85,7 @@ public class TrainingCamp implements Initializable {
         ft.play();
 
     }
+
     void labelFadeOut(Label label)
     {
         FadeTransition ft = new FadeTransition(Duration.seconds(0.5),label);
@@ -98,6 +100,7 @@ public class TrainingCamp implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setLabels();
     }
+
     void setLabels()
     {
         dummyLabel.setText("Dummy Bot");

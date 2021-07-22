@@ -97,6 +97,9 @@ public class GameController implements Initializable {
         startTimer();
     }
 
+    /**
+     * Determine bot.
+     */
     void determineBot() {
         DummyBot dummyBot = new DummyBot();
         AverageBot averageBot = new AverageBot();
@@ -110,6 +113,9 @@ public class GameController implements Initializable {
         }
     }
 
+    /**
+     * Init towers.
+     */
     void initTowers() {
         kingTower = new KingTower();
         kingTowerB = new KingTower();
@@ -119,6 +125,11 @@ public class GameController implements Initializable {
         archerTowerLeftB = new ArcherTower();
     }
 
+    /**
+     * Ground click.
+     *
+     * @param mouseEvent the mouse event
+     */
     @FXML
     public void groundClick(MouseEvent mouseEvent) {
 
@@ -129,6 +140,9 @@ public class GameController implements Initializable {
         System.out.println("y :" + y);
     }
 
+    /**
+     * Init game deck.
+     */
     void initGameDeck() {
         cards = player.getBattleDeck().getCards();
         slots = new ArrayList<>();
@@ -143,6 +157,9 @@ public class GameController implements Initializable {
         setNextPhoto();
     }
 
+    /**
+     * Sets next photo.
+     */
     void setNextPhoto() {
         Image image;
         ImageView imageView;
@@ -170,11 +187,21 @@ public class GameController implements Initializable {
         return exists;
     }
 
+    /**
+     * Go back.
+     *
+     * @param event the event
+     */
     @FXML
     void goBack(MouseEvent event) {
         new SceneLoader().goToTrainingCamp(event);
     }
 
+    /**
+     * Slot 1 click.
+     *
+     * @param event the event
+     */
     @FXML
     public void slot1Click(MouseEvent event) {
         if (!(slot1.getEffect() instanceof DropShadow)) {
@@ -188,6 +215,11 @@ public class GameController implements Initializable {
 
     }
 
+    /**
+     * Slot 2 click.
+     *
+     * @param event the event
+     */
     @FXML
     public void slot2Click(MouseEvent event) {
         if (!(slot2.getEffect() instanceof DropShadow)) {
@@ -200,6 +232,11 @@ public class GameController implements Initializable {
         }
     }
 
+    /**
+     * Slot 3 click.
+     *
+     * @param event the event
+     */
     @FXML
     public void slot3Click(MouseEvent event) {
         if (!(slot3.getEffect() instanceof DropShadow)) {
@@ -212,6 +249,11 @@ public class GameController implements Initializable {
         }
     }
 
+    /**
+     * Slot 4 click.
+     *
+     * @param event the event
+     */
     @FXML
     public void slot4Click(MouseEvent event) {
         if (!(slot4.getEffect() instanceof DropShadow)) {
@@ -224,50 +266,95 @@ public class GameController implements Initializable {
         }
     }
 
+    /**
+     * Slot 1 exit.
+     *
+     * @param event the event
+     */
     @FXML
     void slot1Exit(MouseEvent event) {
         if (!(slot1.getEffect() instanceof DropShadow))
             slot1.setEffect(null);
     }
 
+    /**
+     * Slot 1 hover.
+     *
+     * @param event the event
+     */
     @FXML
     void slot1Hover(MouseEvent event) {
         addGlow(slot1);
     }
 
+    /**
+     * Slot 2 exit.
+     *
+     * @param event the event
+     */
     @FXML
     void slot2Exit(MouseEvent event) {
         if (!(slot2.getEffect() instanceof DropShadow))
             slot2.setEffect(null);
     }
 
+    /**
+     * Slot 2 hover.
+     *
+     * @param event the event
+     */
     @FXML
     void slot2Hover(MouseEvent event) {
         addGlow(slot2);
     }
 
+    /**
+     * Slot 3 exit.
+     *
+     * @param event the event
+     */
     @FXML
     void slot3Exit(MouseEvent event) {
         if (!(slot3.getEffect() instanceof DropShadow))
             slot3.setEffect(null);
     }
 
+    /**
+     * Slot 3 hover.
+     *
+     * @param event the event
+     */
     @FXML
     void slot3Hover(MouseEvent event) {
         addGlow(slot3);
     }
 
+    /**
+     * Slot 4 exit.
+     *
+     * @param event the event
+     */
     @FXML
     void slot4Exit(MouseEvent event) {
         if (!(slot4.getEffect() instanceof DropShadow))
             slot4.setEffect(null);
     }
 
+    /**
+     * Slot 4 hover.
+     *
+     * @param event the event
+     */
     @FXML
     void slot4Hover(MouseEvent event) {
         addGlow(slot4);
     }
 
+    /**
+     * Add drop shadow.
+     *
+     * @param slot the slot
+     */
     void addDropShadow(ImageView slot) {
         slot.setEffect(new DropShadow(0.0, -3, 3, Color.RED));
         for (ImageView imageSlot : slots
@@ -278,12 +365,22 @@ public class GameController implements Initializable {
         }
     }
 
+    /**
+     * Add glow.
+     *
+     * @param slot the slot
+     */
     void addGlow(ImageView slot) {
         if (slot.getEffect() == null)
             slot.setEffect(new Glow(0.3));
 
     }
 
+    /**
+     * Alter elixir.
+     *
+     * @param slot the slot
+     */
     void alterElixir(ImageView slot) {
         if (gameModel.getCardByDirectory(slot.getImage()).getCost() <= elixirCount) {
             elixirCount -= gameModel.getCardByDirectory(slot.getImage()).getCost();
@@ -292,6 +389,11 @@ public class GameController implements Initializable {
     }
 
 
+    /**
+     * Spawn character.
+     *
+     * @param event the event
+     */
     @FXML
     void spawnCharacter(MouseEvent event) {
         if (event.getY() > 228) {
@@ -341,6 +443,9 @@ public class GameController implements Initializable {
         }
     }
 
+    /**
+     * Start timer.
+     */
     void startTimer() {
         final long startNanoTime = System.nanoTime();
         new AnimationTimer() {
@@ -499,6 +604,11 @@ public class GameController implements Initializable {
         }
 
 
+    /**
+     * Bot move.
+     *
+     * @param point2D the point 2 d
+     */
     void botMove(Point2D point2D) {
         Image image;
         Point2D point = null;
@@ -512,6 +622,11 @@ public class GameController implements Initializable {
         spawnCharacters.add(new Spawn(gameModel.getCardByDirectory(image), imageUrl, point, -1));
     }
 
+    /**
+     * Manage game timer.
+     *
+     * @param currentNanoTime the current nano time
+     */
     void manageGameTimer(long currentNanoTime) {
         long dt = currentNanoTime - prevTime;
         dt = dt / 1000000000;
@@ -523,6 +638,9 @@ public class GameController implements Initializable {
 
     }
 
+    /**
+     * Time tick.
+     */
     void timeTick() {
         incrementSeconds();
         if (elixirBar.getProgress() < 1) {
@@ -537,6 +655,11 @@ public class GameController implements Initializable {
         }
     }
 
+    /**
+     * Check player distance.
+     *
+     * @param spawn the spawn
+     */
     void checkPlayerDistance(Spawn spawn) {
         Iterator<Spawn> chr = spawnCharacters.iterator();
         while (chr.hasNext()) {
@@ -558,14 +681,25 @@ public class GameController implements Initializable {
         }
     }
 
+    /**
+     * Increment seconds.
+     */
     void incrementSeconds() {
         seconds = (seconds + 1) % 60;
     }
 
+    /**
+     * Increment minutes.
+     */
     void incrementMinutes() {
         minutes = (minutes + 1) % 60;
     }
 
+    /**
+     * Display time string.
+     *
+     * @return the string
+     */
     String displayTime() {
         String min, sec;
         if (seconds < 10)
