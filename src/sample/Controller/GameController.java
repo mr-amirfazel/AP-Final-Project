@@ -360,27 +360,27 @@ public class GameController implements Initializable {
                 Image destroyed = new Image("Buildings/Destroy.png", 60, 75, false, false);
 
                 gc.drawImage(ground, 0, 0);
-                if (kingTower.getHP() != 0)
+                if (kingTower.getHP() > 0)
                     gc.drawImage(kingB, 165, 330);
                 else
                     gc.drawImage(destroyed, 165, 330);
-                if (kingTowerB.getHP() != 0)
+                if (kingTowerB.getHP() > 0)
                     gc.drawImage(kingR, 165, 16);
                 else
                     gc.drawImage(destroyed, 165, 330);
-                if (archerTowerLeftB.getHP() != 0)
+                if (archerTowerLeftB.getHP() > 0)
                     gc.drawImage(archerR, 83, 75);
                 else
                     gc.drawImage(destroyed, 165, 330);
-                if (archerTowerRightB.getHP() != 0)
+                if (archerTowerRightB.getHP() > 0)
                     gc.drawImage(archerR, 255, 75);
                 else
                     gc.drawImage(destroyed, 165, 330);
-                if (archerTowerLeft.getHP() != 0)
+                if (archerTowerLeft.getHP() > 0)
                     gc.drawImage(archerB, 80, 290);
                 else
                     gc.drawImage(destroyed, 165, 330);
-                if (archerTowerRight.getHP() != 0)
+                if (archerTowerRight.getHP() > 0)
                     gc.drawImage(archerB, 250, 290);
                 else
                     gc.drawImage(destroyed, 165, 330);
@@ -440,43 +440,51 @@ public class GameController implements Initializable {
 
         if ((sharedData.archerTowerLeft.distance(spawn.getPoint2D()) <= 7.5) || (sharedData.archerTowerRight.distance(spawn.getPoint2D()) <= 7.5)) {
             if (spawn.getVelocity() < 0) {
-                if(sharedData.archerTowerLeft.distance(spawn.getPoint2D()) <= 7.5){
-                gc.drawImage(image, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
-                if(spawn.getCard() instanceof Troops){
-                archerTowerLeft.setHP(archerTowerLeft.getHP()-((Troops) spawn.getCard()).getDamage());
-                ((Troops) spawn.getCard()).setHP(((Troops) spawn.getCard()).getHP()-archerTowerLeft.getDamage());
-                }
-                }
-                else if(sharedData.archerTowerRight.distance(spawn.getPoint2D()) <= 7.5){
-                    gc.drawImage(image, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
-                    if(spawn.getCard() instanceof Troops){
-                        archerTowerLeft.setHP(archerTowerRight.getHP()-((Troops) spawn.getCard()).getDamage());
-                        ((Troops) spawn.getCard()).setHP(((Troops) spawn.getCard()).getHP()-archerTowerRight.getDamage());
+                if (sharedData.archerTowerLeft.distance(spawn.getPoint2D()) <= 7.5) {
+                    if (archerTowerLeft.getHP() > 0) {
+                        gc.drawImage(image, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
+                        if (spawn.getCard() instanceof Troops) {
+                            archerTowerLeft.setHP(archerTowerLeft.getHP() - ((Troops) spawn.getCard()).getDamage());
+                            ((Troops) spawn.getCard()).setHP(((Troops) spawn.getCard()).getHP() - archerTowerLeft.getDamage());
+                        }
                     }
-                }
+                } else if (sharedData.archerTowerRight.distance(spawn.getPoint2D()) <= 7.5) {
+                    if (archerTowerRight.getHP() > 0) {
+                        gc.drawImage(image, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
+                        if (spawn.getCard() instanceof Troops) {
+                            archerTowerLeft.setHP(archerTowerRight.getHP() - ((Troops) spawn.getCard()).getDamage());
+                            ((Troops) spawn.getCard()).setHP(((Troops) spawn.getCard()).getHP() - archerTowerRight.getDamage());
+
+                        }
+                    }
 //            System.out.println("salam");
-                doesAttack = true;
+                    doesAttack = true;
+                }
             }
-        }
-        if ((sharedData.archerTowerLeftB.distance(spawn.getPoint2D()) <= 7.5) || (sharedData.archerTowerRightB.distance(spawn.getPoint2D()) <= 7.5)) {
-            if (spawn.getVelocity() > 0) {
-                if(sharedData.archerTowerLeftB.distance(spawn.getPoint2D()) <= 7.5){
-                gc.drawImage(image, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
-                    if(spawn.getCard() instanceof Troops){
-                        archerTowerLeftB.setHP(archerTowerLeft.getHP()-((Troops) spawn.getCard()).getDamage());
-                        ((Troops) spawn.getCard()).setHP(((Troops) spawn.getCard()).getHP()-archerTowerLeftB.getDamage());
+            if ((sharedData.archerTowerLeftB.distance(spawn.getPoint2D()) <= 7.5) || (sharedData.archerTowerRightB.distance(spawn.getPoint2D()) <= 7.5)) {
+                if (spawn.getVelocity() > 0) {
+                    if (sharedData.archerTowerLeftB.distance(spawn.getPoint2D()) <= 7.5) {
+                        if (archerTowerLeftB.getHP() > 0) {
+                            gc.drawImage(image, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
+                            if (spawn.getCard() instanceof Troops) {
+                                archerTowerLeftB.setHP(archerTowerLeft.getHP() - ((Troops) spawn.getCard()).getDamage());
+                                ((Troops) spawn.getCard()).setHP(((Troops) spawn.getCard()).getHP() - archerTowerLeftB.getDamage());
+                            }
+                        }
+                    } else if (sharedData.archerTowerRightB.distance(spawn.getPoint2D()) <= 7.5) {
+                        if (archerTowerRightB.getHP() > 0) {
+                            gc.drawImage(image, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
+                            if (spawn.getCard() instanceof Troops) {
+                                archerTowerLeftB.setHP(archerTowerLeft.getHP() - ((Troops) spawn.getCard()).getDamage());
+                                ((Troops) spawn.getCard()).setHP(((Troops) spawn.getCard()).getHP() - archerTowerRightB.getDamage());
+                            }
+                        }
                     }
-                }
-                else if(sharedData.archerTowerRightB.distance(spawn.getPoint2D()) <= 7.5){
-                    gc.drawImage(image, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
-                    if(spawn.getCard() instanceof Troops){
-                        archerTowerLeftB.setHP(archerTowerLeft.getHP()-((Troops) spawn.getCard()).getDamage());
-                        ((Troops) spawn.getCard()).setHP(((Troops) spawn.getCard()).getHP()-archerTowerRightB.getDamage());
-                    }
-                }
 //            System.out.println("salam");
-                doesAttack = true;
+                    doesAttack = true;
+                }
             }
+
         }
         return doesAttack;
     }
@@ -530,10 +538,12 @@ public class GameController implements Initializable {
                     if (spawn.getVelocity() != player.getVelocity()) {
                         System.out.println("folani said : salam");
                         gc.drawImage(img, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
+                        if(spawn.getCard() instanceof  Troops){
                         ((Troops) spawn.getCard()).setHP(((Troops) spawn.getCard()).getHP() - ((Troops) player.getCard()).getDamage());
                         ((Troops) player.getCard()).setHP(((Troops) player.getCard()).getHP() - ((Troops) spawn.getCard()).getDamage());
                         System.out.println("spawn hp"+((Troops) spawn.getCard()).getHP());
                         System.out.println("player hp"+((Troops) player.getCard()).getHP());
+                        }
                     }
                 }
             }
