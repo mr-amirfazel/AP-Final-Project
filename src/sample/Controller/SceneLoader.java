@@ -10,13 +10,24 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * The type Scene loader.
+ */
 public class SceneLoader {
     private Stage stage;
     private Scene scene;
     private Parent root;
 
+    /**
+     * Instantiates a new Scene loader.
+     */
     public SceneLoader() {}
 
+    /**
+     * Go to entrance.
+     *
+     * @param event the event
+     */
     public void goToEntrance(ActionEvent event)
     {
         try {
@@ -32,6 +43,12 @@ public class SceneLoader {
         stage.setScene(scene);
         stage.show();
     }
+
+    /**
+     * Go to entrance.
+     *
+     * @param event the event
+     */
     public void goToEntrance(MouseEvent event)
     {
         try {
@@ -47,6 +64,12 @@ public class SceneLoader {
         stage.setScene(scene);
         stage.show();
     }
+
+    /**
+     * Go to login.
+     *
+     * @param event the event
+     */
     public void goToLogin(ActionEvent event)
     {
         try {
@@ -62,6 +85,12 @@ public class SceneLoader {
         stage.setScene(scene);
         stage.show();
     }
+
+    /**
+     * Go to sign up.
+     *
+     * @param event the event
+     */
     public void goToSignUp(ActionEvent event)
     {
         try {
@@ -77,6 +106,12 @@ public class SceneLoader {
         stage.setScene(scene);
         stage.show();
     }
+
+    /**
+     * Go to main menu.
+     *
+     * @param event the event
+     */
     public void goToMainMenu(ActionEvent event)
     {
         try {
@@ -92,6 +127,12 @@ public class SceneLoader {
         stage.setScene(scene);
         stage.show();
     }
+
+    /**
+     * Go to profile.
+     *
+     * @param event the event
+     */
     public void goToProfile(ActionEvent event)
     {
         try {
@@ -108,6 +149,11 @@ public class SceneLoader {
         stage.show();
     }
 
+    /**
+     * Go to main menu.
+     *
+     * @param event the event
+     */
     public void goToMainMenu(MouseEvent event) {
         try {
             root = FXMLLoader.load(getClass().getResource("../View/MainMenu.fxml"));
@@ -122,6 +168,12 @@ public class SceneLoader {
         stage.setScene(scene);
         stage.show();
     }
+
+    /**
+     * Go to battle history.
+     *
+     * @param event the event
+     */
     public void goToBattleHistory(ActionEvent event) {
         try {
             root = FXMLLoader.load(getClass().getResource("../View/BattleHistory.fxml"));
@@ -136,6 +188,12 @@ public class SceneLoader {
         stage.setScene(scene);
         stage.show();
     }
+
+    /**
+     * Go to battle deck.
+     *
+     * @param event the event
+     */
     public void goToBattleDeck(ActionEvent event) {
         try {
             root = FXMLLoader.load(getClass().getResource("../View/BattleDeck.fxml"));
@@ -150,6 +208,12 @@ public class SceneLoader {
         stage.setScene(scene);
         stage.show();
     }
+
+    /**
+     * Go to training camp.
+     *
+     * @param event the event
+     */
     public void goToTrainingCamp(ActionEvent event) {
         try {
             root = FXMLLoader.load(getClass().getResource("../View/TrainingCamp.fxml"));
@@ -164,6 +228,12 @@ public class SceneLoader {
         stage.setScene(scene);
         stage.show();
     }
+
+    /**
+     * Go to dummy.
+     *
+     * @param event the event
+     */
     public void goToDummy(ActionEvent event) {
         try {
             root = FXMLLoader.load(getClass().getResource("../View/dummyGame.fxml"));
@@ -178,6 +248,12 @@ public class SceneLoader {
         stage.setScene(scene);
         stage.show();
     }
+
+    /**
+     * Go to training camp.
+     *
+     * @param event the event
+     */
     public void goToTrainingCamp(MouseEvent event) {
         try {
             root = FXMLLoader.load(getClass().getResource("../View/TrainingCamp.fxml"));

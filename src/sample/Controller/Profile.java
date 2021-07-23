@@ -32,8 +32,14 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * The type Profile.
+ */
 public class Profile implements Initializable {
     private final SharedData sharedData = SharedData.getInstance();
+    /**
+     * The Data base.
+     */
     DataBase dataBase = new DataBase();
     private final Player player = sharedData.player;
     private final SceneLoader sceneLoader = new SceneLoader();
@@ -104,58 +110,124 @@ public class Profile implements Initializable {
 
     private final ArrayList<ImageView> slots = new ArrayList<>() ;
 
+    /**
+     * Go to menu.
+     *
+     * @param event the event
+     */
     @FXML
     void goToMenu(MouseEvent event) {
         sceneLoader.goToMainMenu(event);
     }
 
+    /**
+     * Go to setting.
+     *
+     * @param event the event
+     */
     @FXML
     void goToSetting(MouseEvent event) {
 
     }
+
+    /**
+     * Level exit.
+     *
+     * @param event the event
+     */
     @FXML
     void levelExit(MouseEvent event) {
        fadeOut(levelLabel);
     }
+
+    /**
+     * Profile hover.
+     *
+     * @param event the event
+     */
     @FXML
     void profileHover(MouseEvent event) {
         holderPane.setStyle("-fx-border-color: #0004ff;");
         ProfileHolder.setRadius(ProfileHolder.getRadius()+1);
     }
+
+    /**
+     * Profile exit.
+     *
+     * @param event the event
+     */
     @FXML
     void profileExit(MouseEvent event) {
         holderPane.setStyle(holderPane.getStyle()+"-fx-border-color: #f711ab;");
         ProfileHolder.setRadius(ProfileHolder.getRadius()-1);
 
     }
+
+    /**
+     * Level hover.
+     *
+     * @param event the event
+     */
     @FXML
     void levelHover(MouseEvent event) {
        fadeIn(levelLabel);
     }
 
+    /**
+     * Progress exit.
+     *
+     * @param event the event
+     */
     @FXML
     void progressExit(MouseEvent event) {
        fadeOut(xpLabel);
     }
 
+    /**
+     * Progress hover.
+     *
+     * @param event the event
+     */
     @FXML
     void progressHover(MouseEvent event) {
        fadeIn(xpLabel);
     }
+
+    /**
+     * Sets exit.
+     *
+     * @param event the event
+     */
     @FXML
     void settingExit(MouseEvent event) {
      fadeOut(settingLabel);
     }
 
+    /**
+     * Sets hover.
+     *
+     * @param event the event
+     */
     @FXML
     void settingHover(MouseEvent event) {
         fadeIn(settingLabel);
     }
+
+    /**
+     * Go back exit.
+     *
+     * @param event the event
+     */
     @FXML
     void goBackExit(MouseEvent event) {
      fadeOut(goBackLabel);
     }
 
+    /**
+     * Go back hover.
+     *
+     * @param event the event
+     */
     @FXML
     void goBackHover(MouseEvent event) {
         fadeIn(goBackLabel);
@@ -171,6 +243,12 @@ public class Profile implements Initializable {
        setLeague();
     }
 
+    /**
+     * Max xp double.
+     *
+     * @param level the level
+     * @return the double
+     */
     public double maxXP(int level){
         double maxXP;
         maxXP =1;
@@ -193,6 +271,9 @@ public class Profile implements Initializable {
         return maxXP;
     }
 
+    /**
+     * Sets profile.
+     */
     public void setProfile()
     {
 
@@ -204,6 +285,10 @@ public class Profile implements Initializable {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Sets labels.
+     */
     void setLabels()
     {
         levelLabel.setText("LEVEL");
@@ -211,6 +296,10 @@ public class Profile implements Initializable {
         settingLabel.setText("Setting");
         goBackLabel.setText("GO BACK!!!");
     }
+
+    /**
+     * Sets league.
+     */
     public void setLeague()
     {
         switch (player.getLevel())
@@ -233,6 +322,10 @@ public class Profile implements Initializable {
 
         }
     }
+
+    /**
+     * Sets deck.
+     */
     void setDeck()
     {
         addSlots();
@@ -286,6 +379,9 @@ public class Profile implements Initializable {
         }
     }
 
+    /**
+     * Add slots.
+     */
     void addSlots()
     {
         slots.add(slot1);
@@ -297,6 +393,12 @@ public class Profile implements Initializable {
         slots.add(slot7);
         slots.add(slot8);
     }
+
+    /**
+     * Fade in.
+     *
+     * @param label the label
+     */
     void fadeIn(Label label)
     {
         FadeTransition ft = new FadeTransition(Duration.seconds(0.5),label);
@@ -304,6 +406,12 @@ public class Profile implements Initializable {
         ft.setToValue(1);
         ft.play();
     }
+
+    /**
+     * Fade out.
+     *
+     * @param label the label
+     */
     void fadeOut(Label label)
     {
         FadeTransition ft = new FadeTransition(Duration.seconds(0.5),label);

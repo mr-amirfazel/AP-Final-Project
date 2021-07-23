@@ -29,9 +29,15 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * The type Deck controller.
+ */
 public class DeckController implements Initializable {
 
     private final SceneLoader sceneLoader = new SceneLoader();
+    /**
+     * The Card.
+     */
     Image card = new Image("kart.png");
 
     private final SharedData sharedData = SharedData.getInstance();
@@ -82,6 +88,9 @@ public class DeckController implements Initializable {
     private boolean img11IsUsed = false;
     private boolean img12IsUsed = false;
 
+    /**
+     * The Slots.
+     */
     ArrayList<ImageView> slots = new ArrayList<>();
 
     private void addToSlots() {
@@ -156,6 +165,11 @@ public class DeckController implements Initializable {
         }
     }
 
+    /**
+     * Image click 1.
+     *
+     * @param event the event
+     */
     @FXML
     public void imageClick1(MouseEvent event) {
         Image image = new Image("giant_00000.png");
@@ -168,6 +182,11 @@ public class DeckController implements Initializable {
         }
     }
 
+    /**
+     * Image click 2.
+     *
+     * @param event the event
+     */
     @FXML
     public void imageClick2(MouseEvent event) {
         Image image = new Image("inferno_00000.png");
@@ -180,6 +199,11 @@ public class DeckController implements Initializable {
         }
     }
 
+    /**
+     * Image click 3.
+     *
+     * @param event the event
+     */
     @FXML
     public void imageClick3(MouseEvent event) {
         Image image = new Image("miniPekka_00000.png");
@@ -192,6 +216,11 @@ public class DeckController implements Initializable {
         }
     }
 
+    /**
+     * Image click 4.
+     *
+     * @param event the event
+     */
     @FXML
     public void imageClick4(MouseEvent event) {
         Image image = new Image("rage_00000.png");
@@ -204,6 +233,11 @@ public class DeckController implements Initializable {
         }
     }
 
+    /**
+     * Image click 5.
+     *
+     * @param event the event
+     */
     @FXML
     public void imageClick5(MouseEvent event) {
         Image image = new Image("valkyrie_00000.png");
@@ -216,6 +250,11 @@ public class DeckController implements Initializable {
         }
     }
 
+    /**
+     * Image click 6.
+     *
+     * @param event the event
+     */
     @FXML
     public void imageClick6(MouseEvent event) {
         Image image = new Image("wizard_00000.png");
@@ -228,6 +267,11 @@ public class DeckController implements Initializable {
         }
     }
 
+    /**
+     * Image click 7.
+     *
+     * @param event the event
+     */
     @FXML
     public void imageClick7(MouseEvent event) {
         Image image = new Image("archer_00000.png");
@@ -240,6 +284,11 @@ public class DeckController implements Initializable {
         }
     }
 
+    /**
+     * Image click 8.
+     *
+     * @param event the event
+     */
     @FXML
     public void imageClick8(MouseEvent event) {
         Image image = new Image("arrows_00000.png");
@@ -252,6 +301,11 @@ public class DeckController implements Initializable {
         }
     }
 
+    /**
+     * Image click 9.
+     *
+     * @param event the event
+     */
     @FXML
     public void imageClick9(MouseEvent event) {
         Image image = new Image("barbarian_00000.png");
@@ -264,6 +318,11 @@ public class DeckController implements Initializable {
         }
     }
 
+    /**
+     * Image click 10.
+     *
+     * @param event the event
+     */
     @FXML
     public void imageClick10(MouseEvent event) {
         Image image = new Image("babyDragon_00000.png");
@@ -276,6 +335,11 @@ public class DeckController implements Initializable {
         }
     }
 
+    /**
+     * Image click 11.
+     *
+     * @param event the event
+     */
     @FXML
     public void imageClick11(MouseEvent event) {
         Image image = new Image("canon_00000.png");
@@ -288,6 +352,11 @@ public class DeckController implements Initializable {
         }
     }
 
+    /**
+     * Image click 12.
+     *
+     * @param event the event
+     */
     @FXML
     public void imageClick12(MouseEvent event) {
         Image image = new Image("fireball_00000.png");
@@ -300,6 +369,11 @@ public class DeckController implements Initializable {
         }
     }
 
+    /**
+     * Save deck array list.
+     *
+     * @return the array list
+     */
     public ArrayList<Card> saveDeck() {
 
         ArrayList <Card> cards = new ArrayList<Card>();
@@ -355,6 +429,9 @@ public class DeckController implements Initializable {
         return cards;
     }
 
+    /**
+     * Save cards.
+     */
     public void saveCards(){
 
         if(saveDeck().size() == 8){
@@ -376,27 +453,52 @@ public class DeckController implements Initializable {
             saveToFile();
         }
     }
+
+    /**
+     * Save to file.
+     */
     void saveToFile()
     {
         String user = player.getUserName();
         dataBase.savePlayer(player);
         sharedData.player = dataBase.getPlayer(user);
     }
+
+    /**
+     * Go to menu.
+     *
+     * @param event the event
+     */
     @FXML
     void goToMenu(MouseEvent event) {
         sceneLoader.goToMainMenu(event);
     }
 
+    /**
+     * Back hover.
+     *
+     * @param event the event
+     */
     @FXML
     void backHover(MouseEvent event) {
         fadeIn(goBackLabel);
     }
 
+    /**
+     * Back un hover.
+     *
+     * @param event the event
+     */
     @FXML
     void backUnHover(MouseEvent event) {
         fadeOut(goBackLabel);
     }
 
+    /**
+     * Fade in.
+     *
+     * @param label the label
+     */
     void fadeIn(Label label)
     {
         FadeTransition ft = new FadeTransition(Duration.seconds(0.65),label);
@@ -404,6 +506,12 @@ public class DeckController implements Initializable {
         ft.setToValue(1);
         ft.play();
     }
+
+    /**
+     * Fade out.
+     *
+     * @param label the label
+     */
     void fadeOut(Label label)
     {
         FadeTransition ft = new FadeTransition(Duration.seconds(0.65),label);

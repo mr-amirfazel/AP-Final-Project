@@ -9,6 +9,9 @@ import sample.Model.Cards.SpellCards.Fireball;
 import sample.Model.Cards.SpellCards.Rage;
 import sample.Model.Cards.TroopCards.*;
 
+/**
+ * The type Game model.
+ */
 public class GameModel {
     private Image archer;
     private Image arrows;
@@ -32,6 +35,9 @@ public class GameModel {
     private Image valkyrieB;
     private Image wizardB;
 
+    /**
+     * Instantiates a new Game model.
+     */
     public GameModel() {
         archer = new Image("archer_00000.png");
         arrows = new Image("arrows_00000.png");
@@ -56,6 +62,12 @@ public class GameModel {
         infernoB = new Image("Buildings/inferno.png");
     }
 
+    /**
+     * Gets card by directory.
+     *
+     * @param image the image
+     * @return the card by directory
+     */
     public Card getCardByDirectory(Image image) {
         Card card = null;
 
@@ -116,6 +128,12 @@ public class GameModel {
     }
 
 
+    /**
+     * Gets url.
+     *
+     * @param image the image
+     * @return the url
+     */
     public String getUrl(Image image) {
         String url = "";
 

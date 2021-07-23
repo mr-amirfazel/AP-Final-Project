@@ -27,6 +27,9 @@ import sample.Model.Cards.TroopCards.Troops;
 import java.net.URL;
 import java.util.*;
 
+/**
+ * The type Game controller.
+ */
 public class GameController implements Initializable {
     @FXML
     private Canvas canvas;
@@ -664,6 +667,13 @@ public class GameController implements Initializable {
             }
         return doesAttack;
         }
+
+    /**
+     * Attack on king tower.
+     *
+     * @param spawn the spawn
+     * @param image the image
+     */
     void attackOnKingTower(Spawn spawn , Image image){
         if(sharedData.KingTowerB.distance(spawn.getPoint2D())<=7)
         {

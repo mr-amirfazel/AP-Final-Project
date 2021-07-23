@@ -5,8 +5,16 @@ import sample.Model.Player;
 
 import java.io.*;
 
+/**
+ * The type Test.
+ */
 public class Test {
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         FileInputStream fileInputStream;
         FileOutputStream fileOutputStream;

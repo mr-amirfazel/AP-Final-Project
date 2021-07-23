@@ -16,6 +16,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * The type Entrance.
+ */
 public class Entrance {
     private final SceneLoader sceneLoader = new SceneLoader();
     @FXML
@@ -31,6 +34,11 @@ public class Entrance {
  @FXML
     private Circle bcircle4;
 
+    /**
+     * Login.
+     *
+     * @param event the event
+     */
     @FXML
     void Login(ActionEvent event) {
 //        try {
@@ -47,6 +55,12 @@ public class Entrance {
 //        stage.show();
         sceneLoader.goToLogin(event);
     }
+
+    /**
+     * Go to sign up.
+     *
+     * @param event the event
+     */
     @FXML
     void goToSignUp(ActionEvent event) {
 //        try {
@@ -64,6 +78,12 @@ public class Entrance {
 //        stage.show();
         sceneLoader.goToSignUp(event);
     }
+
+    /**
+     * B change 1.
+     *
+     * @param event the event
+     */
     @FXML
     void bChange1(MouseEvent event) {
 
@@ -71,22 +91,44 @@ public class Entrance {
         enterPane.setBackground(new Background(new BackgroundFill(lg,null,null)));
     }
 
+    /**
+     * B change 2.
+     *
+     * @param event the event
+     */
     @FXML
     void bChange2(MouseEvent event) {
         Paint lg = bcircle2.getFill();
         enterPane.setBackground(new Background(new BackgroundFill(lg,null,null)));
     }
 
+    /**
+     * B change 3.
+     *
+     * @param event the event
+     */
     @FXML
     void bChange3(MouseEvent event) {
         Paint lg = bcircle3.getFill();
         enterPane.setBackground(new Background(new BackgroundFill(lg,null,null)));
     }
+
+    /**
+     * B change 4.
+     *
+     * @param event the event
+     */
     @FXML
     void bChange4(MouseEvent event) {
         Paint lg = bcircle4.getFill();
         enterPane.setBackground(new Background(new BackgroundFill(lg,null,null)));
     }
+
+    /**
+     * Gets out.
+     *
+     * @param event the event
+     */
     @FXML
     void getOut(ActionEvent event) {
         Stage stage;

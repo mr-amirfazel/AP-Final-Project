@@ -19,6 +19,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
+/**
+ * The type Training camp.
+ */
 public class TrainingCamp implements Initializable {
 
     private final SceneLoader sceneLoader = new SceneLoader();
@@ -37,46 +40,86 @@ public class TrainingCamp implements Initializable {
     @FXML
     private Label smartLabel;
 
+    /**
+     * Go to menu.
+     *
+     * @param event the event
+     */
     @FXML
     void goToMenu(MouseEvent event) {
         sceneLoader.goToMainMenu(event);
     }
 
 
+    /**
+     * Dummy exit.
+     *
+     * @param event the event
+     */
     @FXML
     void dummyExit(MouseEvent event) {
         labelFadeOut(dummyLabel);
         DummyBotButton.setEffect(new DropShadow());
     }
 
+    /**
+     * Dummy hover.
+     *
+     * @param event the event
+     */
     @FXML
     void dummyHover(MouseEvent event) {
         labelFadeIn(dummyLabel);
         DummyBotButton.setEffect(new GaussianBlur(5.5));
     }
 
+    /**
+     * Go to dummy bot.
+     *
+     * @param event the event
+     */
     @FXML
     void goToDummyBot(ActionEvent event) {
         sceneLoader.goToDummy(event);
     }
 
+    /**
+     * Go to smart bot.
+     *
+     * @param event the event
+     */
     @FXML
     void goToSmartBot(ActionEvent event) {
 
     }
 
+    /**
+     * Smart bot exit.
+     *
+     * @param event the event
+     */
     @FXML
     void smartBotExit(MouseEvent event) {
         labelFadeOut(smartLabel);
         smartBotButton.setEffect(new DropShadow());
     }
 
+    /**
+     * Smart bot hover.
+     *
+     * @param event the event
+     */
     @FXML
     void smartBotHover(MouseEvent event) {
         labelFadeIn(smartLabel);
         smartBotButton.setEffect(new GaussianBlur(5.5));
     }
 
+    /**
+     * Label fade in.
+     *
+     * @param label the label
+     */
     void labelFadeIn(Label label)
     {
         FadeTransition ft = new FadeTransition(Duration.seconds(0.5),label);
@@ -86,6 +129,11 @@ public class TrainingCamp implements Initializable {
 
     }
 
+    /**
+     * Label fade out.
+     *
+     * @param label the label
+     */
     void labelFadeOut(Label label)
     {
         FadeTransition ft = new FadeTransition(Duration.seconds(0.5),label);
@@ -101,6 +149,9 @@ public class TrainingCamp implements Initializable {
         setLabels();
     }
 
+    /**
+     * Sets labels.
+     */
     void setLabels()
     {
         dummyLabel.setText("Dummy Bot");

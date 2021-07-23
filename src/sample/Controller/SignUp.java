@@ -18,6 +18,9 @@ import sample.Model.Player;
 
 import java.io.IOException;
 
+/**
+ * The type Sign up.
+ */
 public class SignUp {
 
     private DataBase dataBase;
@@ -56,11 +59,22 @@ public class SignUp {
 
     @FXML
     private Label secpassLabel;
+
+    /**
+     * Back to main.
+     *
+     * @param event the event
+     */
     @FXML
     void backToMain(ActionEvent event) {
         sceneLoader.goToEntrance(event);
     }
 
+    /**
+     * Sign up submit.
+     *
+     * @param event the event
+     */
     @FXML
     void signUpSubmit(ActionEvent event) {
         dataBase = new DataBase();

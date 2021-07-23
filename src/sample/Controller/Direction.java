@@ -1,5 +1,15 @@
 package sample.Controller;
 
+/**
+ * The enum Direction.
+ */
 public enum Direction {
-    GOLEFT,GORIGHT;
+    /**
+     * Goleft direction.
+     */
+    GOLEFT,
+    /**
+     * Goright direction.
+     */
+    GORIGHT;
 }

@@ -1,6 +1,15 @@
 package sample.Model;
 
+/**
+ * The type Info.
+ */
 public class info {
+    /**
+     * Get barbarian hp int.
+     *
+     * @param level the level
+     * @return the int
+     */
     public static int  getBarbarianHP(int level){
         if (level == 1){
             return 125;
@@ -19,6 +28,13 @@ public class info {
         }
         return 125;
     }
+
+    /**
+     * Get barbarian damage int.
+     *
+     * @param level the level
+     * @return the int
+     */
     public static int  getBarbarianDamage(int level){
         if (level == 1){
             return 33;
@@ -37,6 +53,13 @@ public class info {
         }
         return 33;
     }
+
+    /**
+     * Get archer hp int.
+     *
+     * @param level the level
+     * @return the int
+     */
     public static int getArcherHP(int level){
         if (level == 1){
             return 125;
@@ -55,6 +78,13 @@ public class info {
         }
         return 125;
     }
+
+    /**
+     * Get archer damage int.
+     *
+     * @param level the level
+     * @return the int
+     */
     public static int getArcherDamage(int level){
         if (level == 1){
             return 33;
@@ -73,6 +103,13 @@ public class info {
         }
         return 33;
     }
+
+    /**
+     * Get baby dragon hp int.
+     *
+     * @param level the level
+     * @return the int
+     */
     public static int getBabyDragonHP(int level){
         if (level == 1){
         return 800;
@@ -91,6 +128,13 @@ public class info {
     }
         return 800;
 }
+
+    /**
+     * Get baby dragon damage int.
+     *
+     * @param level the level
+     * @return the int
+     */
     public static int getBabyDragonDamage(int level){
         if (level == 1){
             return 100;
@@ -109,6 +153,13 @@ public class info {
         }
         return 100;
     }
+
+    /**
+     * Get wizard hp int.
+     *
+     * @param level the level
+     * @return the int
+     */
     public static int getWizardHP(int level){
         if (level == 1){
             return 340;
@@ -127,6 +178,13 @@ public class info {
         }
         return 340;
     }
+
+    /**
+     * Get wizard damage int.
+     *
+     * @param level the level
+     * @return the int
+     */
     public static int getWizardDamage(int level){
         if (level == 1){
             return 130;
@@ -145,6 +203,13 @@ public class info {
         }
         return 130;
     }
+
+    /**
+     * Get mini pekka hp int.
+     *
+     * @param level the level
+     * @return the int
+     */
     public static int getMiniPekkaHP(int level){
         if (level == 1){
             return 600;
@@ -163,6 +228,13 @@ public class info {
         }
         return 600;
     }
+
+    /**
+     * Get mini pekka damage int.
+     *
+     * @param level the level
+     * @return the int
+     */
     public static int getMiniPekkaDamage(int level){
         if (level == 1){
             return 325;
@@ -181,6 +253,13 @@ public class info {
         }
         return 325;
     }
+
+    /**
+     * Get giant hp int.
+     *
+     * @param level the level
+     * @return the int
+     */
     public static int getGiantHP(int level){
         if (level == 1){
             return 2000;
@@ -199,6 +278,13 @@ public class info {
         }
         return 600;
     }
+
+    /**
+     * Get giant damage int.
+     *
+     * @param level the level
+     * @return the int
+     */
     public static int getGiantDamage(int level){
         if (level == 1){
             return 126;
@@ -217,6 +303,13 @@ public class info {
         }
         return 126;
     }
+
+    /**
+     * Get valkyrie hp int.
+     *
+     * @param level the level
+     * @return the int
+     */
     public static int getValkyrieHP(int level){
         if (level == 1){
             return 880;
@@ -235,6 +328,13 @@ public class info {
         }
         return 880;
     }
+
+    /**
+     * Get valkyrie damage int.
+     *
+     * @param level the level
+     * @return the int
+     */
     public static int getValkyrieDamage(int level){
         if (level == 1){
             return 120;
@@ -253,6 +353,13 @@ public class info {
         }
         return 120;
     }
+
+    /**
+     * Get rage duration double.
+     *
+     * @param level the level
+     * @return the double
+     */
     public static double getRageDuration(int level){
         if (level == 1){
             return 6.0;
@@ -271,6 +378,13 @@ public class info {
         }
         return 6.0;
     }
+
+    /**
+     * Get fireball area damage int.
+     *
+     * @param level the level
+     * @return the int
+     */
     public static int getFireballAreaDamage(int level){
         if (level == 1){
             return 325;
@@ -289,6 +403,13 @@ public class info {
         }
         return 325;
     }
+
+    /**
+     * Get arrows area damage int.
+     *
+     * @param level the level
+     * @return the int
+     */
     public static int getArrowsAreaDamage(int level){
         if (level == 1){
             return 144;
@@ -307,6 +428,13 @@ public class info {
         }
         return 144;
     }
+
+    /**
+     * Get cannon hp int.
+     *
+     * @param level the level
+     * @return the int
+     */
     public static int getCannonHP(int level){
         if (level == 1){
             return 380;
@@ -325,6 +453,13 @@ public class info {
         }
         return 380;
     }
+
+    /**
+     * Get cannon damage int.
+     *
+     * @param level the level
+     * @return the int
+     */
     public static int getCannonDamage(int level){
         if (level == 1){
             return 60;
@@ -343,6 +478,13 @@ public class info {
         }
         return 60;
     }
+
+    /**
+     * Get inferno hp int.
+     *
+     * @param level the level
+     * @return the int
+     */
     public static int getInfernoHP(int level){
         if (level == 1){
             return 800;
@@ -361,6 +503,13 @@ public class info {
         }
         return 800;
     }
+
+    /**
+     * Get inferno damage int.
+     *
+     * @param level the level
+     * @return the int
+     */
     public static int getInfernoDamage(int level){
         if (level == 1){
             return 400;

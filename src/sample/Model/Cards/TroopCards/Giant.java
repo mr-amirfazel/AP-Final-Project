@@ -7,8 +7,14 @@ import sample.Model.info;
 
 import java.io.Serializable;
 
+/**
+ * The type Giant.
+ */
 public class Giant extends Troops implements Serializable {
 
+    /**
+     * Instantiates a new Giant.
+     */
     public Giant() {
         super(info.getGiantHP(SharedData.getInstance().player.getLevel()), info.getGiantDamage(SharedData.getInstance().player.getLevel()), 1.5, "Slow", "Buildings", "Melee", false, 1, 5, "giant_00000.png");
     }

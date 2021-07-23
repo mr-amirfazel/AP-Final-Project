@@ -20,6 +20,9 @@ import sample.Model.SharedData;
 
 import java.io.IOException;
 
+/**
+ * The type Controller.
+ */
 public class Controller {
     private final SceneLoader sceneLoader = new SceneLoader();
     private final SharedData sharedData = SharedData.getInstance();
@@ -40,6 +43,11 @@ public class Controller {
     @FXML
     private Label gobackLabel;
 
+    /**
+     * Submit.
+     *
+     * @param event the event
+     */
     @FXML
     void Submit(ActionEvent event) {
         DataBase dataBase = new DataBase();
@@ -61,6 +69,11 @@ public class Controller {
 
     }
 
+    /**
+     * Go to entrance.
+     *
+     * @param event the event
+     */
     @FXML
     void goToEntrance(MouseEvent event) {
 //        try {
@@ -76,6 +89,12 @@ public class Controller {
 //        stage.show();
         sceneLoader.goToEntrance(event);
     }
+
+    /**
+     * Goback show.
+     *
+     * @param event the event
+     */
     @FXML
     void gobackShow(MouseEvent event) {
         TranslateTransition tt = new TranslateTransition(Duration.seconds(1.5),gobackLabel);
@@ -84,6 +103,12 @@ public class Controller {
         tt.play();
        tt.setAutoReverse(false);
     }
+
+    /**
+     * Just a func.
+     *
+     * @param event the event
+     */
     @FXML
     void justAFunc(MouseEvent event) {
         TranslateTransition tt = new TranslateTransition(Duration.seconds(1.5),gobackLabel);

@@ -16,6 +16,9 @@ import sample.Model.SharedData;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * The type Battle history controller.
+ */
 public class BattleHistoryController implements Initializable {
     private final SharedData sharedData = SharedData.getInstance();
     private final DataBase dataBase = new DataBase();
@@ -33,15 +36,31 @@ public class BattleHistoryController implements Initializable {
     @FXML
     private VBox historyList;
 
+    /**
+     * Go to menu.
+     *
+     * @param event the event
+     */
     @FXML
     void goToMenu(MouseEvent event) {
     sceneLoader.goToMainMenu(event);
     }
+
+    /**
+     * Back hover.
+     *
+     * @param event the event
+     */
     @FXML
     void backHover(MouseEvent event) {
         fadeIn(goBackLabel);
     }
 
+    /**
+     * Back un hover.
+     *
+     * @param event the event
+     */
     @FXML
     void backUnHover(MouseEvent event) {
         fadeOut(goBackLabel);
@@ -52,6 +71,12 @@ public class BattleHistoryController implements Initializable {
        setLabels();
        addHistory();
     }
+
+    /**
+     * Fade in.
+     *
+     * @param label the label
+     */
     void fadeIn(Label label)
     {
         FadeTransition ft = new FadeTransition(Duration.seconds(0.65),label);
@@ -59,6 +84,12 @@ public class BattleHistoryController implements Initializable {
         ft.setToValue(1);
         ft.play();
     }
+
+    /**
+     * Fade out.
+     *
+     * @param label the label
+     */
     void fadeOut(Label label)
     {
         FadeTransition ft = new FadeTransition(Duration.seconds(0.65),label);
@@ -66,11 +97,19 @@ public class BattleHistoryController implements Initializable {
         ft.setToValue(0);
         ft.play();
     }
+
+    /**
+     * Sets labels.
+     */
     void setLabels()
     {
         historyUserName.setText(player.getUserName());
         goBackLabel.setText("go back");
     }
+
+    /**
+     * Add history.
+     */
     void addHistory()
     {
         for (int i =0; i<player.getHistory().size();i++)

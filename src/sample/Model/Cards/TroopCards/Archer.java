@@ -7,8 +7,14 @@ import sample.Model.info;
 
 import java.io.Serializable;
 
+/**
+ * The type Archer.
+ */
 public class Archer extends Troops implements Serializable {
 
+    /**
+     * Instantiates a new Archer.
+     */
     public Archer() {
         super(info.getArcherHP(SharedData.getInstance().player.getLevel()), info.getArcherDamage(SharedData.getInstance().player.getLevel()), 1.2, "Medium", "Air&Ground", "5", false, 2, 3, "archer_00000.png");
     }
