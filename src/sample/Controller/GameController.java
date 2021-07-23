@@ -79,6 +79,7 @@ public class GameController implements Initializable {
     private Bot bot;
     private KingTower kingTower = new KingTower();
     private KingTower kingTowerB = new KingTower();
+    private final DataBase dataBase = new DataBase();
 
     private ArcherTower archerTowerRight = new ArcherTower();
     private ArcherTower archerTowerRightB = new ArcherTower();
@@ -445,6 +446,9 @@ public class GameController implements Initializable {
             System.out.println(spawnCharacters.size());
         }
     }
+//    void saveToFile(Player player){
+//
+//    }
 
     /**
      * Start timer.
@@ -465,11 +469,12 @@ public class GameController implements Initializable {
                     {
                         player.getHistory().add(new BattleHistory(opponent,"win"));
                         player.increaseXP(200);
+                        new DataBase().savePlayer(player);
                     }
                     else{
                         player.getHistory().add(new BattleHistory(opponent,"lost"));
                         player.increaseXP(70);
-
+                        new DataBase().savePlayer(player);
                     }
                 }
                 if(redScore.getText().equals("3"))
@@ -562,19 +567,24 @@ public class GameController implements Initializable {
                             }
                             if (!attackOnArcherTower(spawn, image)) {
                                 gc.drawImage(image, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
-//                                if (archerTowerRight.getHP() < 0 && spawn.getPoint2D().getX() > 196) {
-//                                    spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() - Math.abs(i), spawn.getPoint2D().getY()));
+                                if (archerTowerRightB.getHP() < 0 && spawn.getPoint2D().getX() > 196 && spawn.getPoint2D().getY()<212 && spawn.getVelocity()>0) {
+                                    spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() - Math.abs(i), spawn.getPoint2D().getY()-i));
 //                                    attackOnKingTower(spawn, image);
-//                                } else if (archerTowerLeft.getHP() < 0 && spawn.getPoint2D().getX() < 196) {
-//                                    spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() + Math.abs(i), spawn.getPoint2D().getY()));
+                                }
+                                else if (archerTowerLeftB.getHP() < 0 && spawn.getPoint2D().getX() < 196 && spawn.getPoint2D().getY()<212 && spawn.getVelocity()>0) {
+                                    spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() + Math.abs(i), spawn.getPoint2D().getY()-i));
 //                                    attackOnKingTower(spawn, image);
-//                                } else if (archerTowerRightB.getHP() < 0 && spawn.getPoint2D().getX() > 196) {
-//                                    spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() - Math.abs(i), spawn.getPoint2D().getY()));
+                                } else if (archerTowerRight.getHP() < 0 && spawn.getPoint2D().getX() > 196 && spawn.getPoint2D().getY()>262 && spawn.getVelocity()<0) {
+                                    spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() - Math.abs(i), spawn.getPoint2D().getY()-i));
 //                                    attackOnKingTower(spawn, image);
-//                                } else if (archerTowerLeftB.getHP() < 0 && spawn.getPoint2D().getX() < 196) {
-//                                    spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() + Math.abs(i), spawn.getPoint2D().getY()));
+                                } else if (archerTowerLeft.getHP() < 0 && spawn.getPoint2D().getX() < 196 && spawn.getPoint2D().getY()>262 && spawn.getVelocity()<0) {
+                                    spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() + Math.abs(i), spawn.getPoint2D().getY()-i));
 //                                    attackOnKingTower(spawn, image);
-//                                } else {
+                                }
+//                                else if(spawn.getPoint2D().getX() >= 190 && spawn.getPoint2D().getX() <=200 ){
+////                                    attackOnKingTower(spawn, image);
+//                                }
+                                else {
                                     if (spawn.getPoint2D().getY() > 288) {
 
                                         spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(), spawn.getPoint2D().getY() - i));
@@ -596,7 +606,7 @@ public class GameController implements Initializable {
                                         spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(), spawn.getPoint2D().getY() - i));
 
                                 }
-//                            }
+                            }
                         }
                     }
                 }
