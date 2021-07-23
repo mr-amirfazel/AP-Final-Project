@@ -500,12 +500,16 @@ public class GameController implements Initializable {
                 gc.drawImage(ground, 0, 0);
                 if (kingTower.getHP() >= 0)
                     gc.drawImage(kingB, 165, 330);
-                else
+                else{
                     gc.drawImage(destroyed, 165, 330);
+                    redCrown++;
+                }
                 if (kingTowerB.getHP() >= 0)
                     gc.drawImage(kingR, 165, 16);
-                else
+                else{
                     gc.drawImage(destroyed, 165, 16);
+                    blueCrown++;
+                }
 
                 if (archerTowerLeftB.getHP() >= 0)
                     gc.drawImage(archerR, 83, 75);
@@ -553,27 +557,41 @@ public class GameController implements Initializable {
                             }
                             if (!attackOnArcherTower(spawn, image)) {
                                 gc.drawImage(image, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
-                                if (spawn.getPoint2D().getY() > 288) {
+//                                if (archerTowerRight.getHP() < 0 && spawn.getPoint2D().getX() > 196) {
+//                                    spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() - Math.abs(i), spawn.getPoint2D().getY()));
+//                                    attackOnKingTower(spawn, image);
+//                                } else if (archerTowerLeft.getHP() < 0 && spawn.getPoint2D().getX() < 196) {
+//                                    spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() + Math.abs(i), spawn.getPoint2D().getY()));
+//                                    attackOnKingTower(spawn, image);
+//                                } else if (archerTowerRightB.getHP() < 0 && spawn.getPoint2D().getX() > 196) {
+//                                    spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() - Math.abs(i), spawn.getPoint2D().getY()));
+//                                    attackOnKingTower(spawn, image);
+//                                } else if (archerTowerLeftB.getHP() < 0 && spawn.getPoint2D().getX() < 196) {
+//                                    spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() + Math.abs(i), spawn.getPoint2D().getY()));
+//                                    attackOnKingTower(spawn, image);
+//                                } else {
+                                    if (spawn.getPoint2D().getY() > 288) {
 
-                                    spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(), spawn.getPoint2D().getY() - i));
-                                } else if ((spawn.getPoint2D().getY() <= 288) || (spawn.getPoint2D().getY() >= 232)) {
-                                    if (!(((spawn.getPoint2D().getX() >= 99) && (spawn.getPoint2D().getX() <= 126)) || ((spawn.getPoint2D().getX() >= 270) && (spawn.getPoint2D().getX() <= 298)))) {
-                                        if (spawn.getPoint2D().getX() < 99)
-                                            spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() + Math.abs(i), spawn.getPoint2D().getY()));
-                                        else if (spawn.getPoint2D().getX() > 298)
-                                            spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() - Math.abs(i), spawn.getPoint2D().getY()));
-                                        else if ((spawn.getPoint2D().getX() - 126) < (spawn.getPoint2D().getX() - 270))
-                                            spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() - Math.abs(i), spawn.getPoint2D().getY()));
-                                        else
-                                            spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() + Math.abs(i), spawn.getPoint2D().getY()));
-
-                                    } else
                                         spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(), spawn.getPoint2D().getY() - i));
-                                } else
-                                    //testComment
-                                    spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(), spawn.getPoint2D().getY() - i));
+                                    } else if ((spawn.getPoint2D().getY() <= 288) || (spawn.getPoint2D().getY() >= 232)) {
+                                        if (!(((spawn.getPoint2D().getX() >= 99) && (spawn.getPoint2D().getX() <= 126)) || ((spawn.getPoint2D().getX() >= 270) && (spawn.getPoint2D().getX() <= 298)))) {
+                                            if (spawn.getPoint2D().getX() < 99)
+                                                spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() + Math.abs(i), spawn.getPoint2D().getY()));
+                                            else if (spawn.getPoint2D().getX() > 298)
+                                                spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() - Math.abs(i), spawn.getPoint2D().getY()));
+                                            else if ((spawn.getPoint2D().getX() - 126) < (spawn.getPoint2D().getX() - 270))
+                                                spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() - Math.abs(i), spawn.getPoint2D().getY()));
+                                            else
+                                                spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX() + Math.abs(i), spawn.getPoint2D().getY()));
 
-                            }
+                                        } else
+                                            spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(), spawn.getPoint2D().getY() - i));
+                                    } else
+                                        //testComment
+                                        spawn.setPoint2D(new Point2D(spawn.getPoint2D().getX(), spawn.getPoint2D().getY() - i));
+
+                                }
+//                            }
                         }
                     }
                 }
@@ -611,6 +629,7 @@ public class GameController implements Initializable {
                             doesAttack = true;
                         }
                     }
+
 //            System.out.println("salam");
                 }
             }
@@ -627,6 +646,7 @@ public class GameController implements Initializable {
                                 doesAttack = true;
                             }
                         }
+
                     } else if (sharedData.archerTowerRightB.distance(spawn.getPoint2D()) <= 7.5) {
                         if (archerTowerRightB.getHP() > 0) {
                             gc.drawImage(image, spawn.getPoint2D().getX(), spawn.getPoint2D().getY());
@@ -644,7 +664,32 @@ public class GameController implements Initializable {
             }
         return doesAttack;
         }
+    void attackOnKingTower(Spawn spawn , Image image){
+        if(sharedData.KingTowerB.distance(spawn.getPoint2D())<=7)
+        {
+                if (spawn.getVelocity()>0)
+                {
+                    gc.drawImage(image,spawn.getPoint2D().getX()+(-1*Math.abs(spawn.getVelocity())),spawn.getPoint2D().getY());
+                    if (spawn.getCard() instanceof Troops) {
+                        kingTowerB.setHP(kingTowerB.getHP() - ((Troops) spawn.getCard()).getDamage());
+                        ((Troops) spawn.getCard()).setHP(((Troops) spawn.getCard()).getHP() - kingTowerB.getDamage());
+                    }
+                }
+        }
+         if(sharedData.KingTower.distance(spawn.getPoint2D())<=7)
+        {
+                if (spawn.getVelocity()<0)
+                {
+                    gc.drawImage(image,spawn.getPoint2D().getX()+(-1*Math.abs(spawn.getVelocity())),spawn.getPoint2D().getY());
+                    if (spawn.getCard() instanceof Troops) {
+                        kingTower.setHP(kingTower.getHP() - ((Troops) spawn.getCard()).getDamage());
+                        ((Troops) spawn.getCard()).setHP(((Troops) spawn.getCard()).getHP() - kingTower.getDamage());
 
+                    }
+                }
+        }
+
+    }
 
     /**
      * Bot move.
