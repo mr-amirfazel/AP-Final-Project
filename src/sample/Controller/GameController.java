@@ -476,11 +476,13 @@ public class GameController implements Initializable {
                 {
                     player.getHistory().add(new BattleHistory(opponent,"lost"));
                     player.increaseXP(70);
+                    new DataBase().savePlayer(player);
                 }
                 else if(blueScore.getText().equals("3"))
                 {
                     player.getHistory().add(new BattleHistory(opponent,"win"));
                     player.increaseXP(200);
+                    new DataBase().savePlayer(player);
                 }
                 double t = (currentNanoTime - startNanoTime) / 1000000000.0;
 
